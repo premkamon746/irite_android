@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr"
+  data-theme="theme-default" data-assets-path="assets/" data-template="vertical-menu-template" data-style="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <title>
+    Dashboard - Analytics | Materialize - Material Design HTML Admin Template
+  </title>
+
+  <meta name="description" content="" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="assets/vendor/fonts/remixicon/remixicon.css" />
+  <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css" />
+
+  <!-- Menu waves for no-customizer fix -->
+  <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="assets/css/demo.css" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/swiper/swiper.css" />
+  <link rel="stylesheet" href="assets/vendor/libs/bs-stepper/bs-stepper.css" />
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="assets/vendor/css/pages/cards-statistics.css" />
+  <link rel="stylesheet" href="assets/vendor/css/pages/cards-analytics.css" />
+
+  <!-- Helpers -->
+  <script src="assets/vendor/js/helpers.js"></script>
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+  <!-- <script src="assets/vendor/js/template-customizer.js"></script> -->
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="assets/js/config.js"></script>
+</head>
+
+<body>
+  <!-- Layout wrapper -->
+  <div class="">
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+
+      <div class="container-xxl flex-grow-1 container-p-y">
+        <!-- Basic Layout -->
+        <div class="row">
+          <div class="col-xl">
+            <div class="bs-stepper wizard-vertical vertical wizard-vertical-icons-example wizard-vertical-icons mt-2">
+              <div class="bs-stepper-header" style="min-width: auto !important;">
+                <div class="step" data-target="#page-1">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        1
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">การรับแจ้งเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-2">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        2
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">สถานที่เกิดเหตุ
+                      </span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-3">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        3
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">วันเวลาที่ทราบ เหตุ/เกิดเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-4">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        4
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">วันเวลาที่ตรวจเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-5">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        5
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">ผู้ตรวจสถานที่เกิดเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-6">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        6
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">ลักษณะสถานที่เกิดเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-7">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        7
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">ผลการตรวจสถานที่เกิดเหตุ
+                      </span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-8">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        8
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">การส่งมอบคืนสถานที่เกิดเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div class="bs-stepper-content">
+                <form onSubmit="return false">
+                  <div class="card mb-6">
+                    <h5 class="card-header">กรอกแบบฟอร์ม</h5>
+                    <hr class="m-0" />
+                    <div class="card-body">
+                      <div id="page-1" class="content">
+                        <h5>1.การรับแจ้งเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">คดี</label>
+                              <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุคดี" />
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">วันที่</label>
+                              <input id="" class="form-control form-control-sm" type="date" placeholder="" />
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="" class="form-control form-control-sm" type="time" placeholder="" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">การรับแจ้ง</label>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                value="option1" />
+                              <label class="form-check-label" for="inlineRadio1">ทางโทรศัพท์</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                value="option2" />
+                              <label class="form-check-label" for="inlineRadio2">ทางวิทยุสื่อสาร</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                value="option2" />
+                              <label class="form-check-label" for="inlineRadio2">ทางหนังสือ</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                value="option2" />
+                              <label class="form-check-label" for="inlineRadio2">อื่นๆ
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">รายละเอียดอื่นๆ</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">สน/สภ.</label>
+
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">ที่</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">ลง</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">พนักงานสอบสวน</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">หมายเลขโทรศัพท์</label>
+                            <input id="" class="form-control form-control-sm" inputmode="numeric" pattern="[0-9]{10}"
+                              maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                              placeholder="ระบุหมายเลขโทรศัพท์ 10 หลัก" />
+                          </div>
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev" disabled>
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="page-2" class="content">
+                        <h5>2.สถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">สถานที่เกิดเหตุ</label>
+                              <textarea class="form-control h-px-75" placeholder="ระบุสถานที่เกิดเหตุ" rows="3"
+                                ></textarea>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="" onchange="Deceased(this)" />
+                                <label class="form-check-label">ผู้เสียชีวิต</label>
+                              </div>
+                              <div id="deceased-info" style="display: none;">
+                                <div class="row pr-3 pl-3">
+                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ชื่อผู้เสียชีวิต</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุชื่อ - นามสกุล ผู้เสียชีวิต" />
+                                  </div>
+                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
+                                    <input id="" class="form-control form-control-sm" type="number" min="0"
+                                      placeholder="ระบุอายุ" />
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ชื่อผู้เสียชีวิต</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุชื่อ - นามสกุล ผู้เสียชีวิต" />
+                                  </div>
+                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
+                                    <input id="" class="form-control form-control-sm" type="number" min="0"
+                                      placeholder="ระบุอายุ" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="" onchange="injured(this)" />
+                                <label class="form-check-label">ผู้บาดเจ็บ</label>
+                              </div>
+                              <div id="injured-info" style="display: none;">
+                                <div class="row">
+                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ชื่อผู้บาดเจ็บ</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุชื่อ - นามสกุล ผู้บาดเจ็บ" />
+                                  </div>
+                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
+                                    <input id="" class="form-control form-control-sm" type="number" min="0"
+                                      placeholder="ระบุอายุ" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="" onchange="victem(this)" />
+                                <label class="form-check-label">ผู้เสียหาย</label>
+                              </div>
+                              <div id="victem-info" style="display: none;">
+                                <div class="row">
+                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ชื่อผู้เสียหาย</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุชื่อ - นามสกุล ผู้เสียหาย" />
+                                  </div>
+                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
+                                    <input id="" class="form-control form-control-sm" type="number" min="0"
+                                      placeholder="ระบุอายุ" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="page-3" class="content">
+                        <h5>3.วันเวลาที่ทราบ เหตุ/เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">วันเวลาที่ผู้เสียหาย ทราบเหตุ/เกิดเหตุ</p>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">วันที่</label>
+                              <input id="" class="form-control form-control-sm" type="date" placeholder="" />
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="" class="form-control form-control-sm" type="time" placeholder="" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">วันเวลาที่พนักงานสอบสวนทราบเหตุ</p>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">วันที่</label>
+                              <input id="" class="form-control form-control-sm" type="date" placeholder="" />
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="" class="form-control form-control-sm" type="time" placeholder="" />
+                          </div>
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="page-4" class="content">
+                        <h5>4.วันเวลาที่ตรวจเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">วันเวลาที่ทำการตรวจสถานที่เกิดเหตุ</p>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">วันที่</label>
+                              <input id="" class="form-control form-control-sm" type="date" placeholder="" />
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="" class="form-control form-control-sm" type="time" placeholder="" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">วันเวลาที่ทำการตรวจสถานที่เกิดเหตุเพิ่มเติม</p>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">วันที่</label>
+                              <input id="" class="form-control form-control-sm" type="date" placeholder="" />
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="" class="form-control form-control-sm" type="time" placeholder="" />
+                          </div>
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="page-5" class="content">
+                        <h5>5.ผู้ตรวจสถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="" style="color:#3b4056;">ผู้ตรวจสถานที่เกิดเหตุ</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">5.1</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">5.2</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">5.3</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">5.4</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">5.5</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">5.6</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">5.7</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">5.8</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="page-6" class="content">
+                        <h5>6.ลักษณะสถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">สภาพสถานที่เกิดเหตุเมื่อไปถึง</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">การรักษาสถานที่เกิดเหตุ</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="location" id="location"
+                                value="option2" />
+                              <label class="form-check-label" for="location">มี
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="location" id="location"
+                                value="option2" />
+                              <label class="form-check-label" for="location">ไม่มี
+                              </label>
+                            </div>
+                            <div>
+                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">แสงสว่าง (ที่สังเกตุเห็น)</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="light" id="light" value="option2" />
+                              <label class="form-check-label" for="light">สว่าง
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="light" id="light" value="option2" />
+                              <label class="form-check-label" for="light">มืด
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="light" id="light" value="option2" />
+                              <label class="form-check-label" for="light">เสาไฟส่องสว่าง
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="light" id="light" value="option2" />
+                              <label class="form-check-label" for="light">อื่นๆ
+                              </label>
+                            </div>
+                            <div>
+                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">อุณหภูมิ</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="temperature" id="temperature"
+                                value="option2" />
+                              <label class="form-check-label" for="temperature">ร้อน
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="temperature" id="temperature"
+                                value="option2" />
+                              <label class="form-check-label" for="temperature">เย็น
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="temperature" id="temperature"
+                                value="option2" />
+                              <label class="form-check-label" for="temperature">เครื่องปรับอากาศ
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="temperature" id="temperature"
+                                value="option2" />
+                              <label class="form-check-label" for="temperature">อื่นๆ
+                              </label>
+                            </div>
+                            <div>
+                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">กลิ่น</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="smell" id="smell" value="option2" />
+                              <label class="form-check-label" for="smell">มี
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="smell" id="smell" value="option2" />
+                              <label class="form-check-label" for="smell">ไม่มี
+                              </label>
+                            </div>
+                            <div>
+                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">ลักษณะสถานที่เกิดเหตุ</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id=""
+                                  onchange="characteristicsOutsite(this)" />
+                                <label class="form-check-label">กรณีเกิดเหตุภายนอก</label>
+                              </div>
+                              <div id="characteristics-of-the-scene-info" style="display: none;">
+                                <div class="row">
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
+                                        id="characteristics_of_the_scene" value="option2" />
+                                      <label class="form-check-label" for="characteristics_of_the_scene">ถนน
+                                      </label>
+                                    </div>
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
+                                        id="characteristics_of_the_scene" value="option2" />
+                                      <label class="form-check-label" for="characteristics_of_the_scene">สนามหญ้า
+                                      </label>
+                                    </div>
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
+                                        id="characteristics_of_the_scene" value="option2" />
+                                      <label class="form-check-label" for="characteristics_of_the_scene">ในสวน
+                                      </label>
+                                    </div>
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
+                                        id="characteristics_of_the_scene" value="option2" />
+                                      <label class="form-check-label" for="characteristics_of_the_scene">ที่ว่าง
+                                      </label>
+                                    </div>
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
+                                        id="characteristics_of_the_scene" value="option2" />
+                                      <label class="form-check-label" for="characteristics_of_the_scene">อื่นๆ
+                                      </label>
+                                    </div>
+                                    <div>
+                                      <input id="" class="form-control form-control-sm" type="text"
+                                        placeholder="อื่น ๆ ระบุ" />
+                                    </div>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
+                                    <p class="fw-bold" style="color:#3b4056;">สภาพบริเวณโดยรอบ</p>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">เมื่อหันหน้าเข้า</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ด้านหน้าติด</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ด้านซ้ายติด</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ด้านขวาติด</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ด้านหลังติด</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <p class="fw-bold" style="color:#3b4056;">บริเวณที่เกิดเหตุ</p>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">เกิดเหตุที่</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุสถานที่เกิดเหตุ" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id=""
+                                  onchange="characteristicsInsite(this)" />
+                                <label class="form-check-label">กรณีเกิดเหตุภายในอาคาร</label>
+                              </div>
+                              <div id="characteristics-of-the-scene-insite-info" style="display: none;">
+                                <div class="row">
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
+                                    <p class="fw-bold" style="color:#3b4056;">ลักษณะภายนอก</p>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-group mb-3">
+                                      <label for="" class="form-label" style="font-size: 16px">ชั้น</label>
+                                      <input id="" class="form-control form-control-sm" type="number" min="1"
+                                        placeholder="ระบุ ชั้น" />
+                                    </div>
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio"
+                                        name="characteristics_of_the_scene_insite"
+                                        id="characteristics_of_the_scene_insite" value="option2" />
+                                      <label class="form-check-label"
+                                        for="characteristics_of_the_scene_insite">อาคารพาณิชย์</label>
+                                    </div>
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio"
+                                        name="characteristics_of_the_scene_insite"
+                                        id="characteristics_of_the_scene_insite" value="option2" />
+                                      <label class="form-check-label"
+                                        for="characteristics_of_the_scene_insite">บ้านเดียว</label>
+                                    </div>
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio"
+                                        name="characteristics_of_the_scene_insite"
+                                        id="characteristics_of_the_scene_insite" value="option2" />
+                                      <label class="form-check-label"
+                                        for="characteristics_of_the_scene_insite">อื่นๆ</label>
+                                    </div>
+                                    <div>
+                                      <input id="" class="form-control form-control-sm" type="text"
+                                        placeholder="อื่น ๆ ระบุ" />
+                                    </div>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
+                                    <p class="fw-bold" style="color:#3b4056;">สภาพบริเวณโดยรอบ</p>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
+                                        id="characteristics_of_the_scene" value="option2" />
+                                      <label class="form-check-label" for="characteristics_of_the_scene">มีรั้ว
+                                      </label>
+                                    </div>
+                                    <div class="form-check form-check">
+                                      <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
+                                        id="characteristics_of_the_scene" value="option2" />
+                                      <label class="form-check-label" for="characteristics_of_the_scene">ไม่มีรั้ว
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">เมื่อหันหน้าเข้า</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ด้านหน้าติด</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ด้านซ้ายติด</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ด้านขวาติด</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ด้านหลังติด</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุ (ถ้ามี)" />
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">ลักษณะภายใน</label>
+                                    <textarea id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุลักษณะภายใน" rows="5"></textarea>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <p class="fw-bold" style="color:#3b4056;">บริเวณที่เกิดเหตุ</p>
+                                  </div>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                                    <label for="" class="form-label" style="font-size: 16px">เกิดเหตุที่</label>
+                                    <input id="" class="form-control form-control-sm" type="text"
+                                      placeholder="ระบุสถานที่เกิดเหตุ" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
+                            <p class="fw-bold" style="color:#3b4056;">โครงสร้างบริเวณที่เกิดเหตุ</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">มีขนาดกว้าง x ยาว ประมาณ</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุขนาดกว้าง x ยาว โดยประมาณ" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">ลักษณะโครงสร้าง</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุลักษณะโครงสร้าง" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">ผนัง</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุรายละเอียดผนัง" />
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label" style="font-size: 16px">ด้านหน้า</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี)" />
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label" style="font-size: 16px">ด้านซ้าย</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี)" />
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label" style="font-size: 16px">ด้านขวา</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี)" />
+                            </div>
+                            <div class="mb-3">
+                              <label for="" class="form-label" style="font-size: 16px">ด้านหลัง</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">พื้นห้อง</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ (ถ้ามี)" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">หลังคา</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ (ถ้ามี)" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">การจัดวางสิ่งของ</label>
+                            <textarea id="" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุรูปแบบการจัดวางสิ่งของ" rows="5"></textarea>
+                          </div>
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="page-7" class="content">
+                        <h5>7.ผลการตรวจสถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label"
+                                style="font-size: 16px;font-weight: bold;">พฤติการณ์คดี</label>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุพฤติการณ์คดี" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;font-size: 16px;">ศพที่ 1</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="die" id="die" value="option2" />
+                              <label class="form-check-label" for="die">พบศพ
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="die" id="die" value="option2" />
+                              <label class="form-check-label" for="die">ไม่พบศพ
+                              </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ถ้ามี โปรดระบุ" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;">สภาพศพ,ลักษณะการแต่งกาย
+                              ทรัพย์สิน และอื่นๆ</label>
+                            <textarea id="" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุสภาพศพ,ลักษณะการแต่งกาย ทรัพย์สิน และอื่นๆ" rows="5"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;font-size: 16px;">ศพที่ 2</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="die" id="die" value="option2" />
+                              <label class="form-check-label" for="die">พบศพ
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="die" id="die" value="option2" />
+                              <label class="form-check-label" for="die">ไม่พบศพ
+                              </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ถ้ามี โปรดระบุ" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;">สภาพศพ,ลักษณะการแต่งกาย
+                              ทรัพย์สิน และอื่นๆ</label>
+                            <textarea id="" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุสภาพศพ,ลักษณะการแต่งกาย ทรัพย์สิน และอื่นๆ" rows="5"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;font-size: 16px;">ศพที่ 3</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="die" id="die" value="option2" />
+                              <label class="form-check-label" for="die">พบศพ
+                              </label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="die" id="die" value="option2" />
+                              <label class="form-check-label" for="die">ไม่พบศพ
+                              </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ถ้ามี โปรดระบุ" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;">สภาพศพ,ลักษณะการแต่งกาย
+                              ทรัพย์สิน และอื่นๆ</label>
+                            <textarea id="" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุสภาพศพ,ลักษณะการแต่งกาย ทรัพย์สิน และอื่นๆ" rows="5"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="fw-bold" class="form-label"
+                              style="font-size: 16px;font-weight: bold;">ความเสียหาย
+                              (บ้านเรือน ยานพาหนะ ทรัพย์สิน)</label>
+                            <textarea id="" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุสความเสียหาย (บ้านเรือน ยานพาหนะ ทรัพย์สิน)" rows="5"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="fw-bold" class="form-label"
+                              style="font-size: 16px;font-weight: bold;">ตำแหน่งที่เกิดการระเบิด</label>
+                            <textarea id="" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุตำแหน่งที่เกิดการระเบิด" rows="5"></textarea>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;font-weight: bold;">วัตถุพยานที่ตรวจพบ</label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;font-weight: bold;">ภาชนะบรรจุ</label>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="package" id="package"
+                                value="option2" />
+                              <label class="form-check-label" for="package">กล่องเหล็ก
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="package" id="package"
+                                value="option2" />
+                              <label class="form-check-label" for="package">ถังแก๊ซ
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="package" id="package"
+                                value="option2" />
+                              <label class="form-check-label" for="package">ถังดับเพลิง
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="package" id="package"
+                                value="option2" />
+                              <label class="form-check-label" for="package">ท่อเหล็ก
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="package" id="package"
+                                value="option2" />
+                              <label class="form-check-label" for="package">ท่อ PVC
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="package" id="package"
+                                value="option2" />
+                              <label class="form-check-label" for="package">ถังน้ำยาแอร์
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="package" id="package"
+                                value="option2" />
+                              <label class="form-check-label" for="package">ระเบิดมาตราฐาน
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="package" id="package"
+                                value="option2" />
+                              <label class="form-check-label" for="package">อื่นๆ
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;font-weight: bold;">วิธีการจุดระเบิด</label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="characteristics_of_the_scene_insite"
+                                id="characteristics_of_the_scene_insite" value="option2" />
+                              <label class="form-check-label" for="characteristics_of_the_scene_insite">กับดัก / เหยียบ
+                                /
+                                สะดุด</label>
+                            </div>
+                            <div>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="characteristics_of_the_scene_insite"
+                                id="characteristics_of_the_scene_insite" value="option2" />
+                              <label class="form-check-label" for="characteristics_of_the_scene_insite">ลากสายไฟ</label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">สี</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ สี" />
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">ยาว (ซม)</label>
+                            <input id="" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุ ความยาว (ซม)" />
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="characteristics_of_the_scene_insite"
+                                id="characteristics_of_the_scene_insite" value="option2" />
+                              <label class="form-check-label"
+                                for="characteristics_of_the_scene_insite">วิทยุสื่อสาร</label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">ยี่ห้อ</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ ยี่ห้อ" />
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">รุ่น</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ รุ่น" />
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">สี</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ สี" />
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">s/n</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ s/n" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="characteristics_of_the_scene_insite"
+                                id="characteristics_of_the_scene_insite" value="option2" />
+                              <label class="form-check-label"
+                                for="characteristics_of_the_scene_insite">วิทยุสื่อสาร</label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">รีโมทคอนโทรล</label>
+                            <input id="" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุ รีโมทคอนโทรล" />
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">ตั้งเวลา</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ ตั้งเวลา" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="characteristics_of_the_scene_insite"
+                                id="characteristics_of_the_scene_insite" value="option2" />
+                              <label class="form-check-label" for="characteristics_of_the_scene_insite">อื่นๆ</label>
+                            </div>
+                            <div>
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;font-weight: bold;">สะเก็ดระเบิด</label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="characteristics_of_the_scene_insite"
+                                id="characteristics_of_the_scene_insite" value="option2" />
+                              <label class="form-check-label"
+                                for="characteristics_of_the_scene_insite">เหล็กเส้นตัดท่อน</label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">หุน</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ หุน" />
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">ความยาว (ซม.)</label>
+                            <input id="" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุ ความยาว (ซม.)" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="characteristics_of_the_scene_insite"
+                                id="characteristics_of_the_scene_insite" value="option2" />
+                              <label class="form-check-label" for="characteristics_of_the_scene_insite">ตะปู</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">นิ้ว</label>
+                            <input id="" class="form-control form-control-sm" type="text" placeholder="ระบุ นิ้ว" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="characteristics_of_the_scene_insite"
+                                id="characteristics_of_the_scene_insite" value="option2" />
+                              <label class="form-check-label" for="characteristics_of_the_scene_insite">อื่น ๆ</label>
+                            </div>
+                            <div>
+                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;font-weight: bold;">ส่วนประกอบของวัตถุระเบิดอื่น ๆ</label>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">หลอดดินขยาย</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">เชื้อประทุไฟฟ้า</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">เทปพันสายไฟ</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">ซิมการ์ด</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">วงจรการจุดระเบิด</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">แบตเตอรี่ V</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">แผงวงจร DTMF </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">แผงวงจร </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">กล่าองบรรจุวงจร </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">นาฬิกา </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">กระเดื่อง </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">สลักนิรภัย </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">อื่นๆ </label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ (ถ้ามี่)" />
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;">คราบสีแดงคล้ายโลหิต</label>
+                            <textarea id="" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุคราบสีแดงคล้ายโลหิต"></textarea>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;font-weight: bold;">ทดสอบด้วยชุดทดสอบคราบโลหิจเบื้องต้น</label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <label class="form-check-label fw-bold">Hemastix</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">เกิดการเปลี่ยนแปลงเป็นสีเขียวแกมน้ำเงิน</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">ไม่เกิดการเปลี่ยนแปลง</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <label class="form-check-label fw-bold">Phenolphthalein</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">เกิดการเปลี่ยนแปลงเป็นสีชมพูทันที</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">ไม่เกิดการเปลี่ยนแปลง</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;">วัตถุพยานอื่นๆ</label>
+                            <textarea id="" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานอื่น ๆ (ถ้ามี)"></textarea>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;font-weight: bold;">วัตถุพยานที่ตรวจเก็บ/การดำเนินการเกี่ยวกับวัตถุพยานเพื่อส่งตรวจพิสูจน์</label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;">วัตถุพยานประเภทอาวุธปืนและเครื่องกระสุน</label>
+                            <textarea id="" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทอาวุธปืนและเครื่องกระสุน (ถ้ามี)"></textarea>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;">วัตถุพยานประเภทสารพันธุกรรม</label>
+                            <textarea id="" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทสารพันธุกรรม (ถ้ามี)"></textarea>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;">วัตถุพยานประเภทลายนิ้วมือ/ฝ่ามือ/ฝ่าเท้าแฝง</label>
+                            <textarea id="" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทลายนิ้วมือ/ฝ่ามือ/ฝ่าเท้าแฝง (ถ้ามี)"></textarea>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;">วัตถุพยานประเภทร่องรอยการตัด
+                              (Tookmark)</label>
+                            <textarea id="" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทร่องรอยการตัด (Tookmark)"></textarea>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;">วัตถุพยานประเภทสารระเบิด</label>
+                            <textarea id="" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทสารระเบิด (Tookmark)"></textarea>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label"
+                              style="font-size: 16px;">วัตถุพยานประเภทส่วนประกอบของวัตถุกระเบิด</label>
+                            <textarea id="" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทส่วนประกอบของวัตถุกระเบิด"></textarea>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;">วัตถุพยานประเภทอื่น ๆ</label>
+                            <textarea id="" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทอื่น ๆ"></textarea>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">การตรวจสอบครั้งสุดท้าย</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">ตรวจเก็บพยานครบถ้วน</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="" />
+                              <label class="form-check-label">เป็นภาพสถานที่เกิดเหตุ
+                                และดำเนินการส่งมอบสถานที่เกิดเหตุให้แก่พนักงานสอบสวน</label>
+                            </div>
+                          </div>
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="page-8" class="content">
+                        <h5>8.การส่งมอบคืนสถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label"
+                                style="font-size: 16px;font-weight: bold;">วันเวลาที่ทำการตรวจสถานที่เกิดเหตุเสร็จสิ้น</label>
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px">วันที่</label>
+                              <input id="" class="form-control form-control-sm" type="date" placeholder="" />
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="" class="form-control form-control-sm" type="time" placeholder="" />
+                          </div>
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-submit">บันทึก</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- / Content -->
+          <div class="content-backdrop fade"></div>
+          <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+
+        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+        <div class="drag-target"></div>
+      </div>
+      <!-- / Layout wrapper -->
+
+      <!-- Core JS -->
+      <!-- build:js assets/vendor/js/core.js -->
+      <script src="assets/vendor/libs/jquery/jquery.js"></script>
+      <script src="assets/vendor/libs/popper/popper.js"></script>
+      <script src="assets/vendor/js/bootstrap.js"></script>
+      <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+      <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+      <script src="assets/vendor/libs/hammer/hammer.js"></script>
+      <script src="assets/vendor/libs/i18n/i18n.js"></script>
+      <script src="assets/vendor/libs/typeahead-js/typeahead.js"></script>
+      <script src="assets/vendor/js/menu.js"></script>
+
+      <!-- endbuild -->
+
+      <!-- Vendors JS -->
+      <script src="assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+      <script src="assets/vendor/libs/apex-charts/apexcharts.js"></script>
+      <script src="assets/vendor/libs/swiper/swiper.js"></script>
+
+      <!-- Main JS -->
+      <script src="assets/js/main.js"></script>
+
+      <!-- Page JS -->
+      <script src="assets/js/dashboards-analytics.js"></script>
+      <script src="assets/js/form-wizard-icons.js"></script>
+
+      <script>
+        // ผู้เสียชีวิต
+        function Deceased(checkbox) {
+          const deceasedInfoDiv = document.getElementById('deceased-info');
+          deceasedInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        // ผู้บาดเจ็บ
+        function injured(checkbox) {
+          const injuredInfoDiv = document.getElementById('injured-info');
+          injuredInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        // ผู้เสียหาย
+        function victem(checkbox) {
+          const victemInfoDiv = document.getElementById('victem-info');
+          victemInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        // ลักษณะสถานที่เกิดเหตุ
+        function characteristicsOutsite(checkbox) {
+          const characteristicsOutsiteInfoDiv = document.getElementById('characteristics-of-the-scene-info');
+          characteristicsOutsiteInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        function characteristicsInsite(checkbox) {
+          const characteristicsInsiteInfoDiv = document.getElementById('characteristics-of-the-scene-insite-info');
+          characteristicsInsiteInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+      </script>
+</body>
+
+</html>

@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="พฤติการณ์ของคดี"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="พฤติการณ์ของคดี"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="ศพที่"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="พบศพ"
+                android:textColor="@color/grey_60" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ไม่พบศพ"
+                android:textColor="@color/grey_60" />
+
+            <EditText
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xmlarge"
+                android:background="@drawable/edit_text_round_bg_white"
+                android:maxLines="10"
+                android:minHeight="@dimen/spacing_xmlarge"
+                android:minLines="6"
+                android:paddingRight="@dimen/spacing_middle" />
+
+        </RadioGroup>
+
+        <!-- สภาพลักษณะการแต่งกาย ทรัพย์สิน และอื่นๆ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="สภาพลักษณะการแต่งกาย ทรัพย์สิน และอื่นๆ"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="สภาพลักษณะการแต่งกาย ทรัพย์สิน และอื่นๆ"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--ความเสียหาย (บ้านเรือน ยานพาหนะ ทรัพย์สิน)  -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="ความเสียหาย (บ้านเรือน ยานพาหนะ ทรัพย์สิน)"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="ความเสียหาย (บ้านเรือน ยานพาหนะ ทรัพย์สิน)"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--ตำแหน่งที่เกิดการระเบิด -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="ตำแหน่งที่เกิดการระเบิด"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="ตำแหน่งที่เกิดการระเบิด"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ประตู"
+                android:textColor="@color/grey_60" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ไขควง"
+                android:textColor="@color/grey_60" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ชะแลง"
+                android:textColor="@color/grey_60" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="คีมตัดโลหะ"
+                android:textColor="@color/grey_60" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="อื่นๆ"
+                android:textColor="@color/grey_60" />
+
+            <EditText
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xmlarge"
+                android:background="@drawable/edit_text_round_bg_white"
+                android:hint="อื่นๆ"
+                android:maxLines="10"
+                android:minHeight="@dimen/spacing_xmlarge"
+                android:minLines="6"
+                android:paddingRight="@dimen/spacing_middle" />
+        </RadioGroup>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="ขนาดรอยกว้างโดยประมาณ (ซม.)"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="ขนาดรอยกว้างโดยประมาณ(ซม.)"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!-- วัตถุพยานที่ตรวจพบ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="วัตถุพยานที่ตรวจพบ"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="ภาชนะบรรจุ"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60" />
+
+        <!--<RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:orientation="vertical">-->
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="กล่องเหล็ก"
+                android:textColor="@color/grey_60" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ถังแก๊ส"
+                android:textColor="@color/grey_60" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ถังดับเพลิง"
+                android:textColor="@color/grey_60" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ท่อเหล็ก"
+                android:textColor="@color/grey_60" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ท่อPVC"
+                android:textColor="@color/grey_60" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ถังน้ํายาแอร์"
+                android:textColor="@color/grey_60" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="ระเบิดมาตรฐาน"
+                android:textColor="@color/grey_60" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="อื่นๆ"
+                android:textColor="@color/grey_60" />
+            <EditText
+                style="@style/EditText.Flat.Grey"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xmlarge"
+                android:background="@drawable/edit_text_round_bg_white"
+                android:hint="อื่นๆ"
+                android:maxLines="10"
+                android:minHeight="@dimen/spacing_xmlarge"
+                android:minLines="6"
+                android:paddingRight="@dimen/spacing_middle" />
+        <!--</RadioGroup>-->
+
+        <!--วิธีการจุดระเบิด-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="วิธีการจุดระเบิด"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="กับดัก/เหยียบ/สะดุด/"
+            android:textColor="@color/grey_60" />
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="อื่นๆ"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="ลากสายไฟสี..........ยาว.........ซม."
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="วิทยุสื่อสาร ยี่ห้อ...รุ่น......สี.......s/n……………"
+            android:textColor="@color/grey_60" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="โทรศัพท์มือถือ ยี่ห้อ...รุ่น......สี.......s/n……………"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="รีโมทคอนโทรล…………"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="ตั้งเวลา…………"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="อื่นๆ…………"
+            android:textColor="@color/grey_60" />
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="อื่นๆ"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+        <!--</RadioGroup>-->
+
+        <!--สะเก็ดระเบิด-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="สะเก็ดระเบิด"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="เหล็กเส้นตัดท่อน......หุน ยาว......ซม."
+            android:textColor="@color/grey_60" />
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="อื่นๆ"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="ตะปูนิ้ว........นิ้ว"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="อื่นๆ"
+            android:textColor="@color/grey_60" />
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="อื่นๆ"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!-- ส่วนประกอบของวัตถุระเบิดอื่นๆ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="ส่วนประกอบของวัตถุระเบิดอื่นๆ"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60" />
+
+        <!--<RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:orientation="vertical">-->
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="หลอดดินขยาย"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="เชื้อปะทุไฟฟ้า"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="เทปพันสายไฟ"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="ซิมการ์ด"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="วงจรการจุดระเบิด"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="แบตเตอรี่.........V……."
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="แผงวงจร DTMF"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="แผงวงจร"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="สายไฟวงจร"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="กล่องบรรจุวงจร"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="นาฬิกา"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="กระเดื่อง"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="สลักนิรภัย"
+            android:textColor="@color/grey_60" />
+
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="อื่นๆ"
+            android:textColor="@color/grey_60" />
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="อื่นๆ"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--คราบสีแดงคล้ายโลหิต-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="คราบสีแดงคล้ายโลหิต"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="คราบสีแดงคล้ายโลหิต"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--ทดสอบด้วยชุดทดสอบคราบโลหิตเบื้องต้น-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold"
+            android:text="ทดสอบด้วยชุดทดสอบคราบโลหิตเบื้องต้น"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:orientation="vertical">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="Hemastix"
+                android:textColor="@color/grey_60" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/spacing_large"
+                android:orientation="vertical">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:text="เกิดการเปลี่ยนแปลงเป็นสีเขียวแกมน้ําเงิน"
+                    android:textColor="@color/grey_60" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:text="ไม่เกิดการเปลี่ยนแปลง"
+                    android:textColor="@color/grey_60" />
+            </RadioGroup>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:text="Phenolphthalein"
+                android:textColor="@color/grey_60" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/spacing_large"
+                android:orientation="vertical">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:text="เกิดการเปลี่ยนแปลงเป็นสีชมพูในทันที"
+                    android:textColor="@color/grey_60" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:text="ไม่เกิดการเปลี่ยนแปลง"
+                    android:textColor="@color/grey_60" />
+            </RadioGroup>
+        </RadioGroup>
+
+        <!--วัตถุพยานอื่นๆ-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="วัตถุพยานอื่นๆ"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="วัตถุพยานอื่นๆ"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--วัตถุพยานอื่นๆ-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="วัตถุพยานที่ตรวจเก็บ/การดําเนินการเกี่ยวกับวัตถุพยานเพื่อส่งตรวจพิสูจน์"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="ววัตถุพยานประเภทสารพันธุกรรม"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="วัตถุพยานประเภทสารพันธุกรรม"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--วัตถุพยานประเภทลายนิ้วมือ/ฝ่ามือ/ฝ่าเท้าแฝง-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="วัตถุพยานประเภทลายนิ้วมือ/ฝ่ามือ/ฝ่าเท้าแฝง"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="วัตถุพยานประเภทลายนิ้วมือ/ฝ่ามือ/ฝ่าเท้าแฝง"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--วัตถุพยานประเภทร่องรอยการตัด (ToolMarks)-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="วัตถุพยานประเภทร่องรอยการตัด (ToolMarks)"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="วัตถุพยานประเภทร่องรอยการตัด (ToolMarks)"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--วัตถุพยานประเภทสารระเบิด-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="วัตถุพยานประเภทสารระเบิด"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="วัตถุพยานประเภทสารระเบิด"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--วัตถุพยานประเภทส่วนประกอบวัตถุระเบิด-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="วัตถุพยานประเภทส่วนประกอบวัตถุระเบิด"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="วัตถุพยานประเภทส่วนประกอบวัตถุระเบิด"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <!--วัตถุพยานอื่นๆ-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="วัตถุพยานอื่นๆ"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/grey_60"
+            android:textStyle="bold" />
+
+        <EditText
+            style="@style/EditText.Flat.Grey"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_xmlarge"
+            android:background="@drawable/edit_text_round_bg_white"
+            android:hint="วัตถุพยานอื่นๆ"
+            android:maxLines="10"
+            android:minHeight="@dimen/spacing_xmlarge"
+            android:minLines="6"
+            android:paddingRight="@dimen/spacing_middle" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="การตรวจสอบครั้งสุดท้าย"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="ตรวจเก็บวัตถุพยานครบถ้วน"
+            android:textColor="@color/grey_60" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="ถ่ายภาพสถานที่เกิดเหตุและดําเนินการส่งมอบสถานที่เกิดเหตุให้แก่พนักงานสอบสวน"
+            android:textColor="@color/grey_60" />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,113 @@
+package com.csi.irite.room.data
+
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "AssetReport")
+data class AssetReport(
+    @PrimaryKey(autoGenerate = true) var uid: Long = 0,
+    val event_report_id: Long? = 0,
+    val case_type: String? = "",
+    val incident_date: String? = "",
+    val incident_time: String? = "",
+    val report_method: String? = "",
+    val report_detail: String? = "",
+    val police_station: String? = "",
+    val case_number: String? = "",
+    val case_log: String? = "",
+    val investigator: String? = "",
+    val investigator_phone: String? = "",
+
+    //form 2
+    val incident_location: String? = "",
+    val owner: String? = "",
+    val victim: String? = "",
+    val related_other: String? = "",
+    val victim_name: String? = "",
+    val victim_age: Int? = 0,
+
+    //form 3
+    val victim_incident_date: String? = "",
+    val victim_incident_time: String? = "",
+    val officer_incident_date: String? = "",
+    val officer_incident_time: String? = "",
+
+
+    //form 4
+    val investigation_date: String? = "",
+    val investigation_time: String? = "",
+    val additional_investigation_date: String? = "",
+    val additional_investigation_time: String? = "",
+
+    val scene_protection: String? = "",
+    val scene_protection_other: String? = "",
+    val exterior_type: String? = "",
+    val building_floors: Int? = 0,
+    val fence: String? = "",
+    val facing_direction: String? = "",
+    val front_adjacent: String? = "",
+    val left_adjacent: String? = "",
+    val right_adjacent: String? = "",
+    val back_adjacent: String? = "",
+    val interior_description: String? = "",
+    val incident_area: String? = "",
+
+    //7
+    // Case Circumstances
+    val case_circumstances: String = "",
+    val robber_entry: String = "",
+    val no_traces: Boolean = false,
+    val unlocked_doors: Boolean = false,
+    val found_traces: Boolean = false,
+    val breaking_in: Boolean = false,
+    val cutting: Boolean = false,
+    val drilling: Boolean = false,
+    val other_traces: String = "",
+    val trace_door: Boolean = false,
+    val trace_door_details: String = "",
+    val trace_window: Boolean = false,
+    val trace_window_details: String = "",
+    val trace_ceiling: Boolean = false,
+    val trace_ceiling_details: String = "",
+    val trace_roof: Boolean = false,
+    val trace_roof_details: String = "",
+    val trace_other: Boolean = false,
+    val trace_other_details: String = "",
+    val tools_used: String = "",
+    val tools_other_details: String = "",
+    val trace_width: Int = 0,
+    val robber_count: Int = 0,
+
+    val tools: String? = "",
+    val weapon: String? = "",
+    val bondage: String? = "",
+    val danger: String? = "",
+    val injury_details: String? = "",
+    val trace_area_1: String? = "",
+    val intruder_entry_1: String? = "",
+    val pry_marks_1: String? = "",
+    val search_traces_1: String? = "",
+    val stolen_property: String? = "",
+    val blood_like_stain: String? = "",
+    val hemastix_color_change_green_blue: Boolean? = false,
+    val hemastix_no_change: Boolean? = false,
+    val phenolphthalein_color_change_pink: Boolean? = false,
+    val phenolphthalein_no_change: Boolean? = false,
+    val other_evidence: String? = "",
+    val fingerprint_evidence: String? = "",
+    val dna_evidence: String? = "",
+    val toolmark_evidence: String? = "",
+    val other_type_evidence: String? = "",
+    val final_inspection: Boolean? = false,
+    val evidence_collected_complete: Boolean? = false,
+    val scene_photo_and_handover: Boolean? = false,
+    val inspection_completion_date: String? = "",
+    val inspection_completion_time: String? = "",
+    val scene_inspection_date: String? = "",
+    val scene_inspection_time: String? = "",
+    val photo_code_from: String? = "",
+    val photo_code_to: String? = "",
+    val photo_total: Int? = 0,
+    val owner_list:String? = ""
+) : BaseEntity()

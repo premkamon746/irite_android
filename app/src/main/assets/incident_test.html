@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path=""
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>DataTables - Tables | Materialize - Material Design HTML Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico" />
+    <link href="css/fonts.css"  rel="stylesheet" />
+    <link href="css/css2.css"  rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css" />
+    <!-- Row Group CSS -->
+    <link rel="stylesheet" href="vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
+    <!-- Form Validation -->
+    <link rel="stylesheet" href="vendor/libs/@form-validation/umd/styles/index.min.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="js/config.js"></script>
+  </head>
+
+  <body >
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar" style="padding: 20px;">
+      <div class="layout-container">
+        <!-- Layout container -->
+        <div>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+              <!-- DataTable with Buttons -->
+              <div class="card">
+
+                <div class="card-datatable table-responsive pt-0">
+
+
+    <div id="test1234">test</div>
+                  <table class="datatables-basic table table-bordered">
+                    <thead>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                      <th>ปจว</th>
+                      <th>เลขรับ</th>
+                      <th>ประเภทการรับแจ้ง</th>
+                      <th>คดี</th>
+                    </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+
+              <hr class="my-5" />
+
+            </div>
+            <br/><br/><br/><br/><br/>
+            <!-- / Content -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js vendor/js/core.js -->
+    <script src="vendor/libs/jquery/jquery.js"></script>
+    <script src="vendor/libs/popper/popper.js"></script>
+    <script src="vendor/js/bootstrap.js"></script>
+    <script src="vendor/libs/node-waves/node-waves.js"></script>
+    <script src="vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/libs/hammer/hammer.js"></script>
+    <script src="vendor/libs/i18n/i18n.js"></script>
+    <script src="vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <!-- Flat Picker -->
+    <script src="vendor/libs/moment/moment.js"></script>
+    <script src="vendor/libs/flatpickr/flatpickr.js"></script>
+    <!-- Form Validation -->
+    <script src="vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+
+    <script> 
+        $(function () {
+            
+            var jsonData = [];
+            var jsonObject = [];
+
+              jsonObject = [
+                  { uid: 1, head: 'System Architect', report_number: 'Edinburgh', report_channel: 'xxxxx',create_datetime:"xxxxxxxx"},
+                  { uid: 2, head: 'System Architect2', report_number: 'Edinburgh2', report_channel: 'xxxxx2',create_datetime:"xxxxxxxx"},
+                  { uid: 22, head: 'System Architect2', report_number: 'Edinburgh2', report_channel: 'xxxxx2',create_datetime:"xxxxxxxx"}
+              ];
+            
+            //submitForm(jsonObject);
+            
+            var dt_basic_table = $('.datatables-basic');
+            dt_incident = dt_basic_table.DataTable({
+                data: jsonObject,
+                columns: [
+                  { data: 'uid' },
+                  { "width": "5%",data: 'head' },
+                  { "width": "25%",data: 'report_number' },
+                  { "width": "30%",data: 'report_channel' },
+                  { "width": "20%",data: 'create_datetime' },
+                  { "width": "20%", data: 'uid' }
+                ]})
+            })
+    </script>
+
+    
+  </body>
+</html>

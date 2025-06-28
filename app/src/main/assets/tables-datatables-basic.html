@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path=""
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>DataTables - Tables | Materialize - Material Design HTML Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico" />
+
+    <link
+      href="css/css2.css"
+      rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css" />
+    <!-- Row Group CSS -->
+    <link rel="stylesheet" href="vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
+    <!-- Form Validation -->
+    <link rel="stylesheet" href="vendor/libs/@form-validation/umd/styles/index.min.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="js/config.js"></script>
+    <script src="js/test.js"></script>
+  </head>
+
+  <body onload="sendDataToHtml()">
+    <h1>JSON Data from Android</h1>
+    <div id="data"></div>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Layout container -->
+        <div>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="py-3 mb-4"><span class="text-muted fw-light">DataTables /</span> Basic</h4>
+
+              <!-- DataTable with Buttons -->
+              <div class="card">
+                <div class="card-datatable table-responsive pt-0">
+                  <table class="datatables-basic table table-bordered">
+                    <thead>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                      <th>id</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Date</th>
+                      <th>Salary</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <!-- Modal to add new record -->
+              <div class="offcanvas offcanvas-end" id="add-new-record">
+                <div class="offcanvas-header border-bottom">
+                  <h5 class="offcanvas-title" id="exampleModalLabel">New Record</h5>
+                  <button
+                          type="button"
+                          class="btn-close text-reset"
+                          data-bs-dismiss="offcanvas"
+                          aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body flex-grow-1">
+                  <form class="add-new-record pt-0 row g-3" id="form-add-new-record" onsubmit="return false">
+                    <div class="col-sm-12">
+                      <div class="input-group input-group-merge">
+                        <span id="basicFullname2" class="input-group-text"
+                        ><i class="mdi mdi-account-outline"></i
+                        ></span>
+                        <div class="form-floating form-floating-outline">
+                          <input
+                                  type="text"
+                                  id="basicFullname"
+                                  class="form-control dt-full-name"
+                                  name="basicFullname"
+                                  placeholder="John Doe"
+                                  aria-label="John Doe"
+                                  aria-describedby="basicFullname2" />
+                          <label for="basicFullname">Full Name</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <button type="submit" class="btn btn-primary data-submit me-sm-3 me-1">Submit</button>
+                      <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!--/ DataTable with Buttons -->
+
+              <hr class="my-5" />
+
+              <!-- Complex Headers -->
+              <div class="card">
+                <h5 class="card-header">Complex Headers</h5>
+                <div class="card-datatable text-nowrap">
+                  <table class="dt-complex-header table table-bordered">
+                    <thead>
+                    <tr>
+                      <th rowspan="2">Name</th>
+                      <th colspan="2">Contact</th>
+                      <th colspan="3">HR Information</th>
+                      <th rowspan="2">Action</th>
+                    </tr>
+                    <tr>
+                      <th>E-mail</th>
+                      <th>City</th>
+                      <th>Position</th>
+                      <th>Salary</th>
+                      <th class="border-1">Status</th>
+                    </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <!--/ Complex Headers -->
+
+            </div>
+
+            
+
+    <form onsubmit="event.preventDefault(); submitForm();">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age"><br><br>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <!-- / Content -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js vendor/js/core.js -->
+    <script src="vendor/libs/jquery/jquery.js"></script>
+    <script src="vendor/libs/popper/popper.js"></script>
+    <script src="vendor/js/bootstrap.js"></script>
+    <script src="vendor/libs/node-waves/node-waves.js"></script>
+    <script src="vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/libs/hammer/hammer.js"></script>
+    <script src="vendor/libs/i18n/i18n.js"></script>
+    <script src="vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <!-- Flat Picker -->
+    <script src="vendor/libs/moment/moment.js"></script>
+    <script src="vendor/libs/flatpickr/flatpickr.js"></script>
+    <!-- Form Validation -->
+    <script src="vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+        function sendDataToHtml() {
+            var jsonData = Android.getJsonData();
+            create_dt(jsonData);
+        }
+    </script>
+
+    <script type="text/javascript">
+        function submitForm() {
+            var formData = {
+                name: document.getElementById("name").value,
+                age: document.getElementById("age").value,
+                city: document.getElementById("city").value
+            };
+            Android.submitForm(JSON.stringify(formData));
+        }
+    </script>
+
+    <script>
+      var dt_basic_table = $('.datatables-basic')
+      function create_dt(jsonData){
+        const jsonObject = JSON.parse(jsonData);
+
+        dt_basic = dt_basic_table.DataTable({
+          data: jsonObject,
+          columns: [
+            { data: '' },
+            { data: 'id' },
+            { data: 'id' },
+            { data: 'full_name' },
+            { data: 'email' },
+            { data: 'start_date' },
+            { data: 'salary' },
+            { data: 'status' },
+            { data: '' }
+          ],
+          columnDefs: [
+            {
+              // For Responsive
+              className: 'control',
+              orderable: false,
+              searchable: false,
+              responsivePriority: 2,
+              targets: 0,
+              render: function (data, type, full, meta) {
+                return '';
+              }
+            },
+            {
+              // For Checkboxes
+              targets: 1,
+              orderable: false,
+              searchable: false,
+              responsivePriority: 3,
+              checkboxes: true,
+              render: function () {
+                return '<input type="checkbox" class="dt-checkboxes form-check-input">';
+              },
+              checkboxes: {
+                selectAllRender: '<input type="checkbox" class="form-check-input">'
+              }
+            },
+            {
+              targets: 2,
+              searchable: false,
+              visible: false
+            },
+            {
+              // Avatar image/badge, Name and post
+              targets: 3,
+              responsivePriority: 4,
+              render: function (data, type, full, meta) {
+                var $user_img = full['avatar'],
+                  $name = full['full_name'],
+                  $post = full['post'];
+                if ($user_img) {
+                  // For Avatar image
+                  var $output =
+                    '<img src="' + assetsPath + 'img/avatars/' + $user_img + '" alt="Avatar" class="rounded-circle">';
+                } else {
+                  // For Avatar badge
+                  var stateNum = Math.floor(Math.random() * 6);
+                  var states = ['success', 'danger', 'warning', 'info', 'dark', 'primary', 'secondary'];
+                  var $state = states[stateNum],
+                    $name = full['full_name'],
+                    $initials = $name.match(/\b\w/g) || [];
+                  $initials = (($initials.shift() || '') + ($initials.pop() || '')).toUpperCase();
+                  $output = '<span class="avatar-initial rounded-circle bg-label-' + $state + '">' + $initials + '</span>';
+                }
+                // Creates full output for row
+                var $row_output =
+                  '<div class="d-flex justify-content-start align-items-center user-name">' +
+                  '<div class="avatar-wrapper">' +
+                  '<div class="avatar me-2">' +
+                  $output +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="d-flex flex-column">' +
+                  '<span class="emp_name text-truncate text-heading fw-medium">' +
+                  $name +
+                  '</span>' +
+                  '<small class="emp_post text-truncate">' +
+                  $post +
+                  '</small>' +
+                  '</div>' +
+                  '</div>';
+                return $row_output;
+              }
+            },
+            {
+              responsivePriority: 1,
+              targets: 4
+            },
+            {
+              // Label
+              targets: -2,
+              render: function (data, type, full, meta) {
+                var $status_number = full['status'];
+                var $status = {
+                  1: { title: 'Current', class: 'bg-label-primary' },
+                  2: { title: 'Professional', class: ' bg-label-success' },
+                  3: { title: 'Rejected', class: ' bg-label-danger' },
+                  4: { title: 'Resigned', class: ' bg-label-warning' },
+                  5: { title: 'Applied', class: ' bg-label-info' }
+                };
+                if (typeof $status[$status_number] === 'undefined') {
+                  return data;
+                }
+                return (
+                  '<span class="badge rounded-pill ' +
+                  $status[$status_number].class +
+                  '">' +
+                  $status[$status_number].title +
+                  '</span>'
+                );
+              }
+            },
+            {
+              // Actions
+              targets: -1,
+              title: 'Actions',
+              orderable: false,
+              searchable: false,
+              render: function (data, type, full, meta) {
+                return (
+                  '<div class="d-inline-block">' +
+                  '<a href="javascript:;" class="btn btn-sm btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>' +
+                  '<ul class="dropdown-menu dropdown-menu-end m-0">' +
+                  '<li><a href="javascript:;" class="dropdown-item">Details</a></li>' +
+                  '<li><a href="javascript:;" class="dropdown-item">Archive</a></li>' +
+                  '<div class="dropdown-divider"></div>' +
+                  '<li><a href="javascript:;" class="dropdown-item text-danger delete-record">Delete</a></li>' +
+                  '</ul>' +
+                  '</div>' +
+                  '<a href="javascript:;" class="btn btn-sm btn-text-secondary rounded-pill btn-icon item-edit"><i class="mdi mdi-pencil-outline"></i></a>'
+                );
+              }
+            }
+          ],
+          order: [[2, 'desc']],
+          dom: '<"card-header flex-column flex-md-row"<"head-label text-center"><"dt-action-buttons text-end pt-3 pt-md-0"B>><"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+          displayLength: 7,
+          lengthMenu: [7, 10, 25, 50, 75, 100],
+          buttons: [
+            {
+              extend: 'collection',
+              className: 'btn btn-label-primary dropdown-toggle me-2 waves-effect waves-light',
+              text: '<i class="mdi mdi-export-variant me-sm-1"></i> <span class="d-none d-sm-inline-block">Export</span>',
+              buttons: [
+                {
+                  extend: 'print',
+                  text: '<i class="mdi mdi-printer-outline me-1" ></i>Print',
+                  className: 'dropdown-item',
+                  exportOptions: {
+                    columns: [3, 4, 5, 6, 7],
+                    // prevent avatar to be display
+                    format: {
+                      body: function (inner, coldex, rowdex) {
+                        if (inner.length <= 0) return inner;
+                        var el = $.parseHTML(inner);
+                        var result = '';
+                        $.each(el, function (index, item) {
+                          if (item.classList !== undefined && item.classList.contains('user-name')) {
+                            result = result + item.lastChild.firstChild.textContent;
+                          } else if (item.innerText === undefined) {
+                            result = result + item.textContent;
+                          } else result = result + item.innerText;
+                        });
+                        return result;
+                      }
+                    }
+                  },
+                  customize: function (win) {
+                    //customize print view for dark
+                    $(win.document.body)
+                      .css('color', config.colors.headingColor)
+                      .css('border-color', config.colors.borderColor)
+                      .css('background-color', config.colors.bodyBg);
+                    $(win.document.body)
+                      .find('table')
+                      .addClass('compact')
+                      .css('color', 'inherit')
+                      .css('border-color', 'inherit')
+                      .css('background-color', 'inherit');
+                  }
+                },
+                {
+                  extend: 'csv',
+                  text: '<i class="mdi mdi-file-document-outline me-1" ></i>Csv',
+                  className: 'dropdown-item',
+                  exportOptions: {
+                    columns: [3, 4, 5, 6, 7],
+                    // prevent avatar to be display
+                    format: {
+                      body: function (inner, coldex, rowdex) {
+                        if (inner.length <= 0) return inner;
+                        var el = $.parseHTML(inner);
+                        var result = '';
+                        $.each(el, function (index, item) {
+                          if (item.classList !== undefined && item.classList.contains('user-name')) {
+                            result = result + item.lastChild.firstChild.textContent;
+                          } else if (item.innerText === undefined) {
+                            result = result + item.textContent;
+                          } else result = result + item.innerText;
+                        });
+                        return result;
+                      }
+                    }
+                  }
+                },
+                {
+                  extend: 'excel',
+                  text: '<i class="mdi mdi-file-excel-outline me-1"></i>Excel',
+                  className: 'dropdown-item',
+                  exportOptions: {
+                    columns: [3, 4, 5, 6, 7],
+                    // prevent avatar to be display
+                    format: {
+                      body: function (inner, coldex, rowdex) {
+                        if (inner.length <= 0) return inner;
+                        var el = $.parseHTML(inner);
+                        var result = '';
+                        $.each(el, function (index, item) {
+                          if (item.classList !== undefined && item.classList.contains('user-name')) {
+                            result = result + item.lastChild.firstChild.textContent;
+                          } else if (item.innerText === undefined) {
+                            result = result + item.textContent;
+                          } else result = result + item.innerText;
+                        });
+                        return result;
+                      }
+                    }
+                  }
+                },
+                {
+                  extend: 'pdf',
+                  text: '<i class="mdi mdi-file-pdf-box me-1"></i>Pdf',
+                  className: 'dropdown-item',
+                  exportOptions: {
+                    columns: [3, 4, 5, 6, 7],
+                    // prevent avatar to be display
+                    format: {
+                      body: function (inner, coldex, rowdex) {
+                        if (inner.length <= 0) return inner;
+                        var el = $.parseHTML(inner);
+                        var result = '';
+                        $.each(el, function (index, item) {
+                          if (item.classList !== undefined && item.classList.contains('user-name')) {
+                            result = result + item.lastChild.firstChild.textContent;
+                          } else if (item.innerText === undefined) {
+                            result = result + item.textContent;
+                          } else result = result + item.innerText;
+                        });
+                        return result;
+                      }
+                    }
+                  }
+                },
+                {
+                  extend: 'copy',
+                  text: '<i class="mdi mdi-content-copy me-1" ></i>Copy',
+                  className: 'dropdown-item',
+                  exportOptions: {
+                    columns: [3, 4, 5, 6, 7],
+                    // prevent avatar to be display
+                    format: {
+                      body: function (inner, coldex, rowdex) {
+                        if (inner.length <= 0) return inner;
+                        var el = $.parseHTML(inner);
+                        var result = '';
+                        $.each(el, function (index, item) {
+                          if (item.classList !== undefined && item.classList.contains('user-name')) {
+                            result = result + item.lastChild.firstChild.textContent;
+                          } else if (item.innerText === undefined) {
+                            result = result + item.textContent;
+                          } else result = result + item.innerText;
+                        });
+                        return result;
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              text: '<i class="mdi mdi-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Add New Record</span>',
+              className: 'create-new btn btn-primary waves-effect waves-light'
+            }
+          ],
+          responsive: {
+            details: {
+              display: $.fn.dataTable.Responsive.display.modal({
+                header: function (row) {
+                  var data = row.data();
+                  return 'Details of ' + data['full_name'];
+                }
+              }),
+              type: 'column',
+              renderer: function (api, rowIdx, columns) {
+                var data = $.map(columns, function (col, i) {
+                  return col.title !== '' // ? Do not show row in modal popup if title is blank (for check box)
+                    ? '<tr data-dt-row="' +
+                        col.rowIndex +
+                        '" data-dt-column="' +
+                        col.columnIndex +
+                        '">' +
+                        '<td>' +
+                        col.title +
+                        ':' +
+                        '</td> ' +
+                        '<td>' +
+                        col.data +
+                        '</td>' +
+                        '</tr>'
+                    : '';
+                }).join('');
+
+                return data ? $('<table class="table"/><tbody />').append(data) : false;
+              }
+            }
+          }
+        });
+        $('div.head-label').html('<h5 class="card-title mb-0">DataTable with Buttons</h5>');
+      }
+    </script>
+
+    <!-- Page JS
+    <script src="js/tables-datatables-basic.js"></script>-->
+  </body>
+</html>

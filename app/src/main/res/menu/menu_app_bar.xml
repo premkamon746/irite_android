@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_attach"
+        android:icon="@drawable/ic_attach_file"
+        android:orderInCategory="100"
+        android:title="Send"
+        app:iconTint="@color/grey_80"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_date"
+        android:icon="@drawable/ic_event"
+        android:orderInCategory="100"
+        android:title="Send"
+        app:iconTint="@color/grey_80"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
+</menu>

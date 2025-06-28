@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path=""
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Fullcalendar - Apps | Materialize - Material Design HTML Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico" />
+    <link href="css/fonts.css"  rel="stylesheet" />
+    <link href="css/css2.css"  rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="vendor/libs/fullcalendar/fullcalendar.css" />
+    <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="vendor/libs/quill/editor.css" />
+    <link rel="stylesheet" href="vendor/libs/@form-validation/umd/styles/index.min.css" />
+
+    <!-- Page CSS -->
+
+    <link rel="stylesheet" href="vendor/css/pages/app-calendar.css" />
+
+    <!-- Helpers -->
+    <script src="vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="js/config.js"></script>
+
+      <style>
+
+      </style>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+
+        <!-- Layout container -->
+        <div class="layout-page">
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="card app-calendar-wrapper">
+
+                <div class="card-header flex-column flex-md-row" style="display: flex;">
+                <div class="head-label text-left" style=" flex: 1;">
+                  <h5 class="card-title mb-0">ปฏิทินการปฏิบัติงาน</h5>
+                </div>
+                <div class="dt-action-buttons text-end pt-3 pt-md-0" style=" flex: 1;">
+                  <div class="dt-buttons">
+                    <button class="dt-button create-new btn btn-primary waves-effect waves-light" tabindex="0" data-team="1" type="button"><span><i class="mdi mdi-plus me-sm-1" style="margin-bottom: 10px"></i> <span class="d-none d-sm-inline-block">เตรียมความพร้อม ชุดที่ 1</span></span></button> 
+
+                    <button class="dt-button create-new btn btn-primary waves-effect waves-light" tabindex="0" data-team="2" type="button"><span><i class="mdi mdi-plus me-sm-1" style="margin-bottom: 10px"></i> <span class="d-none d-sm-inline-block">เตรียมความพร้อม ชุดที่ 2</span></span></button> 
+                  </div>
+                </div>
+              </div>
+
+                <div class="row g-0">
+                  <!-- Calendar Sidebar -->
+                  <div class="col app-calendar-sidebar border-end" id="app-calendar-sidebar">
+                    <div class="p-3 pb-2 my-sm-0 mb-3">
+                      <div class="d-grid">
+                        <button
+                          class="btn btn-primary btn-toggle-sidebar"
+                          id="addEvent">
+                          <i class="mdi mdi-plus me-1"></i>
+                          <span class="align-middle">รับแจ้ง</span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="p-4">
+                      <!-- inline calendar (flatpicker) -->
+                      <div class="inline-calendar"></div>
+
+                      <hr class="container-m-nx my-4" />
+
+                      <!-- Filter -->
+                      <div class="mb-4">
+                        <small class="text-small text-muted text-uppercase align-middle">Filter</small>
+                      </div>
+
+                      <div class="form-check form-check-secondary mb-3">
+                        <input
+                          class="form-check-input select-all"
+                          type="checkbox"
+                          id="selectAll"
+                          data-value="all"
+                          checked />
+                        <label class="form-check-label" for="selectAll">View All</label>
+                      </div>
+
+
+                      <div class="app-calendar-events-filter">
+                        <div class="form-check form-check-secondary mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox"
+                            id="select-asset"
+                            data-value="พรัพย์"
+                            checked />
+                          <label class="form-check-asset" for="select-asset">พรัพย์</label>
+                        </div>
+
+                        <div class="form-check form-check-danger mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox"
+                            id="select-life"
+                            data-value="ชีวิต"
+                            checked />
+                          <label class="form-check-label" for="select-life">ชีวิต</label>
+                        </div>
+
+                        <div class="form-check form-check-dark mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox"
+                            id="select-fired"
+                            data-value="เพลิงไหม้"
+                            checked />
+                          <label class="form-check-label" for="select-fired">เพลิงไหม้</label>
+                        </div>
+
+                        <div class="form-check form-check-warning mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox"
+                            id="select-bom"
+                            data-value="ระเบิด"
+                            checked />
+                          <label class="form-check-label" for="select-bom">ระเบิด</label>
+
+                        </div>
+                        
+                        <div class="form-check form-check-success mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox"
+                            id="select-checklist"
+                            data-value="checklist"
+                            checked />
+                          <label class="form-check-label" for="select-checklist">เตรียมความพร้อม</label>
+                        </div>
+                       
+                        <div class="form-check form-check-info">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox"
+                            id="select-etc"
+                            data-value="etc"
+                            checked />
+                          <label class="form-check-label" for="select-etc">ETC</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Calendar Sidebar -->
+
+                  <!-- Calendar & Modal -->
+                  <div class="col app-calendar-content">
+                    <div class="card shadow-none border-0">
+                      <div class="card-body pb-0">
+                        <!-- FullCalendar -->
+                        <div id="calendar"></div>
+                      </div>
+                    </div>
+                    <div class="app-overlay"></div>
+                    <!-- FullCalendar Offcanvas -->
+                    <div
+                      class="offcanvas offcanvas-end event-sidebar"
+                      tabindex="-1"
+                      id="addEventSidebar"
+                      aria-labelledby="addEventSidebarLabel">
+                      <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="addEventSidebarLabel">Add Event</h5>
+                        <button
+                          type="button"
+                          class="btn-close text-reset"
+                          data-bs-dismiss="offcanvas"
+                          aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <form class="event-form pt-0" id="eventForm" onsubmit="return false">
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="eventTitle"
+                              name="eventTitle"
+                              placeholder="Event Title" />
+                            <label for="eventTitle">Title</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <select class="select2 select-event-label form-select" id="eventLabel" name="eventLabel">
+                              <option data-label="danger" value="life" selected>ชีวิต</option>
+                              <option data-label="warning" value="bom" selected>ระเบิด</option>
+                              <option data-label="secondary" value="asset" selected>ทรัพย?</option>
+                              <option data-label="dark" value="fired" selected>เพลงไหม้</option>
+                              <option data-label="success" value="checklist">เตรียมความพร้อม</option>
+                              <option data-label="info" value="ETC">ETC</option>
+                            </select>
+                            <label for="eventLabel">Label</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="eventStartDate"
+                              name="eventStartDate"
+                              placeholder="Start Date" />
+                            <label for="eventStartDate">Start Date</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="eventEndDate"
+                              name="eventEndDate"
+                              placeholder="End Date" />
+                            <label for="eventEndDate">End Date</label>
+                          </div>
+                          <div class="mb-3">
+                            <label class="switch">
+                              <input type="checkbox" class="switch-input allDay-switch" />
+                              <span class="switch-toggle-slider">
+                                <span class="switch-on"></span>
+                                <span class="switch-off"></span>
+                              </span>
+                              <span class="switch-label">All Day</span>
+                            </label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="url"
+                              class="form-control"
+                              id="eventURL"
+                              name="eventURL"
+                              placeholder="https://www.google.com" />
+                            <label for="eventURL">Event URL</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4 select2-primary">
+                            <select
+                              class="select2 select-event-guests form-select"
+                              id="eventGuests"
+                              name="eventGuests"
+                              multiple>
+                              <option data-avatar="1.png" value="Jane Foster">Jane Foster</option>
+                              <option data-avatar="3.png" value="Donna Frank">Donna Frank</option>
+                              <option data-avatar="5.png" value="Gabrielle Robertson">Gabrielle Robertson</option>
+                              <option data-avatar="7.png" value="Lori Spears">Lori Spears</option>
+                              <option data-avatar="9.png" value="Sandy Vega">Sandy Vega</option>
+                              <option data-avatar="11.png" value="Cheryl May">Cheryl May</option>
+                            </select>
+                            <label for="eventGuests">Add Guests</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="eventLocation"
+                              name="eventLocation"
+                              placeholder="Enter Location" />
+                            <label for="eventLocation">Location</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <textarea class="form-control" name="eventDescription" id="eventDescription"></textarea>
+                            <label for="eventDescription">Description</label>
+                          </div>
+                          <div class="mb-3 d-flex justify-content-sm-between justify-content-start my-4 gap-2">
+                            <div class="d-flex">
+                              <button type="submit" class="btn btn-primary btn-add-event me-sm-2 me-1">Add</button>
+                              <button
+                                type="reset"
+                                class="btn btn-outline-secondary btn-cancel me-sm-0 me-1"
+                                data-bs-dismiss="offcanvas">
+                                Cancel
+                              </button>
+                            </div>
+                            <button class="btn btn-outline-danger btn-delete-event d-none">Delete</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Calendar & Modal -->
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Large Modal -->
+    <div class="modal modal-top fade" id="checklist" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="sublimt-form btn btn-primary btn-toggle-sidebar" id="leftButton">บันทึก</button>
+            <h1 class="modal-title  mx-auto" id="exampleModalLabel3">เตรียมความพร้อม</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form id="checklist-form" method="post" >
+              <input  type="hidden" id="hid" name="hid" />
+              <h4>แบบการตรวจจำนวนและความพร้อมของเจ้าหน้าที่ตรวจสถานที่เกิดเหตุ</h4>
+                <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">ประจําวันที่</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="YYYY-MM-DD HH:MM"
+                      id="checklist_datetime"
+                      readonly="readonly"/>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">ทีมตรวจสถานที่เกิดเหตุ ทีมที่</label>
+                  <div class="col-sm-9">
+                    <input  type="number" id="team" name="team" step="1" min="0" class="form-control" readonly="readonly" />
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name"></label>
+                  <div class="col-sm-9">
+                    <div class="form-check form-check-inline mt-3">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="complete"
+                            id="complete"
+                            value="1" 
+                            checked="checked"/>
+                          <label class="form-check-label" for="inlineRadio1">ครบ</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="complete"
+                            id="not_complete"
+                            value="0" />
+                          <label class="form-check-label" for="inlineRadio2">ไม่ครบ</label>
+                        </div>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label  class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">หมายเหตุ</label>
+                  <div class="col-sm-9">
+                    <textarea
+                              id="remark" name="remark"
+                              class="form-control"
+                              aria-describedby="basic-icon-default-message2"></textarea>
+                  </div>
+                </div>
+            <hr class="my-5" />
+            <div class="table-responsive text-nowrap">
+              <h4>แบบการตรวจสภาพรถยนต์ตรวจสถานที่เกิดเหตุ (Crime Scene Investigation Car Checklist)</h4>
+
+              <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">หมายเลขทะเบียน/โล่</label>
+                  <div class="col-sm-9">
+                    <input  type="text"  class="form-control" id="car_license" name="car_license" />
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">เลขกิโลเมตรที่</label>
+                  <div class="col-sm-9">
+                    <input  type="number" step="1" min="0" class="form-control" id="no_of_kilo" name="no_of_kilo" />
+                  </div>
+                </div>
+
+                  <table class="clame-Car table table-bordered">
+                    <thead>
+                    <tr>
+                      <th></th><th></th>
+                      <th>ประเภทรายการ</th>
+                      <th>การแก้ไข</th>
+                      <th>หมายเหตุ</th>
+                    </tr>
+                    </thead>
+                  </table>
+                  <hr class="my-5" />
+              <h4>แบบการตรวจกระเป๋าตรวจสถานที่เกิดเหตุทั่วไป (General Crime Scene Investigation Bag Checklist)</h4>
+                  <table class="clame-Bag table table-bordered">
+                    <thead>
+                    <tr>
+                      <th></th><th></th>
+                      <th>ประเภทรายการ</th>
+                      <th>การแก้ไข</th>
+                      <th>หมายเหตุ</th>
+                    </tr>
+                    </thead>
+                  </table>
+                  <hr class="my-5" />
+              <h4>แบบการตรวจสภาพกล้องถ่ายภาพแบบดิจิตอล (Digital Camera Checklist)</h4>
+                  <table class="clame-Camera table table-bordered">
+                    <thead>
+                    <tr>
+                      <th></th><th></th>
+                      <th>ประเภทรายการ</th>
+                      <th>การแก้ไข</th>
+                      <th>หมายเหตุ</th>
+                    </tr>
+                    </thead>
+                  </table>
+                  <hr class="my-5" />
+
+              <h4>แบบการตรวจสภาพเครื่องมือตรวจสถานที่เกิดเหตุ(Crime Scene Investigation Equipment Checklist)</h4>
+                  <table class="clame-Equipment table table-bordered">
+                    <thead>
+                    <tr>
+                      <th></th><th></th>
+                      <th>ประเภทรายการ</th>
+                      <th>การแก้ไข</th>
+                      <th>หมายเหตุ</th>
+                    </tr>
+                    </thead>
+                  </table>
+                  <hr class="my-5" />
+
+              </div>
+              <input type="hidden" id="selectedCheckboxes" name="selectedCheckboxes">
+            </form>
+          </div>
+          <div class="modal-footer">
+                  <div class="row">
+                      <div class="col-6">
+                          <button type="submit" class="sublimt-form btn btn-primary">บันทึก</button>
+                      </div>
+                      <div class="col-6 d-flex justify-content-end">
+                          <button type="button" class="btn btn-secondary float-right" data-bs-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                      </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- Extra Large Modal -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="vendor/libs/jquery/jquery.js"></script>
+    <script src="vendor/libs/popper/popper.js"></script>
+    <script src="vendor/js/bootstrap.js"></script>
+    <script src="vendor/libs/node-waves/node-waves.js"></script>
+    <script src="vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/libs/hammer/hammer.js"></script>
+    <script src="vendor/libs/i18n/i18n.js"></script>
+    <script src="vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <script src="vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+
+    <!-- Vendors JS -->
+    <script src="vendor/libs/fullcalendar/fullcalendar.js"></script>
+    <script src="vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+    <script src="vendor/libs/select2/select2.js"></script>
+    <script src="vendor/libs/flatpickr/flatpickr.js"></script>
+    <script src="vendor/libs/moment/moment.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Page JS -->
+    <!--<script src="js/app-calendar-events.js"></script>-->
+    <script>
+
+      function isMobileDevice() {
+        return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      }
+
+        let events = []
+        if(isMobileDevice){
+          jsonData = Android.getJsonData("","getEvent","");
+        }
+        jsonObject = JSON.parse(jsonData);
+         $.each(jsonObject, function(key, value) {
+
+          let dateString = value.create_date; // dd/mm/yyyy
+          let parts = dateString.split("/"); // [02, 05, 2025]
+
+          let date = new Date(parts[2], parts[1] - 1, parts[0]); // new Date(year, monthIndex, day)
+
+            item = {
+                    id: value.uid,
+                    url: '',
+                    title: value.report_type,
+                    start: date,
+                    end: date,
+                    allDay: true,
+                    extendedProps: {
+                      calendar: value.report_type
+                    }
+                  }
+            events.push(item)
+          }
+         )
+
+          if(isMobileDevice){
+            jsonData = Android.getJsonData("","getChecklist","");
+          }
+
+          jsonObject = JSON.parse(jsonData);
+           $.each(jsonObject, function(key, value) {
+              let date = new Date(Number(value.datetime)); // new Date(year, monthIndex, day)
+              item = {
+                      id: value.uid,
+                      url: '',
+                      title: "เช็คลิส",
+                      start: date,
+                      end: date,
+                      allDay: true,
+                      extendedProps: {
+                        calendar: 'checklist'
+                      }
+                    }
+              events.push(item)
+            })
+
+           let jsonString = JSON.stringify(events);
+           console.log(jsonString);
+
+        eventClickFromHtml = function (info) {
+          ev = info.event;
+          if(ev.extendedProps.calendar != "checklist"){
+            Android.getJsonData("","loadReport",ev.id);
+          }else{
+          }/**/
+        }
+      
+    </script>
+    <script src="js/app-calendar.js"></script>
+    <script src="vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="vendor/libs/jquery-timepicker/jquery-timepicker.js"></script>
+    <script src="vendor/libs/pickr/pickr.js"></script>
+    <script src="js/forms-pickers.js"></script>
+    <script>
+        $(function () {
+              $('.create-new').on('click', function() {
+                    var jsonData = {};
+                    jsonData["button"] = "add-checklist";
+                    jsonData["team"] = team = $(this).data("team");
+                    $("#team").val(team)
+                    var hid = submitForm(jsonData);
+                    $("#hid").val(hid);
+                    
+                    var jsonData = Android.getJsonData(hid,"get-head","")
+                    
+                    var jsonObject = JSON.parse(jsonData);
+                    $("#checklist_datetime").val(jsonObject.datetime)
+                    if (jsonObject.complete == true){
+                          $("#complete").prop("checked",true);
+                    }else{
+                          $("#not_complete").prop("checked",true);
+                    }
+
+                    $("#remark").val(jsonObject.remark);
+                    $("#car_license").val(jsonObject.car_license);
+                    $("#no_of_kilo").val(jsonObject.no_of_kilo);
+
+                    var clame_camera    = createDT('.clame-Car', "1",team)
+                    cellEdit('.clame-Car', clame_camera)
+                    var clame_bag       = createDT('.clame-Bag', "2",team)
+                    cellEdit('.clame-Bag', clame_bag)
+                    var clame_camera    = createDT('.clame-Camera', "3",team)
+                    cellEdit('.clame-Camera', clame_camera)
+                    var clame_equipment = createDT('.clame-Equipment', "4",team)
+                    cellEdit('.clame-Equipment', clame_equipment)
+                    $('#checklist').modal('show');
+
+                     Android.getJsonData("","unload","")
+                 
+
+              })
+                  
+              
+
+                $('.sublimt-form').on('click', function(event) {
+                    $('#selectedCheckboxes').val("");
+                    /**/var selected = [];
+                    $('input[name="check-name[]"]:checked').each(function() {
+                        selected.push($(this).val());
+                    });
+
+                    $('#selectedCheckboxes').val(selected.join(','));
+                    //console.log("data---"+$('#selectedCheckboxes').val())
+                    
+                    var formData = $("#checklist-form").serializeArray(); // Get form data as an array of objects
+                    var jsonData = {};
+
+                    $.each(formData, function() {
+                        jsonData[this.name] = this.value; // Convert to JSON format
+                    });
+
+                    console.log("---------------"+JSON.stringify(jsonData))
+
+
+                    jsonData["button"] = "update-checklist";
+                    
+                    $('#add-incident').modal('hide');
+                    submitForm(jsonData)
+                    $('#checklist').modal('hide');
+                    //console.log(JSON.stringify(jsonData)); // Display the JSON data in the console
+                });
+
+                 
+
+
+               
+        })
+
+
+        function createDT(class_name ,id ,team )
+        {
+
+              obj = $(class_name)
+              var jsonData = ""
+              if (typeof Android === 'undefined'){
+                jsonData = '[{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"ระบบไฟฟ้าและแบตเตอรี่","listname":"-แบตเตอรี่รถน้ํากลั่นแบตเตอรี่-วิทยุสื่อสารประจํารถ","remark":"","set":1,"sorting":1,"status":false,"uid":1},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"ยาง","listname":"-ไฟหน้า-ไฟท้ายไฟเบรก-ไฟเลี้ยวไฟฉุกเฉิน-ไฟวับวาบและสัญญาณไฟ","remark":"","set":1,"sorting":2,"status":false,"uid":2},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"ระบบส่องสว่าง","listname":"-ไฟหน้า-ไฟท้ายไฟเบรก-ไฟเลี้ยวไฟฉุกเฉิน-ไฟวับวาบและสัญญาณไฟ","remark":"","set":1,"sorting":3,"status":false,"uid":3},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"สภาพรถ","listname":"-สภาพรถ -กระจกมองข้างกระจกมองหลัง","remark":"","set":1,"sorting":4,"status":false,"uid":4},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"แตร","listname":"-แตรรถ","remark":"","set":1,"sorting":5,"status":false,"uid":5},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"ระบบเบรก","listname":"ระดับปริมาณน้ํามันเบรก ระบบเบรก","remark":"","set":1,"sorting":6,"status":false,"uid":6},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"ใบปัดน้ําฝน","listname":"-ใบปัดและน้ําปัดน้ําฝน","remark":"","set":1,"sorting":7,"status":false,"uid":7},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"ของเหลวต่างๆ","listname":"-ปริมาณน้ํามันเชื้อเพลิงหรือแก๊ส/ปริมาณน้ํามันเครื่อง-ระดับปริมาณน้ํามันพวงมาลัยพาวเวอร์น้ําหล่อเย็น หม้อน้ำ","remark":"","set":1,"sorting":8,"status":false,"uid":8},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"ระบบปรับอากาศ","listname":"-เครื่องปรับอากาศภายในรถ","remark":"","set":1,"sorting":9,"status":false,"uid":9},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"การทดลองขับ","listname":"","remark":"","set":1,"sorting":10,"status":false,"uid":10},{"create_datetime":1720911057914,"editing":"","gropping":"1","head":"ชุดตรวจเก็บสารระเบิดจากวัตถุ","listname":"- Acetone 1 ขวด, ผ้าก็อต/ก้านสําลี 20 แผ่น, ซองเก็บวัตถุพยานพร้อมถุงซิป 20 ซอง, น้ํากลั่น 20 ขวด","remark":"","set":1,"sorting":8,"status":false,"uid":18}]'
+
+              }else{
+                jsonData = Android.getJsonData(id,"get-by-group",team);
+              }
+              jsonData = jsonData.replaceAll("\\n", "<br>");
+              //console.log(jsonData)
+              var jsonObject = JSON.parse(jsonData);
+              //console.log(jsonObject)
+              clame = obj.DataTable({
+              data: jsonObject,
+              "bDestroy": true,
+              "autoWidth": false,
+              paging: false,
+              searching: false,
+              ordering: true,
+              info: false,
+              columns: [
+                  { "width": "5%", data: 'uid' },
+                  { "width": "15%", data: 'head' },
+                  { "width": "40%", data: 'listname' },
+                  { "width": "20%", "className": "edit-cell", data: 'remark' },
+                  { "width": "20%", "className": "edit-cell", data: 'editing' }
+              ],
+              columnDefs: [
+                {
+                  targets: 0,
+                  orderable: false,
+                  searchable: false,
+                  responsivePriority: 3,
+                  checkboxes: true,
+                  render: function (data, type, row) {
+                    var checked = row.status ? 'checked' : '';
+                    return '<input type="checkbox" name="check-name[]" class="dt-checkboxes" value="'+data+'" form-check-input" '+checked+'>';
+                  },
+                  checkboxes: {
+                    selectAllRender: '<input type="checkbox" class="form-check-input">ปกติ'
+                  }
+                }]
+            });
+            return clame
+        }
+
+        function cellEdit(class_name, clame){
+          $(class_name+' tbody').on('click', 'td.edit-cell', function() {
+                var cell = clame.cell(this);
+                if (cell.index().column !== undefined) {
+                    var cellData = cell.data();
+                    var input = $('<input type="text" class="form-control">').val(cellData);
+                    $(this).html(input);
+
+                    input.on('blur', function() {
+                        cell.data(input.val()).draw();
+                        var rowData = clame.row(cell.index().row).data();
+                        updateRow(rowData)
+                    });
+
+                    input.on('keypress', function(e) {
+                        if (e.which == 13) { // Enter key pressed
+                            cell.data(input.val()).draw();
+                            var rowData = clame.row(cell.index().row).data();
+                            updateRow(rowData)
+                        }
+                    });
+
+                    input.focus();
+                }
+            });
+        }
+
+        function submitForm(jsonObject) {
+            var returnData = Android.submitForm(JSON.stringify(jsonObject));
+            return returnData;
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr"
+  data-theme="theme-default" data-assets-path="assets/" data-template="vertical-menu-template" data-style="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <title>
+    Dashboard - Analytics | Materialize - Material Design HTML Admin Template
+  </title>
+
+  <meta name="description" content="" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="vendor/fonts/remixicon/remixicon.css" />
+  <link rel="stylesheet" href="vendor/fonts/flag-icons.css" />
+
+  <!-- Menu waves for no-customizer fix -->
+  <link rel="stylesheet" href="vendor/libs/node-waves/node-waves.css" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="vendor/css/rtl/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="css/demo.css" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+  <link rel="stylesheet" href="vendor/libs/typeahead-js/typeahead.css" />
+  <link rel="stylesheet" href="vendor/libs/apex-charts/apex-charts.css" />
+  <link rel="stylesheet" href="vendor/libs/swiper/swiper.css" />
+  <link rel="stylesheet" href="vendor/libs/bs-stepper/bs-stepper.css" />
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="vendor/css/pages/cards-statistics.css" />
+  <link rel="stylesheet" href="vendor/css/pages/cards-analytics.css" />
+
+  <!-- Helpers -->
+  <script src="vendor/js/helpers.js"></script>
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+  <!-- <script src="vendor/js/template-customizer.js"></script> -->
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="js/config.js"></script>
+</head>
+
+<body>
+  <!-- Layout wrapper -->
+  <div class="">
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      <!-- Content -->
+
+      <div class="container-xxl flex-grow-1 container-p-y">
+        <!-- Basic Layout -->
+        <div class="row">
+          <div class="col-xl">
+            <div class="bs-stepper wizard-vertical vertical wizard-vertical-icons-example wizard-vertical-icons mt-2">
+              <div class="bs-stepper-header" style="min-width: auto !important;">
+                <div class="step" data-target="#page-1">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        1
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">การรับแจ้งเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-2">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        2
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">สถานที่เกิดเหตุ
+                      </span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-3">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        3
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">วันเวลาที่ทราบเหตุ/เกิดเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-4">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        4
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">วันเวลาที่ตรวจเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-5">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        5
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">ผู้ตรวจสถานที่เกิดเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-6">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        6
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">ลักษณะสถานที่เกิดเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-7">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        7
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">ผลการตรวจสถานที่เกิดเหตุ
+                      </span>
+                    </span>
+                  </button>
+                </div>
+                <div class="step" data-target="#page-8">
+                  <button type="button" class="step-trigger">
+                    <span class="avatar">
+                      <span class="avatar-initial rounded-2">
+                        8
+                      </span>
+                    </span>
+                    <span class="bs-stepper-label flex-column align-items-start gap-1 ms-4">
+                      <span class="bs-stepper-title">การส่งมอบคืนสถานที่เกิดเหตุ</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div class="bs-stepper-content">
+                <form id="allForm" onSubmit="return false">
+                  <div class="card mb-6">
+                    <h5 class="card-header">กรอกแบบฟอร์ม</h5>
+                    <hr class="m-0" />
+                    <div class="card-body">
+                      <div id="page-1" class="content">
+                        <h5>1.การรับแจ้งเหตุ</h5>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                              <label for="case_type" class="form-label" style="font-size: 16px">คดี</label>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="case_type" id="case_theft" value="ลักทรัพย์" />
+                                <label class="form-check-label" for="case_theft">ลักทรัพย์</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="case_type" id="case_robbery" value="ชิงทรัพย์" />
+                                <label class="form-check-label" for="case_robbery">ชิงทรัพย์</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="case_type" id="case_gang_robbery" value="ปล้นทรัพย์" />
+                                <label class="form-check-label" for="case_gang_robbery">ปล้นทรัพย์</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="case_type" id="case_other" value="อื่นๆ" />
+                                <label class="form-check-label" for="case_other">อื่นๆ</label>
+                              </div>
+                            </div>
+
+                            <div class="col-6 col-md-3 mb-3">
+                              <div class="form-group">
+                                <label for="incident_date" class="form-label" style="font-size: 16px">วันที่</label>
+                                <input id="incident_date" name="incident_date" class="form-control form-control-sm date_picker date_picker" type="text" />
+                              </div>
+                            </div>
+
+                            <div class="col-6 col-md-3 mb-3">
+                              <label for="incident_time" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                              <input id="incident_time" name="incident_time" class="form-control form-control-sm timepicker" type="text" />
+                            </div>
+
+                            <div class="col-12 mb-3">
+                              <label for="report_method" class="form-label" style="font-size: 16px">การรับแจ้ง</label>
+
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="report_method" id="report_phone" value="ทางโทรศัพท์" />
+                                <label class="form-check-label" for="report_phone">ทางโทรศัพท์</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="report_method" id="report_radio" value="ทางวิทยุสื่อสาร" />
+                                <label class="form-check-label" for="report_radio">ทางวิทยุสื่อสาร</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="report_method" id="report_book" value="ทางหนังสือ" />
+                                <label class="form-check-label" for="report_phone">ทางหนังสือ</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="report_method" id="report_other" value="อื่นๆ" />
+                                <label class="form-check-label" for="report_other">อื่นๆ</label>
+                              </div>
+                            </div>
+
+                            <div class="col-12 col-md-3 mb-3">
+                              <label for="report_detail" class="form-label" style="font-size: 16px">รายละเอียดอื่นๆ</label>
+                              <input id="report_detail" name="report_detail" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                            </div>
+
+                            <div class="col-12 col-md-2 mb-3">
+                              <label for="police_station" class="form-label" style="font-size: 16px">สน/สภ.</label>
+                              <input id="police_station" name="police_station" class="form-control form-control-sm" type="text" placeholder="ระบุ สน/สภ." />
+                            </div>
+
+                            <div class="col-12 col-md-4 mb-3">
+                              <label for="case_number" class="form-label" style="font-size: 16px">ที่</label>
+                              <input id="case_number" name="case_number" class="form-control form-control-sm" type="text" placeholder="ระบุ ที่" />
+                            </div>
+
+                            <div class="col-12 col-md-3 mb-3">
+                              <label for="case_log" class="form-label" style="font-size: 16px">ลง</label>
+                              <input id="case_log" name="case_log" class="form-control form-control-sm" type="text" placeholder="ระบุ ลง" />
+                            </div>
+
+                            <div class="col-12 col-md-4 mb-3">
+                              <label for="investigator" class="form-label" style="font-size: 16px">พนักงานสอบสวน</label>
+                              <input id="investigator" name="investigator" class="form-control form-control-sm" type="text" placeholder="ระบุ พนักงานสอบสวน" />
+                            </div>
+
+                            <div class="col-12 col-md-4 mb-3">
+                              <label for="investigator_phone" class="form-label" style="font-size: 16px">หมายเลขโทรศัพท์</label>
+                              <input id="investigator_phone" name="investigator_phone" class="form-control form-control-sm" inputmode="numeric"
+                                pattern="[0-9]{10}" maxlength="10"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+                                placeholder="ระบุหมายเลขโทรศัพท์ 10 หลัก" />
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-between">
+                              <button class="btn btn-outline-secondary btn-prev" disabled>
+                                <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                                <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                              </button>
+                              <button class="btn btn-primary btn-next">
+                                <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                                <i class="ri-arrow-right-line"></i>
+                              </button>
+                            </div>
+                          </div>
+
+                      </div>
+                      <div id="page-2" class="content">
+                        <h5>2.สถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                              <div class="form-group">
+                                <label for="incident_location" class="form-label" style="font-size: 16px">สถานที่เกิดเหตุ</label>
+                                <textarea id="incident_location" name="incident_location" class="form-control h-px-75" placeholder="ระบุสถานที่เกิดเหตุ" rows="3"></textarea>
+                              </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                              <div>
+                                <div class="form-check">
+                                  <input type="checkbox" class="form-check-input" id="owner" name="owner" />
+                                  <label class="form-check-label" for="owner">เจ้าของบ้าน</label>
+                                </div>
+                                <div class="form-check">
+                                  <input type="checkbox" class="form-check-input" id="victim" name="victim" />
+                                  <label class="form-check-label" for="victim">ผู้เสียหาย</label>
+                                </div>
+                                <div class="form-check">
+                                  <input type="checkbox" class="form-check-input" id="related_other" name="related_other" />
+                                  <label class="form-check-label" for="related_other">ผู้เกี่ยวข้องอื่น</label>
+                                </div>
+                                <div class="mb-3">
+                                  <input id="related_other_detail" name="related_other_detail" class="form-control form-control-sm" type="text" placeholder="ระบุ ผู้เกี่ยวข้องอื่น" />
+                                </div>
+                                <div>
+                                  <!-- <div class="row">
+                                    <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
+                                      <label for="victim_name" class="form-label" style="font-size: 16px">ชื่อผู้เสียหาย</label>
+                                      <input id="victim_name" name="victim_name" class="form-control form-control-sm" type="text" placeholder="ระบุชื่อ - นามสกุล ผู้เสียหาย" />
+                                    </div>
+                                    <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
+                                      <label for="victim_age" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
+                                      <input id="victim_age" name="victim_age" class="form-control form-control-sm" type="number" min="0" placeholder="ระบุอายุ" />
+                                    </div>
+                                  </div> -->
+
+                                  <div>
+                                      <div id="deceased-form-container"></div>
+                               
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-between">
+                              <button class="btn btn-outline-secondary btn-prev">
+                                <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                                <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                              </button>
+                              <button class="btn btn-primary btn-next">
+                                <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                                <i class="ri-arrow-right-line"></i>
+                              </button>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                      <div id="page-3" class="content">
+                        <h5>3.วันเวลาที่ทราบเหตุ/เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">วันเวลาที่ผู้เสียหาย ทราบเหตุ/เกิดเหตุ</p>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="victim_incident_date" class="form-label" style="font-size: 16px">วันที่</label>
+                              <input id="victim_incident_date" name="victim_incident_date" class="form-control form-control-sm date_picker" type="text" />
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="victim_incident_time" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="victim_incident_time" name="victim_incident_time" class="form-control form-control-sm timepicker" type="text" />
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">วันเวลาที่พนักงานสอบสวน ทราบเหตุ/เกิดเหตุ</p>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="officer_incident_date" class="form-label" style="font-size: 16px">วันที่</label>
+                              <input id="officer_incident_date" name="officer_incident_date" class="form-control form-control-sm date_picker" type="text" />
+                            </div>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="officer_incident_time" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="officer_incident_time" name="officer_incident_time" class="form-control form-control-sm timepicker" type="text" />
+                          </div>
+
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div id="page-4" class="content">
+                        <h5>4.วันเวลาที่ตรวจเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">วันเวลาที่ทำการตรวจสถานที่เกิดเหตุ</p>
+                          </div>
+                          
+                          <!-- Date Input for Investigation Date -->
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="investigation_date" class="form-label" style="font-size: 16px;">วันที่</label>
+                              <input id="investigation_date" name="investigation_date" class="form-control form-control-sm date_picker" type="text" placeholder="" />
+                            </div>
+                          </div>
+
+                          <!-- Time Input for Investigation Time -->
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="investigation_time" class="form-label" style="font-size: 16px;">เวลาประมาณ</label>
+                            <input id="investigation_time" name="investigation_time" class="form-control form-control-sm timepicker" type="text" placeholder="" />
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">วันเวลาที่ทำการตรวจสถานที่เกิดเหตุเพิ่มเติม</p>
+                          </div>
+
+                          <!-- Date Input for Additional Investigation Date -->
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="additional_investigation_date" class="form-label" style="font-size: 16px;">วันที่</label>
+                              <input id="additional_investigation_date" name="additional_investigation_date" class="form-control form-control-sm date_picker" type="text" placeholder="" />
+                            </div>
+                          </div>
+
+                          <!-- Time Input for Additional Investigation Time -->
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="additional_investigation_time" class="form-label" style="font-size: 16px;">เวลาประมาณ</label>
+                            <input id="additional_investigation_time" name="additional_investigation_time" class="form-control form-control-sm timepicker" type="text" placeholder="" />
+                          </div>
+
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="page-5" class="content">
+                        <h5>5.ผู้ตรวจสถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="" style="color:#3b4056;">ผู้ตรวจสถานที่เกิดเหตุ</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div>
+                                <div id="owner_list"></div>
+                            </div>
+                          </div>
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="page-6" class="content">
+                        <h5>6.ลักษณะสถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">สภาพสถานที่เกิดเหตุเมื่อไปถึง</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">การรักษาสถานที่เกิดเหตุ</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="scene_protection" id="scene_protection_yes" value="yes" />
+                              <label class="form-check-label" for="scene_protection_yes">มี</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="scene_protection" id="scene_protection_no" value="no" />
+                              <label class="form-check-label" for="scene_protection_no">ไม่มี</label>
+                            </div>
+                            <div>
+                              <input id="scene_protection_other" name="scene_protection_other" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">ลักษณะที่เกิดเหตุ</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">๑. ลักษณะภายนอก</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="exterior_type" id="exterior_wood" value="wood" />
+                              <label class="form-check-label" for="exterior_wood">บ้านไม้</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="exterior_type" id="exterior_half" value="half_concrete_half_wood" />
+                              <label class="form-check-label" for="exterior_half">บ้านครึ่งคอนกรีตครึ่งไม้</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="exterior_type" id="exterior_concrete" value="concrete" />
+                              <label class="form-check-label" for="exterior_concrete">อาคารคอนกรีต</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="exterior_type" id="exterior_townhouse" value="townhouse" />
+                              <label class="form-check-label" for="exterior_townhouse">ทาวน์เฮ้าส์</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="exterior_type" id="exterior_commercial" value="commercial_building" />
+                              <label class="form-check-label" for="exterior_commercial">อาคารพาณิชย์</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="exterior_type" id="exterior_other" value="other" />
+                              <label class="form-check-label" for="exterior_other">อื่นๆ</label>
+                            </div>
+                            <div>
+                              <label for="building_floors" class="form-label" style="font-size: 16px">ชั้น</label>
+                              <input id="building_floors" name="building_floors" class="form-control form-control-sm" type="number" min="1" placeholder="ระบุ ชั้น" />
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;">บริเวณโดยรอบ</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="fence" id="fence_yes" value="yes" />
+                              <label class="form-check-label" for="fence_yes">มีรั้ว</label>
+                            </div>
+                            <div class="form-check form-check">
+                              <input class="form-check-input" type="radio" name="fence" id="fence_no" value="no" />
+                              <label class="form-check-label" for="fence_no">ไม่มีรั้ว</label>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="facing_direction" class="form-label" style="font-size: 16px">เมื่อหันหน้าเข้า</label>
+                            <input id="facing_direction" name="facing_direction" class="form-control form-control-sm" type="text" placeholder="เมื่อหันหน้าเข้า (ทิศ ........)" />
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="front_adjacent" class="form-label" style="font-size: 16px">ด้านหน้าติด</label>
+                            <input id="front_adjacent" name="front_adjacent" class="form-control form-control-sm" type="text" placeholder="ระบุ (ถ้ามี)" />
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="left_adjacent" class="form-label" style="font-size: 16px">ด้านซ้ายติด</label>
+                            <input id="left_adjacent" name="left_adjacent" class="form-control form-control-sm" type="text" placeholder="ระบุ (ถ้ามี)" />
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="right_adjacent" class="form-label" style="font-size: 16px">ด้านขวาติด</label>
+                            <input id="right_adjacent" name="right_adjacent" class="form-control form-control-sm" type="text" placeholder="ระบุ (ถ้ามี)" />
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="back_adjacent" class="form-label" style="font-size: 16px">ด้านหลังติด</label>
+                            <input id="back_adjacent" name="back_adjacent" class="form-control form-control-sm" type="text" placeholder="ระบุ (ถ้ามี)" />
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <p class="fw-bold" style="color:#3b4056;">๒. ลักษณะภายใน</p>
+                            <textarea id="interior_description" name="interior_description" class="form-control form-control-sm" placeholder="ระบุลักษณะภายใน" rows="5"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <p class="fw-bold" style="color:#3b4056;">๓. บริเวณที่เกิดเหตุ เกิดเหตุที่</p>
+                            <textarea id="incident_area" name="incident_area" class="form-control form-control-sm" placeholder="ระบุบริเวณที่เกิดเหตุ" rows="5"></textarea>
+                          </div>
+
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="page-7" class="content">
+                        <h5>7.ผลการตรวจสถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="caseCircumstances" class="form-label" style="font-size: 16px;font-weight: bold;">พฤติการณ์ของคดี</label>
+                              <textarea id="caseCircumstances" name="caseCircumstances" class="form-control form-control-sm" type="text" placeholder="ระบุพฤติการณ์ของคดี" rows="5"></textarea>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="">ทางเข้าของคนร้าย</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="caseCircumstances" class="form-label" style="font-size: 16px;font-weight: bold;">พฤติการณ์ของคดี</label>
+                              <textarea id="caseCircumstances" name="caseCircumstances" class="form-control form-control-sm" placeholder="ระบุพฤติการณ์ของคดี" rows="5"></textarea>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="robberEntry" class="form-label" style="font-size: 16px;font-weight: bold;">ทางเข้าของคนร้าย</label>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="noTraces" name="noTraces" />
+                                <label class="form-check-label" for="noTraces">ไม่พบร่อยรอยใดๆ บริเวณสถานที่เกิดเหตุ</label>
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="unlockedDoors" name="unlockedDoors" />
+                                <label class="form-check-label" for="unlockedDoors">ผู้เสียหายไม่ได้ทำการปิดล๋อคประตู/หน้าต่าง</label>
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="foundTraces" name="foundTraces" />
+                                <label class="form-check-label" for="foundTraces">พบร่องรอย</label>
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="breakingIn" name="breakingIn" />
+                                <label class="form-check-label" for="breakingIn">การงัด</label>
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="cutting" name="cutting" />
+                                <label class="form-check-label" for="cutting">การตัด</label>
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="drilling" name="drilling" />
+                                <label class="form-check-label" for="drilling">การเจาะ</label>
+                              </div>
+                              <div class="form-check">
+                                <label class="form-check-label">ร่อยรอยอื่นๆ.............................................ที่</label>
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="traceDoor" name="traceDoor" />
+                                <label class="form-check-label" for="traceDoor">ประตู</label>
+                              </div>
+                              <div class="mb-3">
+                                <input id="traceDoorDetails" name="traceDoorDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ ประตู" />
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="traceWindow" name="traceWindow" />
+                                <label class="form-check-label" for="traceWindow">หน้าต่าง</label>
+                              </div>
+                              <div class="mb-3">
+                                <input id="traceWindowDetails" name="traceWindowDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ หน้าต่าง" />
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="traceCeiling" name="traceCeiling" />
+                                <label class="form-check-label" for="traceCeiling">ฝ้าเพดาน</label>
+                              </div>
+                              <div class="mb-3">
+                                <input id="traceCeilingDetails" name="traceCeilingDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ ฝ้าเพดาน" />
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="traceRoof" name="traceRoof" />
+                                <label class="form-check-label" for="traceRoof">หลังคา</label>
+                              </div>
+                              <div class="mb-3">
+                                <input id="traceRoofDetails" name="traceRoofDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ หลังคา" />
+                              </div>
+                              <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="traceOther" name="traceOther" />
+                                <label class="form-check-label" for="traceOther">อื่นๆ</label>
+                              </div>
+                              <div class="mb-3">
+                                <input id="traceOtherDetails" name="traceOtherDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ อื่นๆ" />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                              <p class="fw-bold" style="color:#3b4056;">เครื่องมือที่คนร้ายใช้ในการโจรกรรม</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                              <input class="form-check-input" type="radio" name="toolsUsed" id="tools_screwdriver" value="ไขควง" />
+                              <label class="form-check-label" for="tools_screwdriver">ไขควง</label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                              <input class="form-check-input" type="radio" name="toolsUsed" id="tools_crowbar" value="ชะแลง" />
+                              <label class="form-check-label" for="tools_crowbar">ชะแลง</label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                              <input class="form-check-input" type="radio" name="toolsUsed" id="tools_metalCutter" value="คีมตัดโลหะ" />
+                              <label class="form-check-label" for="tools_metalCutter">คีมตัดโลหะ</label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                              <input class="form-check-input" type="radio" name="toolsUsed" id="tools_other" value="อื่นๆ" />
+                              <label class="form-check-label" for="tools_other">อื่นๆ</label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                              <input id="toolsOtherDetails" name="toolsOtherDetails" class="form-control form-control-sm" type="text" placeholder="Other tools (if any)" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                              <label for="traceWidth" class="form-label" style="font-size: 16px">Approximate width of the trace ..... cm</label>
+                              <input id="traceWidth" name="traceWidth" class="form-control form-control-sm" type="number" min="0" placeholder="Enter approximate width of the trace ..... cm" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                              <p class="fw-bold" style="color:#3b4056;">คดีชิงทรัพย์/ปล้นทรัพย์ กรณีทราบข้อมูลคนร้าย</p>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                              <label for="robberCount" class="form-label" style="font-size: 16px">Number of Robbers</label>
+                              <input id="robberCount" name="robberCount" class="form-control form-control-sm" type="number" min="0" placeholder="Number of robbers" />
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="weapon" id="weapon"
+                                  value="option2" />
+                                <label class="form-check-label">คนร้ายไม่ใช้อาวุธในการก่อเหตุ</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="weapon" id="weapon"
+                                  value="option2" />
+                                <label class="form-check-label">อาวุธ "มีด" ใช้ในการก่อเหตุ</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="weapon" id="weapon"
+                                  value="option2" />
+                                <label class="form-check-label">อาวุธ "ปืน" ใช้ในการก่อเหตุ</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="weapon" id="weapon"
+                                  value="option2" />
+                                <label class="form-check-label">อาวุธ "เชื่อก" ใช้ในการก่อเหตุ</label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="weapon" id="weapon"
+                                  value="option2" />
+                                <label class="form-check-label">อื่นๆ</label>
+                              </div>
+                              <div class="mb-3">
+                                <input id="" class="form-control form-control-sm" type="text"
+                                  placeholder="อื่น ๆ ระบุ" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <label class="form-check-label">คนร้ายได้พันธนาการผู้เสียหายอย่างไร</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="bondage" id="bondage"
+                                value="option2" />
+                              <label class="form-check-label">กักขังภายในห้อง</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="bondage" id="bondage"
+                                value="option2" />
+                              <label class="form-check-label">คนรายใช้ .............. ในการพันธนาการ</label>
+                            </div>
+                            <div class="mb-3">
+                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <input class="form-check-input" type="radio" name="danger" id="danger" value="option2" />
+                            <label class="form-check-label" for="danger">มีผู้บาดเจ็บ
+                            </label>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <input class="form-check-input" type="radio" name="danger" id="danger" value="option2" />
+                            <label class="form-check-label" for="danger">มีผู้เสียชีวิต
+                            </label>
+                          </div>
+
+
+
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <p class="fw-bold" style="color:#3b4056;font-size: 16px;">ลักษณะ/ตำแหน่ง/จำนวนของบาดแผล</p>
+                            <input id="injury_details" name="injury_details" class="form-control form-control-sm" type="text"
+                              placeholder="ระบุลักษณะ/ตำแหน่ง/จำนวนของบาดแผล" />
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="fw-bold" style="color:#3b4056;font-size: 16px;">สภาพร่องรอยและตำแหน่งที่ตรวจพบ</p>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div id="dynamic-fields-container">
+                              <div class="dynamic-fields-set mb-3">
+
+                              <div class="mb-3">
+                                <label for="" class="form-label" style="font-size: 16px">บริเวณ</label>
+                                <input id="trace_area_1" name="trace_area_1" class="form-control form-control-sm" type="text" placeholder="ระบุ บริเวณ" />
+                              </div>
+                              <div class="mb-3">
+                                <label for="" class="form-label" style="font-size: 16px">ทางเข้าของคนร้าย</label>
+                                <input id="intruder_entry_1" name="intruder_entry_1" class="form-control form-control-sm" type="text"
+                                  placeholder="ระบุ ทางเข้าของคนร้าย" />
+                              </div>
+                              <div class="mb-3">
+                                <label for="" class="form-label" style="font-size: 16px">รอยงัด</label>
+                                <input id="pry_marks_1" name="pry_marks_1" class="form-control form-control-sm" type="text" placeholder="ระบุ รอยงัด" />
+                              </div>
+                              <div class="mb-3">
+                                <label for="" class="form-label" style="font-size: 16px">ร่องรอยรื้อค้น</label>
+                                <input id="search_traces_1" name="search_traces_1" class="form-control form-control-sm" type="text"
+                                  placeholder="ระบุ ร่องรอยรื้อค้น" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="mb-3">
+                              <label for="stolen_property" class="form-label" style="font-size: 16px">ทรัพย์สินถูกโจรกรรม</label>
+                              <textarea id="stolen_property" name="stolen_property" class="form-control form-control-sm" type="text"
+                                placeholder="ระบุ ทรัพย์สินที่ถูกโจรกรรม" rows="5"></textarea>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;font-weight:bold;">วัตถุพยานที่ตรวจสอบ</label>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="blood_like_stain" class="form-label" style="font-size: 16px;">คราบสีแดงคล้ายโลหิต</label>
+                            <textarea id="blood_like_stain" name="blood_like_stain" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุคราบสีแดงคล้ายโลหิต"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;font-weight: bold;">ทดสอบด้วยชุดทดสอบคราบโลหิจเบื้องต้น</label>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <label class="form-check-label fw-bold">Hemastix</label>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="hemastix_color_change_green_blue" name="hemastix_color_change_green_blue" />
+                              <label class="form-check-label">เกิดการเปลี่ยนแปลงเป็นสีเขียวแกมน้ำเงิน</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="hemastix_no_change" name="hemastix_no_change" />
+                              <label class="form-check-label">ไม่เกิดการเปลี่ยนแปลง</label>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <label class="form-check-label fw-bold">Phenolphthalein</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="phenolphthalein_color_change_pink" name="phenolphthalein_color_change_pink" />
+                              <label class="form-check-label">เกิดการเปลี่ยนแปลงเป็นสีชมพูทันที</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="phenolphthalein_no_change" name="phenolphthalein_no_change" />
+                              <label class="form-check-label">ไม่เกิดการเปลี่ยนแปลง</label>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="other_evidence" class="form-label" style="font-size: 16px;">วัตถุพยานอื่นๆ</label>
+                            <textarea id="other_evidence" name="other_evidence" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานอื่น ๆ (ถ้ามี)"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="" class="form-label" style="font-size: 16px;font-weight: bold;">
+                              วัตถุพยานที่ตรวจเก็บ/การดำเนินการเกี่ยวกับวัตถุพยานเพื่อส่งตรวจพิสูจน์
+                            </label>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="fingerprint_evidence" class="form-label" style="font-size: 16px;">
+                              วัตถุพยานประเภทลายนิ้วมือ/ฝ่ามือ/ฝ่าเท้าแฝง
+                            </label>
+                            <textarea id="fingerprint_evidence" name="fingerprint_evidence" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทลายนิ้วมือ/ฝ่ามือ/ฝ่าเท้าแฝง"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="dna_evidence" class="form-label" style="font-size: 16px;">
+                              วัตถุพยานประเภทสารพันธุกรรม
+                            </label>
+                            <textarea id="dna_evidence" name="dna_evidence" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทสารพันธุกรรม"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="toolmark_evidence" class="form-label" style="font-size: 16px;">
+                              วัตถุพยานประเภทร่องรอยการตัด (Tookmark)
+                            </label>
+                            <textarea id="toolmark_evidence" name="toolmark_evidence" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทร่องรอยการตัด (Tookmark)"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <label for="other_type_evidence" class="form-label" style="font-size: 16px;">
+                              วัตถุพยานประเภทอื่น ๆ
+                            </label>
+                            <textarea id="other_type_evidence" name="other_type_evidence" class="form-control form-control-sm" rows="5"
+                              placeholder="ระบุวัตถุพยานประเภทอื่น ๆ"></textarea>
+                          </div>
+
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="final_inspection" name="final_inspection" />
+                              <label class="form-check-label">การตรวจสอบครั้งสุดท้าย</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="evidence_collected_complete" name="evidence_collected_complete" />
+                              <label class="form-check-label">ตรวจเก็บพยานครบถ้วน</label>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="scene_photo_and_handover" name="scene_photo_and_handover" />
+                              <label class="form-check-label">
+                                เป็นภาพสถานที่เกิดเหตุ และดำเนินการส่งมอบสถานที่เกิดเหตุให้แก่พนักงานสอบสวน
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="page-8" class="content">
+                        <h5>8. การส่งมอบคืนสถานที่เกิดเหตุ</h5>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                            <div class="form-group">
+                              <label for="" class="form-label" style="font-size: 16px;font-weight: bold;">
+                                วันเวลาที่ทำการตรวจสถานที่เกิดเหตุเสร็จสิ้น
+                              </label>
+                            </div>
+                          </div>
+
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="inspection_completion_date" class="form-label" style="font-size: 16px">วันที่</label>
+                              <input id="inspection_completion_date" name="inspection_completion_date" class="form-control form-control-sm date_picker" type="text" placeholder="" />
+                            </div>
+                          </div>
+
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="inspection_completion_time" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="inspection_completion_time" name="inspection_completion_time" class="form-control form-control-sm timepicker" type="text" placeholder="" />
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <div class="form-group">
+                              <label for="scene_inspection_date" class="form-label" style="font-size: 16px">วันที่ตรวจสถานที่เกิดเหตุ</label>
+                              <input id="scene_inspection_date" name="scene_inspection_date" class="form-control form-control-sm date_picker" type="text" placeholder="วันที่ตรวจสถานที่เกิดเหตุ" />
+                            </div>
+                          </div>
+
+                          <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
+                            <label for="scene_inspection_time" class="form-label" style="font-size: 16px">เวลาประมาณ</label>
+                            <input id="scene_inspection_time" name="scene_inspection_time" class="form-control form-control-sm timepicker" type="text" placeholder="" />
+                          </div>
+
+                          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+                            <div class="form-group">
+                              <label for="photo_code_from" class="form-label" style="font-size: 16px">รหัสภายถ่ายที่</label>
+                              <input id="photo_code_from" name="photo_code_from" class="form-control form-control-sm" type="text" placeholder="ระบุ รหัสภายถ่าย....." />
+                            </div>
+                          </div>
+
+                          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+                            <div class="form-group">
+                              <label for="photo_code_to" class="form-label" style="font-size: 16px">ถึง</label>
+                              <input id="photo_code_to" name="photo_code_to" class="form-control form-control-sm" type="text" placeholder="ถึง....." />
+                            </div>
+                          </div>
+
+                          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mb-3">
+                            <div class="form-group">
+                              <label for="photo_total" class="form-label" style="font-size: 16px">จำนวน</label>
+                              <input id="photo_total" name="photo_total" class="form-control form-control-sm" type="number" placeholder="ระบุ จำนวน" />
+                            </div>
+                          </div>
+
+                          <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-submit">บันทึก</button>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- / Content -->
+          <div class="content-backdrop fade"></div>
+          <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+
+        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+        <div class="drag-target"></div>
+      </div>
+      <!-- / Layout wrapper -->
+
+      <!-- Core JS -->
+      <!-- build:js vendor/js/core.js -->
+      <script src="vendor/libs/jquery/jquery.js"></script>
+      <script src="vendor/libs/popper/popper.js"></script>
+      <script src="vendor/js/bootstrap.js"></script>
+      <script src="vendor/libs/node-waves/node-waves.js"></script>
+      <script src="vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+      <script src="vendor/libs/hammer/hammer.js"></script>
+      <script src="vendor/libs/i18n/i18n.js"></script>
+      <script src="vendor/libs/typeahead-js/typeahead.js"></script>
+      <script src="vendor/js/menu.js"></script>
+
+      <!-- endbuild -->
+
+      <!-- Vendors JS -->
+      <script src="vendor/libs/bs-stepper/bs-stepper.js"></script>
+      <script src="vendor/libs/apex-charts/apexcharts.js"></script>
+      <script src="vendor/libs/swiper/swiper.js"></script>
+
+      <!-- Main JS -->
+      <script src="js/main.js"></script>
+
+      <!-- Page JS -->
+      <script src="js/dashboards-analytics.js"></script>
+      <script src="js/form-wizard-icons.js"></script>
+
+      <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css">
+      <script src="vendor/libs/flatpickr/flatpickr.js"></script>
+      <script src="js/event_common.js"></script>
+      <script src="js/assets.js"></script>
+
+      
+      <script>
+
+        // ผู้เสียชีวิต
+        function Deceased(checkbox) {
+          const deceasedInfoDiv = document.getElementById('deceased-info');
+          deceasedInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        // ผู้บาดเจ็บ
+        function injured(checkbox) {
+          const injuredInfoDiv = document.getElementById('injured-info');
+          injuredInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        // ผู้เสียหาย
+        function victem(checkbox) {
+          const victemInfoDiv = document.getElementById('victem-info');
+          victemInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        // ลักษณะสถานที่เกิดเหตุ
+        function characteristicsOutsite(checkbox) {
+          const characteristicsOutsiteInfoDiv = document.getElementById('characteristics-of-the-scene-info');
+          characteristicsOutsiteInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        function characteristicsInsite(checkbox) {
+          const characteristicsInsiteInfoDiv = document.getElementById('characteristics-of-the-scene-insite-info');
+          characteristicsInsiteInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+      </script>
+
+        <script>
+        
+      </script>
+
+      
+<br/>
+      <br/>
+      <br/>
+
+</body>
+
+</html>

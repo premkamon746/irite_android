@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path=""
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>DataTables - Tables | Materialize - Material Design HTML Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico" />
+    <link href="css/fonts.css"  rel="stylesheet" />
+    <link href="css/css2.css"  rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css" />
+    <!-- Row Group CSS -->
+    <link rel="stylesheet" href="vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
+    <!-- Form Validation -->
+    <link rel="stylesheet" href="vendor/libs/@form-validation/umd/styles/index.min.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="js/config.js"></script>
+  </head>
+
+  <body >
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar" style="padding: 20px;">
+      <div class="layout-container">
+        <!-- Layout container -->
+        <div>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+              <!-- DataTable with Buttons -->
+              <!-- Complex Headers -->
+              <div class="card">
+                <!-- <h5 class="card-header">วัตุพยาน และตำแหน่งที่ตรวจพบ</h5> -->
+                <div class="card-datatable text-nowrap">
+                  <table class="dt-complex-header table table-bordered">
+                    <thead>
+                      <tr>
+                        <th rowspan="2"></th>
+                        <th rowspan="2">ลำดับ</th>
+                        <th rowspan="2">รายการวัตุพยาน</th>
+                        <th rowspan="2">จำนวน</th>
+                        <th rowspan="2">บริเวณที่ตรวจสอบ</th>
+                        <th rowspan="2">ป้ายหมายเลข</th>
+                        <th colspan="2">การบรรจุหีบห่อ</th>
+                        <th rowspan="1">การดำเนินการเกี่ยวกับวัตถุพยาน</th>
+                        <th rowspan="2">Action</th>
+                      </tr>
+                      <tr>
+                        <th>พลาสติก</th>
+                        <th>กระดาษ</th>
+                        <th>3ฃส่งคืน พงส.</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <!--/ Complex Headers -->
+
+              <hr class="my-5" />
+
+            </div>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <!-- / Content -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+
+        <!-- Large Modal -->
+        <div class="modal modal-top fade" id="evidentDelete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel3">ลบข้อมูลวัตถุพยาน</h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                คุณต้องการลบหรือไม่?
+                <input type="hidden" id="deleteHidden" value=""/>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                  ปิด
+                </button>
+                <button type="button" id="deleteEvident" class="btn btn-danger">ลบ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Extra Large Modal -->
+
+              
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js vendor/js/core.js -->
+    <script src="vendor/libs/jquery/jquery.js"></script>
+    <script src="vendor/libs/popper/popper.js"></script>
+    <script src="vendor/js/bootstrap.js"></script>
+    <script src="vendor/libs/node-waves/node-waves.js"></script>
+    <script src="vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/libs/hammer/hammer.js"></script>
+    <script src="vendor/libs/i18n/i18n.js"></script>
+    <script src="vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <!-- Flat Picker -->
+    <script src="vendor/libs/moment/moment.js"></script>
+    <script src="vendor/libs/flatpickr/flatpickr.js"></script>
+    <!-- Form Validation -->
+    <script src="vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Page JS
+    <script src="js/incident.js"></script>-->
+
+    <script>
+      $(function () {
+            
+            var jsonData = "";
+            var jsonObject = [];
+
+            if (typeof Android === "undefined") {
+              jsonObject = [
+                  { uid: 1, seq_no: '1 seq_no', evident: 'evidence', number: 'distance_1',place:"xx", tag_no: 'distance_1', plastic: true,paper:true,return_pks:true,remark:"remark"},
+                  { uid: 2, seq_no: '2 seq_no', evident: 'evidence', number: 'distance_2',place:"xx", tag_no: 'distance_2', plastic: true,paper:true,return_pks:true,remark:"remark"},
+                  { uid: 3, seq_no: '3 seq_no', evident: 'evidence', number: 'distance_3',place:"xx", tag_no: 'distance_3', plastic: true,paper:true,return_pks:true,remark:"remark"}
+              ];
+            }else{
+              jsonData = Android.getJsonData("","get-data","");
+              jsonObject = JSON.parse(jsonData);
+            }
+            //submitForm(jsonObject);
+            
+            var dt_basic_table = $('.dt-complex-header');
+            dt_incident = dt_basic_table.DataTable({
+                data: jsonObject,
+                columns: [
+                  { data: 'uid' },
+                  { data: 'seq_no' },
+                  { "className": "edit-cell",data: 'evident' },
+                  { "className": "edit-cell",data: 'number' },
+                  { "className": "edit-cell", data: 'place' },
+                  { "className": "edit-cell",data: 'tag_no' },
+                  { "className": "checked-cell",data: 'plastic' },
+                  { "className": "checked-cell",data: 'paper' },
+                  { "className": "checked-cell",data: 'return_pks' },
+                  //{ "className": "edit-cell",data: 'remark' },
+                  { data: 'uid' }
+                ],
+                columnDefs: [
+                {
+                    // For Responsive
+                    className: 'control',
+                    orderable: false,
+                    searchable: false,
+                    responsivePriority: 2,
+                    targets: 0,
+                    render: function (data, type, full, meta) {
+                      return '';
+                    }
+                },
+              {
+                // For Checkboxes
+                targets: 1,
+                orderable: false,
+                searchable: false,
+                responsivePriority: 3,
+                checkboxes: true,
+                render: function (data, type, row) {
+                  return '<input type="checkbox" class="dt-checkboxes form-check-input evb"  value="'+row.uid+'">';
+                },
+                checkboxes: {
+                  selectAllRender: '<input type="checkbox" class="form-check-input">'
+                }
+              },
+              {
+                // For Checkboxes
+                targets: 6,
+                orderable: false,
+                searchable: false,
+                responsivePriority: 3,
+                checkboxes: true,
+                render: function (data, type, row) {
+                    var checked = row.plastic ? 'checked' : '';
+                    return '<input type="checkbox" name="plastic" class="dt-checkboxes form-check-input" value="'+row.uid+'" form-check-input" '+checked+'>';
+                  },
+                checkboxes: {
+                  selectAllRender: 'พลาสติก'
+                }
+              },
+              {
+                // For Checkboxes
+                targets: 7,
+                orderable: false,
+                searchable: false,
+                responsivePriority: 3,
+                checkboxes: true,
+                render: function (data, type, row) {
+                    var checked = row.paper ? 'checked' : '';
+                    return '<input type="checkbox" name="paper" class="dt-checkboxes form-check-input" value="'+row.uid+'" form-check-input" '+checked+'>';
+                  },
+                checkboxes: {
+                  selectAllRender: 'กระดาษ'
+                }
+              },
+              {
+                // For Checkboxes
+                targets: 8,
+                orderable: false,
+                searchable: false,
+                responsivePriority: 3,
+                checkboxes: true,
+                render: function (data, type, row) {
+                    // Handle the selected values - can be array, string, or null
+                    let selectedValues = [];
+                    
+                    if (row.return_pks) {
+                        if (Array.isArray(row.return_pks)) {
+                            // If it's already an array
+                            selectedValues = row.return_pks;
+                        } else if (typeof row.return_pks === 'string') {
+                            try {
+                                // Try to parse as JSON first
+                                selectedValues = JSON.parse(row.return_pks);
+                            } catch (e) {
+                                // If not JSON, split by comma or treat as single value
+                                selectedValues = row.return_pks.includes(',') 
+                                    ? row.return_pks.split(',').map(v => v.trim())
+                                    : [row.return_pks];
+                            }
+                        }
+                    }
+                    
+                    // Define available options
+                    const options = [
+                        { value: 'CS', label: 'CS' },
+                        { value: 'LF', label: 'LF' },
+                        { value: 'CO', label: 'CO' },
+                        { value: 'ND', label: 'ND' },
+                        { value: 'CP', label: 'CP' },
+                        { value: 'DE', label: 'DE' },
+                        { value: 'FA', label: 'FA' },
+                        { value: 'NA', label: 'NA' }
+                    ];
+                    
+                    // Generate option elements
+                    const optionElements = options.map(option => {
+                        const isSelected = selectedValues.includes(option.value);
+                        return `<option value="${option.value}" ${isSelected ? "selected" : ""}>${option.label}</option>`;
+                    }).join('');
+                    
+                    return `
+                        <select name="return_pks" class="form-select form-select-sm sent-group" 
+                                data-id="${row.uid}" multiple>
+                            ${optionElements}
+                        </select>
+                    `;
+                },
+
+                checkboxes: {
+                  selectAllRender: 'เลือกกลุ่มงาน'
+                }
+              },
+                {
+                  // Actions
+                  targets: -1,
+                  title: 'Actions',
+                  orderable: false,
+                  searchable: false,
+                  render: function (data, type, full, meta) {
+                    return (
+                      '<button type="button" class="delete-evident btn btn-icon btn-danger btn-fab demo waves-effect waves-light open-modal" ><span class="tf-icons mdi mdi-delete-outline mdi-24px"></span></button>'
+                    );
+                  }
+                }
+                ],
+                order: [[2, 'desc']],
+                dom: '<"card-header flex-column flex-md-row"<"head-label text-center"><"dt-action-buttons text-end pt-3 pt-md-0"B>><"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+                displayLength: 25,
+                lengthMenu: [7, 10, 25, 50, 75, 100],
+                buttons: [
+                      {
+                        text: '<i class="mdi mdi-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Print label</span>',
+                        className: 'print-label btn btn-primary waves-effect waves-light'
+                        /*,
+                        attr: {
+                            'data-bs-toggle': 'modal',
+                            'data-bs-target': '#modalTop'
+                        }*/
+                      }
+                    ],
+                responsive: {
+                  details: {
+                    display: $.fn.dataTable.Responsive.display.modal({
+                      header: function (row) {
+                        var data = row.data();
+                        return 'Details of ' + data['full_name'];
+                      }
+                    }),
+                    type: 'column',
+                    renderer: function (api, rowIdx, columns) {
+                      var data = $.map(columns, function (col, i) {
+                        return col.title !== '' // ? Do not show row in modal popup if title is blank (for check box)
+                          ? '<tr data-dt-row="' +
+                              col.rowIndex +
+                              '" data-dt-column="' +
+                              col.columnIndex +
+                              '">' +
+                              '<td>' +
+                              col.title +
+                              ':' +
+                              '</td> ' +
+                              '<td>' +
+                              col.data +
+                              '</td>' +
+                              '</tr>'
+                          : '';
+                      }).join('');
+
+                      return data ? $('<table class="table"/><tbody />').append(data) : false;
+                    }
+                  }
+                }
+
+            })
+
+            $('div.head-label').html('<h5 class="card-title mb-0">วัตุพยาน และตำแหน่งที่ตรวจพบ</h5>');
+
+            /*var jsonData = Android.getJsonData();
+            create_dt(jsonData)
+            dt_incident.clear();          // Clear existing data
+            dt_incident.rows.add(newData); // Add new data
+            dt_incident.draw(); */
+
+            $('.dt-complex-header tbody').on('click', '.delete-record', function () {
+              dt_basic.row($(this).parents('tr')).remove().draw();
+            });
+
+            //delete
+            $('.dt-complex-header tbody').on('click', '.open-modal', function() {
+              var data = dt_incident.row($(this).parents('tr')).data();
+              $('#deleteHidden').val(data.uid)
+              //$('#evident-id').val('');
+              // Show the modal
+              $('#evidentDelete').modal('show');
+            });
+
+
+
+            $('.dt-complex-header tbody').on('click', 'td.edit-cell', function() {
+                var cell = dt_incident.cell(this);
+
+                if (cell.index().column !== undefined) {
+                    var cellData = cell.data();
+
+                    var input = $('<input type="text" class="form-control">').val(cellData);
+                    $(this).html(input);
+
+                    input.on('blur', function() {
+                        cell.data(input.val()).draw();
+                        var rowData = dt_incident.row(cell.index().row).data();
+                        updateRow(rowData)
+                    });
+
+                    input.on('keypress', function(e) {
+                        if (e.which == 13) { // Enter key pressed
+                            cell.data(input.val()).draw();
+                            var rowData = dt_incident.row(cell.index().row).data();
+                            updateRow(rowData)
+                        }
+                    });
+
+                    input.focus();
+                }
+            });
+
+            $('.dt-complex-header tbody').on('change', 'input.dt-checkboxes', function() {
+                var isChecked = $(this).is(':checked');
+                var rowData = dt_incident.row($(this).closest('tr')).data();
+                var uid =  $(this).val()
+
+                var checkboxName = $(this).attr('name');
+        
+                if (isChecked) {
+                    Android.getJsonData(uid,checkboxName, "1")
+                } else {
+                    
+                    Android.getJsonData(uid,checkboxName, "0")
+                }
+            });
+
+            $('.dt-complex-header tbody').on('change', '.sent-group', function() {
+                  const selectedValues = $(this).val(); // Returns array of selected values
+                  const uid = $(this).data('id');
+                  const selectName = $(this).attr('name');
+                  if (!Array.isArray(selectedValues)) {
+                      selectedValues = [selectedValues];
+                  }
+                  Android.getJsonData(uid, selectName, JSON.stringify(selectedValues));
+                  
+              });
+
+            /*$('.dt-complex-header tbody').on('change', '.sent-group', function() {
+                const $select = $(this);
+                const selectedValue = $select.val();
+                const rowData = dt_incident.row($select.closest('tr')).data();
+                const uid = $select.data('id') || $select.val();  // Prefer `data-id` for consistency
+                const selectName = $select.attr('name');
+
+                //console.log(uid, selectName, selectedValue);
+
+                if (typeof Android !== 'undefined' && Android.getJsonData) {
+                    Android.getJsonData(uid, selectName, selectedValue);
+                } else {
+                    console.warn('Android.getJsonData is not available');
+                }
+            });
+
+            /*$('.dt-complex-header tbody').on('click', 'td.checked-cell', function() {
+                var cell = dt_incident.cell(this);
+
+                if (cell.index().column !== undefined) {
+                    var cellData = cell.data();
+                    console.log(cellData)
+                }
+            });*/
+
+            $('input[name="check-name[]"]:checked').on("click")
+
+
+            //delete
+            $('#deleteEvident').click(function(){
+              var uid = $('#deleteHidden').val()
+              var json = {
+                            uid:uid,
+                            action:"delete"
+                          }
+
+              //console.log(json)
+              submitForm(json)
+              //dt_basic.row($(this).parents('tr')).remove().draw();
+              $('#evidentDelete').modal('hide');
+              updateData();
+            })
+
+            $('.print-label').click(function(){
+                const selectedUIDs = [];
+
+                // Loop through each checkbox in the table body
+                $('.dt-complex-header tbody input.evb:checked').each(function () {
+                    // Get the row DOM element
+                    const $row = $(this).closest('tr');
+
+                    // Get the DataTable row index from the DOM row
+                    const rowData = dt_incident.row($row).data();
+
+                    if (rowData && rowData.uid) {
+                        selectedUIDs.push(rowData.uid);
+                    }
+                });
+
+                
+
+                if (selectedUIDs.length === 0) {
+                    alert("Please select at least one row.");
+                    return;
+                }
+
+                selected = JSON.stringify(selectedUIDs)
+
+               Android.getJsonData("","print",selected);
+            })
+
+
+      })
+    </script>
+
+    <script type="text/javascript">
+        function updateRow(data){
+
+            var json = {
+                evident:data.evidence,
+                evident1:data.distance_1,
+                evident2:data.distance_2,
+                evident3:data.distance_3,
+                evident4:data.distance_4,
+                angle:data.angle,
+                remark:data.remark,
+                action:"update",
+                id:data.uid
+              }
+            submitForm(json)
+
+        }
+
+        function submitForm(jsonObject) {
+          if (typeof Android === "undefined"){
+          }else{
+            Android.submitForm(JSON.stringify(jsonObject));
+          }
+        }
+
+        function updateData() {
+            // Call the Android method to get the current date
+            var jsonData = "";
+            var jsonObject = [];
+           
+
+            if (typeof Android === "undefined") {
+              jsonObject = [
+                  { uid: 1, no: 'sdf', evidence: 'test', distance_1: 'distance_1',distance_2:"xx", distance_3: 'testt', distance_4: 'distance_4',angle:"angle",remark:"remark"},
+                  { uid: 2, no: '1 Architect', evidence: 'evidence', distance_1: 'distance_1',distance_2:"distance_2", distance_3: 'distance_3', distance_4: 'distance_4',angle:"angle",remark:"remark"},
+                  { uid: 3, no: '2 Architect', evidence: 'evidence', distance_1: 'distance_1',distance_2:"distance_2", distance_3: 'distance_3', distance_4: 'distance_4',angle:"angle",remark:"remark"}
+              ];
+            }else{
+              jsonData = Android.getUpdateData();
+              jsonObject = JSON.parse(jsonData);
+            }
+            console.log(jsonObject)
+            dt_incident.clear();
+            dt_incident.rows.add(jsonObject)
+            dt_incident.draw();
+        }
+    </script>
+  </body>
+</html>

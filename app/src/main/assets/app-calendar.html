@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path=""
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Fullcalendar - Apps | Materialize - Material Design HTML Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico" />
+    <link href="css/fonts.css"  rel="stylesheet" />
+    <link href="css/css2.css"  rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="vendor/libs/fullcalendar/fullcalendar.css" />
+    <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="vendor/libs/quill/editor.css" />
+    <link rel="stylesheet" href="vendor/libs/@form-validation/umd/styles/index.min.css" />
+
+    <!-- Page CSS -->
+
+    <link rel="stylesheet" href="vendor/css/pages/app-calendar.css" />
+
+    <!-- Helpers -->
+    <script src="vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="js/config.js"></script>
+
+      <style>
+            .form-control.underline-only {
+              border: none;
+              border-bottom: 2px solid #ccc;
+              border-radius: 0;
+              box-shadow: none;
+              background: transparent;
+              width: 40px;
+              display: inline-block;
+              padding: 0;
+              margin: 0 4px;
+              height: 1em;
+              vertical-align: baseline;
+              font-size: inherit;
+            }
+
+            .form-control.underline-only:focus {
+              border-bottom: 2px solid #007bff;
+              outline: none;
+              box-shadow: none;
+            }
+
+              table td:first-child,
+              table th:first-child {
+                text-align: center;
+                vertical-align: middle;
+              }
+      </style>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+
+        <!-- Layout container -->
+        <div class="layout-page">
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="card app-calendar-wrapper">
+
+                <div class="card-header flex-column flex-md-row" style="display: flex;">
+                <div class="head-label text-left" style=" flex: 1;">
+                  <h5 class="card-title mb-0">ปฏิทินการปฏิบัติงาน</h5>
+                </div>
+                <div class="dt-action-buttons text-end pt-3 pt-md-0" style=" flex: 1;">
+                  <div class="dt-buttons">
+                    <button class="dt-button create-new btn btn-primary waves-effect waves-light" tabindex="0" data-team="1" type="button"><span><i class="mdi mdi-plus me-sm-1" style="margin-bottom: 10px"></i> <span class="d-none d-sm-inline-block">เตรียมความพร้อม ชุดที่ 1</span></span></button> 
+
+                    <button class="dt-button create-new btn btn-primary waves-effect waves-light" tabindex="0" data-team="2" type="button"><span><i class="mdi mdi-plus me-sm-1" style="margin-bottom: 10px"></i> <span class="d-none d-sm-inline-block">เตรียมความพร้อม ชุดที่ 2</span></span></button> 
+                  </div>
+                </div>
+              </div>
+
+                <div class="row g-0">
+                  <!-- Calendar Sidebar -->
+                  <div class="col app-calendar-sidebar border-end" id="app-calendar-sidebar">
+                    <div class="p-3 pb-2 my-sm-0 mb-3">
+                      <div class="d-grid">
+                      </div>
+                    </div>
+                    <div class="p-4">
+                      <!-- inline calendar (flatpicker) -->
+                      <div class="inline-calendar"></div>
+
+                      <hr class="container-m-nx my-4" />
+
+                      <!-- Filter -->
+                      <div class="mb-4">
+                        <small class="text-small text-muted text-uppercase align-middle">Filter</small>
+                      </div>
+
+                      <div class="form-check form-check-secondary mb-3">
+                        <input
+                          class="form-check-input select-all"
+                          type="checkbox" class="check-item"
+                          id="selectAll"
+                          data-value="all"
+                          checked />
+                        <label class="form-check-label" for="selectAll">View All</label>
+                      </div>
+
+
+                      <div class="app-calendar-events-filter">
+                        <div class="form-check form-check-secondary mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox" class="check-item"
+                            id="select-asset"
+                            data-value="พรัพย์"
+                            checked />
+                          <label class="form-check-asset" for="select-asset">พรัพย์</label>
+                        </div>
+
+                        <div class="form-check form-check-danger mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox" class="check-item"
+                            id="select-life"
+                            data-value="ชีวิต"
+                            checked />
+                          <label class="form-check-label" for="select-life">ชีวิต</label>
+                        </div>
+
+                        <div class="form-check form-check-dark mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox" class="check-item"
+                            id="select-fired"
+                            data-value="เพลิงไหม้"
+                            checked />
+                          <label class="form-check-label" for="select-fired">เพลิงไหม้</label>
+                        </div>
+
+                        <div class="form-check form-check-warning mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox" class="check-item"
+                            id="select-bom"
+                            data-value="ระเบิด"
+                            checked />
+                          <label class="form-check-label" for="select-bom">ระเบิด</label>
+
+                        </div>
+                        
+                        <div class="form-check form-check-success mb-3">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox" class="check-item"
+                            id="select-checklist"
+                            data-value="checklist"
+                            checked />
+                          <label class="form-check-label" for="select-checklist">เตรียมความพร้อม</label>
+                        </div>
+                       
+                        <div class="form-check form-check-info">
+                          <input
+                            class="form-check-input input-filter"
+                            type="checkbox" class="check-item"
+                            id="select-etc"
+                            data-value="etc"
+                            checked />
+                          <label class="form-check-label" for="select-etc">ETC</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Calendar Sidebar -->
+
+                  <!-- Calendar & Modal -->
+                  <div class="col app-calendar-content">
+                    <div class="card shadow-none border-0">
+                      <div class="card-body pb-0">
+                        <!-- FullCalendar -->
+                        <div id="calendar"></div>
+                      </div>
+                    </div>
+                    <div class="app-overlay"></div>
+                    <!-- FullCalendar Offcanvas -->
+                    <div
+                      class="offcanvas offcanvas-end event-sidebar"
+                      tabindex="-1"
+                      id="addEventSidebar"
+                      aria-labelledby="addEventSidebarLabel">
+                      <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="addEventSidebarLabel">Add Event</h5>
+                        <button
+                          type="button"
+                          class="btn-close text-reset"
+                          data-bs-dismiss="offcanvas"
+                          aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <form class="event-form pt-0" id="eventForm" onsubmit="return false">
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="eventTitle"
+                              name="eventTitle"
+                              placeholder="Event Title" />
+                            <label for="eventTitle">Title</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <select class="select2 select-event-label form-select" id="eventLabel" name="eventLabel">
+                              <option data-label="danger" value="life" selected>ชีวิต</option>
+                              <option data-label="warning" value="bom" selected>ระเบิด</option>
+                              <option data-label="secondary" value="asset" selected>ทรัพย?</option>
+                              <option data-label="dark" value="fired" selected>เพลงไหม้</option>
+                              <option data-label="success" value="checklist">เตรียมความพร้อม</option>
+                              <option data-label="info" value="ETC">ETC</option>
+                            </select>
+                            <label for="eventLabel">Label</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="eventStartDate"
+                              name="eventStartDate"
+                              placeholder="Start Date" />
+                            <label for="eventStartDate">Start Date</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="eventEndDate"
+                              name="eventEndDate"
+                              placeholder="End Date" />
+                            <label for="eventEndDate">End Date</label>
+                          </div>
+                          <div class="mb-3">
+                            <label class="switch">
+                              <input type="checkbox" class="check-item" class="switch-input allDay-switch" />
+                              <span class="switch-toggle-slider">
+                                <span class="switch-on"></span>
+                                <span class="switch-off"></span>
+                              </span>
+                              <span class="switch-label">All Day</span>
+                            </label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="url"
+                              class="form-control"
+                              id="eventURL"
+                              name="eventURL"
+                              placeholder="https://www.google.com" />
+                            <label for="eventURL">Event URL</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4 select2-primary">
+                            <select
+                              class="select2 select-event-guests form-select"
+                              id="eventGuests"
+                              name="eventGuests"
+                              multiple>
+                              <option data-avatar="1.png" value="Jane Foster">Jane Foster</option>
+                              <option data-avatar="3.png" value="Donna Frank">Donna Frank</option>
+                              <option data-avatar="5.png" value="Gabrielle Robertson">Gabrielle Robertson</option>
+                              <option data-avatar="7.png" value="Lori Spears">Lori Spears</option>
+                              <option data-avatar="9.png" value="Sandy Vega">Sandy Vega</option>
+                              <option data-avatar="11.png" value="Cheryl May">Cheryl May</option>
+                            </select>
+                            <label for="eventGuests">Add Guests</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="eventLocation"
+                              name="eventLocation"
+                              placeholder="Enter Location" />
+                            <label for="eventLocation">Location</label>
+                          </div>
+                          <div class="form-floating form-floating-outline mb-4">
+                            <textarea class="form-control" name="eventDescription" id="eventDescription"></textarea>
+                            <label for="eventDescription">Description</label>
+                          </div>
+                          <div class="mb-3 d-flex justify-content-sm-between justify-content-start my-4 gap-2">
+                            <div class="d-flex">
+                              <button type="submit" class="btn btn-primary btn-add-event me-sm-2 me-1">Add</button>
+                              <button
+                                type="reset"
+                                class="btn btn-outline-secondary btn-cancel me-sm-0 me-1"
+                                data-bs-dismiss="offcanvas">
+                                Cancel
+                              </button>
+                            </div>
+                            <button class="btn btn-outline-danger btn-delete-event d-none">Delete</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Calendar & Modal -->
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+
+      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+      <div class="drag-target"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Large Modal -->
+    <div class="modal modal-top fade" id="checklist" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title  mx-auto" id="exampleModalLabel3">เตรียมความพร้อม</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form id="allForm" method="post" >
+              <input  type="hidden" id="hid" name="hid" />
+              <h4>แบบการตรวจจำนวนและความพร้อมของเจ้าหน้าที่ตรวจสถานที่เกิดเหตุ</h4>
+                <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">ประจําวันที่</label>
+                  <div class="col-sm-9">
+                    <input
+                      type="text"
+                      class="form-control date_picker"
+                      placeholder="YYYY-MM-DD HH:MM"
+                      id="checklist_datetime"
+                      name="create_date"
+                      readonly="readonly"/>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">ทีมตรวจสถานที่เกิดเหตุ ทีมที่</label>
+                  <div class="col-sm-9">
+                    <input  type="number" id="team" name="team" step="1" min="0" class="form-control" readonly="readonly" />
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name"></label>
+                  <div class="col-sm-9">
+                    <div class="form-check form-check-inline mt-3">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="fully"
+                            id="complete"
+                            value="1" 
+                            checked="checked"/>
+                          <label class="form-check-label" for="inlineRadio1">ครบ</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            name="fully"
+                            id="not_complete"
+                            value="0" />
+                          <label class="form-check-label" for="inlineRadio2">ไม่ครบ</label>
+                        </div>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label  class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">หมายเหตุ</label>
+                  <div class="col-sm-9">
+                    <textarea
+                              id="head_remark" name="head_remark"
+                              class="form-control"
+                              aria-describedby="basic-icon-default-message2"></textarea>
+                  </div>
+                </div>
+            <hr class="my-5" />
+            <div class="table-responsive text-nowrap">
+              <h4>แบบการตรวจสภาพรถยนต์ตรวจสถานที่เกิดเหตุ (Crime Scene Investigation Car Checklist)</h4>
+
+              <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">หมายเลขทะเบียน/โล่</label>
+                  <div class="col-sm-9">
+                    <input  type="text"  class="form-control" id="carlicense_no" name="carlicense_no" />
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-3  col-form-label text-sm-end" for="basic-default-name">เลขกิโลเมตรที่</label>
+                  <div class="col-sm-9">
+                    <input  type="number" step="1000" min="0" class="form-control" id="mile" name="mile" />
+                  </div>
+                </div>
+
+                  <table class="clame-Car table table-bordered">
+                    <thead>
+                    <tr>
+                      <th><input type="checkbox" class="checkAll"></th><th></th>
+                      <th>ประเภทรายการ</th>
+                      <th>การแก้ไข</th>
+                      <th>หมายเหตุ</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_electric_battery_checked"></td>
+                      <td>ระบบไฟฟ้าและแบตเตอรี่</td>
+                      <td>-แบตเตอรี่รถน้ํากลั่นแบตเตอรี่<br>-วิทยุสื่อสารประจํารถ</td>
+                      <td><input type="text" name="electric_battery_fix"></td>
+                      <td><input type="text" name="electric_battery_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_tire_checked"></td>
+                      <td>ยาง</td>
+                      <td>-ไฟหน้า-ไฟท้ายไฟเบรก-ไฟเลี้ยวไฟฉุกเฉิน<br>-ไฟวับวาบและสัญญาณไฟ</td>
+                      <td><input type="text" name="tire_fix"></td>
+                      <td><input type="text" name="tire_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_lighting_checked"></td>
+                      <td>ระบบส่องสว่าง</td>
+                      <td>-ไฟหน้า-ไฟท้ายไฟเบรก-ไฟเลี้ยวไฟฉุกเฉิน<br>-ไฟวับวาบและสัญญาณไฟ</td>
+                      <td><input type="text" name="lighting_fix"></td>
+                      <td><input type="text" name="lighting_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_vehicle_condition_checked"></td>
+                      <td>สภาพรถ</td>
+                      <td>-สภาพรถ<br>-กระจกมองข้างกระจกมองหลัง</td>
+                      <td><input type="text" name="vehicle_condition_fix"></td>
+                      <td><input type="text" name="vehicle_condition_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_horn_checked"></td>
+                      <td>แตร</td>
+                      <td>-แตรรถ</td>
+                      <td><input type="text" name="horn_fix"></td>
+                      <td><input type="text" name="horn_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_brake_system_checked"></td>
+                      <td>ระบบเบรก</td>
+                      <td>ระดับปริมาณน้ํามันเบรก ระบบเบรก</td>
+                      <td><input type="text" name="brake_system_fix"></td>
+                      <td><input type="text" name="brake_system_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_wiper_checked"></td>
+                      <td>ใบปัดน้ําฝน</td>
+                      <td>-ใบปัดและน้ําปัดน้ําฝน</td>
+                      <td><input type="text" name="wiper_fix"></td>
+                      <td><input type="text" name="wiper_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_fluids_checked"></td>
+                      <td>ของเหลวต่างๆ</td>
+                      <td>-ปริมาณน้ํามันเชื้อเพลิงหรือแก๊ส/ปริมาณน้ํามันเครื่อง<br>-ระดับปริมาณน้ํามันพวงมาลัยพาวเวอร์น้ําหล่อเย็น หม้อน้ำ</td>
+                      <td><input type="text" name="fluids_fix"></td>
+                      <td><input type="text" name="fluids_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_air_conditioning_checked"></td>
+                      <td>ระบบปรับอากาศ</td>
+                      <td>-เครื่องปรับอากาศภายในรถ</td>
+                      <td><input type="text" name="air_conditioning_fix"></td>
+                      <td><input type="text" name="air_conditioning_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="is_test_drive_checked"></td>
+                      <td>การทดลองขับ</td>
+                      <td></td>
+                      <td><input type="text" name="test_drive_fix"></td>
+                      <td><input type="text" name="test_drive_remark"></td>
+                    </tr>
+                  </table>
+                  <hr class="my-5" />
+              <h4>แบบการตรวจกระเป๋าตรวจสถานที่เกิดเหตุทั่วไป (General Crime Scene Investigation Bag Checklist)</h4>
+                  <table class="clame-Bag table table-bordered">
+                    <thead>
+                    <tr>
+                      <th><input type="checkbox" class="checkAll"></th><th></th>
+                      <th>ประเภทรายการ</th>
+                      <th>การแก้ไข</th>
+                      <th>หมายเหตุ</th>
+                    </tr>
+                    </thead>
+
+                    <tr>
+                        <td><input type="checkbox" class="check-item" name="has_fingerprint_kit"></td>
+                        <td>ชุดอุปกรณ์เก็บลายนิ้วมือ/ฝ่ามือ/ฝ่าเท้า</td>
+                        <td>- ผงฝุ่นดำ 2 ขวด, ผงฝุ่นขาว 1 ขวด, ผงฝุ่นแม่เหล็ก 1 ขวด, ผงฝุ่นอลูมิเนียม 1 ขวด<br>... (รายการอื่น ๆ ตามที่ให้มา)</td>
+                        <td><input type="text" name="fingerprint_kit_fix"></td>
+                        <td><input type="text" name="fingerprint_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_stationery_kit"></td>
+                        <td>ชุดอุปกรณ์เครื่องเขียน</td>
+                        <td>-ปากกาเคมีสีน้ําเงิน/ดํา 1 ด้าม, ปากกาลูกลื่นสีน้ําเงิน 1 ด้าม<br>-กรรไกร 2 เล่ม, มีดคัตเตเตอร์ 1 เล่ม</td>
+                        <td><input type="text" name="stationery_kit_fix"></td>
+                        <td><input type="text" name="stationery_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_impression_casting_kit"></td>
+                        <td>ชุดหล่อรอย</td>
+                        <td>- Microsil, ปูนปาสเตอร์, กรอบอลูมิเนียม, ถ้วยพลาสติก ฯลฯ</td>
+                        <td><input type="text" name="impression_casting_kit_fix"></td>
+                        <td><input type="text" name="impression_casting_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_size_measurement_kit"></td>
+                        <td>ชุดอุปกรณ์วัดขนาด</td>
+                        <td>- สเกลแบบฉาก, สติ๊กเกอร์ตัวเลข ฯลฯ</td>
+                        <td><input type="text" name="size_measurement_kit_fix"></td>
+                        <td><input type="text" name="size_measurement_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_dna_bloodstain_kit"></td>
+                        <td>ชุดตรวจเก็บDNAและทดสอบคราบโลหิต</td>
+                        <td>- สําลีพันก้าน, Hexagon, BlueStar, น้ำกลั่น, Forceps ฯลฯ</td>
+                        <td><input type="text" name="dna_bloodstain_kit_fix"></td>
+                        <td><input type="text" name="dna_bloodstain_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_gunpowder_kit"></td>
+                        <td>ชุดเก็บเขม่าปืน</td>
+                        <td>- 5% Nitric Acid, ถุงซิป, ก้านสําลี</td>
+                        <td><input type="text" name="gunpowder_kit_fix"></td>
+                        <td><input type="text" name="gunpowder_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_explosive_person_kit"></td>
+                        <td>ชุดตรวจเก็บสารระเบิดจากตัวบุคคล</td>
+                        <td>- Alcohol Pads, น้ำกลั่น, ซองเก็บวัตถุพยาน ฯลฯ</td>
+                        <td><input type="text" name="explosive_person_kit_fix"></td>
+                        <td><input type="text" name="explosive_person_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_explosive_object_kit"></td>
+                        <td>ชุดตรวจเก็บสารระเบิดจากวัตถุ</td>
+                        <td>- Acetone, น้ำกลั่น, ผ้าก็อต ฯลฯ</td>
+                        <td><input type="text" name="explosive_object_kit_fix"></td>
+                        <td><input type="text" name="explosive_object_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_evidence_marker_kit"></td>
+                        <td>ชุดระบุตําแหน่งวัตถุพยาน</td>
+                        <td>- ป้ายหมายเลข, วงแหวนครอบวัตถุพยาน ฯลฯ</td>
+                        <td><input type="text" name="evidence_marker_kit_fix"></td>
+                        <td><input type="text" name="evidence_marker_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_packaging_material"></td>
+                        <td>วัสดุหีบห่อ</td>
+                        <td>- ถุงซิป, ถุงพลาสติก, ซองกระดาษ, กระปุก ฯลฯ</td>
+                        <td><input type="text" name="packaging_material_fix"></td>
+                        <td><input type="text" name="packaging_material_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_scene_protection_kit"></td>
+                        <td>ชุดอุปกรณ์ป้องกันสถานที่เกิดเหตุ</td>
+                        <td>- ชุด Tyvex, หน้ากาก, ถุงมือ ฯลฯ</td>
+                        <td><input type="text" name="scene_protection_kit_fix"></td>
+                        <td><input type="text" name="scene_protection_kit_remark"></td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" class="check-item" name="has_evidence_search_kit"></td>
+                        <td>ชุดตรวจค้นหาวัตถุพยาน</td>
+                        <td>- ตะแกรง, แม่เหล็ก, พลั่ว</td>
+                        <td><input type="text" name="evidence_search_kit_fix"></td>
+                        <td><input type="text" name="evidence_search_kit_remark"></td>
+                      </tr>
+
+                  </table>
+                  <hr class="my-5" />
+              <h4>แบบการตรวจสภาพกล้องถ่ายภาพแบบดิจิตอล (Digital Camera Checklist)</h4>
+                  <table class="clame-Camera table table-bordered">
+                    <thead>
+                    <tr>
+                      <th><input type="checkbox" class="checkAll"></th><th></th>
+                      <th>ประเภทรายการ</th>
+                      <th>การแก้ไข</th>
+                      <th>หมายเหตุ</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_camera_and_lens"></td>
+                      <td>ตัวกล้องและเลนส์</td>
+                      <td>- สภาพกล้อง, เลนส์, แฟลช, ความสะอาด</td>
+                      <td><input type="text" name="camera_and_lens_fix"></td>
+                      <td><input type="text" name="camera_and_lens_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_camera_battery"></td>
+                      <td>แบตเตอรี่</td>
+                      <td>- แบตเตอรี่ 1 ชุด, แบตเตอรี่สํารอง</td>
+                      <td><input type="text" name="camera_battery_fix"></td>
+                      <td><input type="text" name="camera_battery_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_camera_accessories"></td>
+                      <td>อุปกรณ์เสริม</td>
+                      <td>- สายกล้อง, ขาตั้งกล้อง, กระเป๋า, เมมโมรี่การ์ด</td>
+                      <td><input type="text" name="camera_accessories_fix"></td>
+                      <td><input type="text" name="camera_accessories_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_memory_card"></td>
+                      <td>เมมโมรี่การ์ด</td>
+                      <td>- นำภาพลงคอมพิวเตอร์แล้วลบภาพ</td>
+                      <td><input type="text" name="memory_card_fix"></td>
+                      <td><input type="text" name="memory_card_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_camera_test"></td>
+                      <td>การทดสอบกล้อง</td>
+                      <td></td>
+                      <td><input type="text" name="camera_test_fix"></td>
+                      <td><input type="text" name="camera_test_remark"></td>
+                    </tr>
+                  </table>
+                  <hr class="my-5" />
+
+              <h4>แบบการตรวจสภาพเครื่องมือตรวจสถานที่เกิดเหตุ(Crime Scene Investigation Equipment Checklist)</h4>
+                  <table class="clame-Equipment table table-bordered">
+                    <thead>
+                    <tr>
+                      <th><input type="checkbox" class="checkAll"></th><th></th>
+                      <th>ประเภทรายการ</th>
+                      <th>การแก้ไข</th>
+                      <th>หมายเหตุ</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_metal_detector"></td>
+                      <td>เครื่องตรวจโลหะ ชุดที่<input type="text" name="has_metal_detector" class="form-control underline-only"></td>
+                      <td>- ตัวเครื่อง, ฟิลเตอร์แว่นตา, แบตเตอรี่</td>
+                      <td><input type="text" name="metal_detector_fix"></td>
+                      <td><input type="text" name="metal_detector_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_poly_light"></td>
+                      <td>POLY LIGHT ชุดที่<input type="text" name="poly_light_set_no" class="form-control underline-only"></td>
+                      <td>- เครื่องลอกลาย, ฟิล์ม, แบตเตอรี่ ฯลฯ</td>
+                      <td><input type="text" name="poly_light_fix"></td>
+                      <td><input type="text" name="poly_light_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_dust_lifter"></td>
+                      <td>เครื่องลอกลายฝุ่น ชุดที่<input type="text" name="dust_lifter_set_no" class="form-control underline-only"></td>
+                      <td>- ตัวเครื่อง, แบตเตอรี่</td>
+                      <td><input type="text" name="dust_lifter_fix"></td>
+                      <td><input type="text" name="dust_lifter_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_laser_distance_meter"></td>
+                      <td>เครื่องวัดระยะด้วยเลเซอร์ ชุดที่<input type="text" name="laser_distance_meter_set_no" class="form-control underline-only"></td>
+                      <td>- ไฟฉาย, แบตเตอรี่</td>
+                      <td><input type="text" name="laser_distance_meter_fix"></td>
+                      <td><input type="text" name="laser_distance_meter_remark"></td>
+                    </tr>
+                    <tr>
+                      <td><input type="checkbox" class="check-item" name="has_flashlight"></td>
+                      <td>ไฟฉายส่องสว่างแรงสูง ชุดที่<input type="text" name="flashlight_set_no" class="form-control underline-only"></td>
+                      <td>ลงชื่อ<input type="text" name="flashlight_officer" style="width: 200px;" class="form-control underline-only"> <br/>เจ้าหน้าที่ตรวจสถานที่เกิดเหตุ</td>
+                      <td><input type="text" name="flashlight_fix"></td>
+                      <td><input type="text" name="flashlight_remark"></td>
+                    </tr>
+                  </table>
+                  <hr class="my-5" />
+
+              </div>
+              <input type="hidden" id="selectedCheckboxes" name="selectedCheckboxes">
+            </form>
+          </div>
+          <div class="modal-footer">
+                  <div class="row">
+                      <div class="col-6 d-flex justify-content-end">
+                          <button type="button" class="btn btn-secondary float-right" data-bs-dismiss="modal" aria-label="Close">ปิด</button>
+                      </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- Extra Large Modal -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="vendor/libs/jquery/jquery.js"></script>
+    <script src="vendor/libs/popper/popper.js"></script>
+    <script src="vendor/js/bootstrap.js"></script>
+    <script src="vendor/libs/node-waves/node-waves.js"></script>
+    <script src="vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/libs/hammer/hammer.js"></script>
+    <script src="vendor/libs/i18n/i18n.js"></script>
+    <script src="vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <script src="vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+
+    <!-- Vendors JS -->
+    <script src="vendor/libs/fullcalendar/fullcalendar.js"></script>
+    <script src="vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+    <script src="vendor/libs/select2/select2.js"></script>
+    <script src="vendor/libs/flatpickr/flatpickr.js"></script>
+    <script src="vendor/libs/moment/moment.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+    
+    <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css">
+    <script src="vendor/libs/flatpickr/flatpickr.js"></script>
+    <script src="js/forms-pickers.js"></script>
+    <script src="js/event_common.js"></script>
+
+    <!-- Page JS -->
+    <!--<script src="js/app-calendar-events.js"></script>-->
+    <script>
+
+      function fillFormFromJson(formSelector, data) {
+        for (const key in data) {
+          const value = data[key];
+          const $field = $(`${formSelector} [name="${key}"]`);
+          
+          if ($field.length) {
+            if ($field.attr('type') === 'checkbox') {
+              console.log(value)
+              console.log(value === true)
+              $field.prop('checked', value === true);
+            } else {
+              $field.val(value);
+            }
+          }
+        }
+      }
+
+
+        let events = []
+        jsonObject = {}
+        if(isMobileDevice()){
+          jsonData = Android.getJsonData("","getEvent","");
+          jsonObject = JSON.parse(jsonData);
+        }
+
+         $.each(jsonObject, function(key, value) {
+
+          let dateString = value.create_date; // dd/mm/yyyy
+          let parts = dateString.split("/"); // [02, 05, 2025]
+
+          let date = new Date(parts[2], parts[1] - 1, parts[0]); // new Date(year, monthIndex, day)
+
+            item = {
+                    id: value.uid,
+                    url: '',
+                    title: value.report_type,
+                    start: date,
+                    end: date,
+                    allDay: true,
+                    extendedProps: {
+                      calendar: value.report_type
+                    }
+                  }
+            events.push(item)
+          }
+         )
+
+         jsonObject = {}
+
+          if(isMobileDevice()){
+            jsonData = Android.getJsonData("","getChecklist","");
+            jsonObject = JSON.parse(jsonData);
+          }else{
+            jsonObject = [{"carlicense_no":"","create_date":"03/06/2025","flashlight_fix":"","flashlight_officer":"","flashlight_remark":"","fully":false,"has_camera_accessories":false,"has_camera_and_lens":false,"has_camera_battery":false,"has_camera_test":false,"has_dna_bloodstain_kit":false,"has_dust_lifter":false,"has_evidence_marker_kit":false,"has_evidence_search_kit":false,"has_explosive_object_kit":false,"has_explosive_person_kit":false,"has_fingerprint_kit":false,"has_flashlight":false,"has_gunpowder_kit":false,"has_impression_casting_kit":false,"has_laser_distance_meter":false,"has_memory_card":false,"has_metal_detector":false,"has_packaging_material":false,"has_poly_light":false,"has_scene_protection_kit":false,"has_size_measurement_kit":false,"has_stationery_kit":false,"head_remark":"","is_air_conditioning_checked":false,"is_brake_system_checked":false,"is_electric_battery_checked":false,"is_fluids_checked":false,"is_horn_checked":false,"is_lighting_checked":false,"is_test_drive_checked":false,"is_tire_checked":false,"is_vehicle_condition_checked":false,"is_wiper_checked":false,"team":1,"uid":1,"createdat":1748941656168,"issynced":false,"refkey":"dfa61ddb-9176-4649-9837-6e7dfa89af8e-1748941656170"}]
+        }
+           $.each(jsonObject, function(key, value) {
+              const [day, month, year] = value.create_date.split("/").map(Number);
+              const date = new Date(year, month - 1, day); 
+
+              item = {
+                      id: value.uid,
+                      url: '',
+                      title: "เช็คลิส ชุดที่ "+value.team,
+                      start: date,
+                      end: date,
+                      team: value.team,
+                      allDay: true,
+                      extendedProps: {
+                        calendar: 'checklist'
+                      }
+                    }
+              events.push(item)
+            })
+
+           //let jsonString = JSON.stringify(events);
+           //console.log(jsonString);
+
+        eventClickFromHtml = function (info) {
+          ev = info.event;
+          if(isMobileDevice()){
+            if(ev.extendedProps.calendar != "checklist"){
+              Android.getJsonData("","loadReport",ev.id);
+            }else{
+              id = ev.id
+              jsonData = Android.getJsonData("","retrieveChecklist",ev.id);
+              jsonObject = JSON.parse(jsonData);
+              fillFormFromJson("#checklist-form",jsonObject)
+              $('#checklist').modal('show');
+            }
+          }else{
+              id = ev.id
+              console.log(id)
+              //jsonObject = JSON.parse(jsonData);
+              $('#checklist').modal('show');
+          }
+        }
+      
+        $(function () {
+
+          $('.create-new').on('click', function() {
+                var jsonData = {};
+                jsonData["button"] = "add-checklist";
+                jsonData["team"] = team = $(this).data("team");
+                $("#team").val(team)
+                $('#checklist').modal('show');
+          })   
+              
+
+          $('.sublimt-form').on('click', function(event) {
+              $('#selectedCheckboxes').val("");
+              /**/var selected = [];
+              $('input[name="check-name[]"]:checked').each(function() {
+                  selected.push($(this).val());
+              });
+
+              $('#selectedCheckboxes').val(selected.join(','));
+              //console.log("data---"+$('#selectedCheckboxes').val())
+              
+              var formData = $("#checklist-form").serializeArray(); // Get form data as an array of objects
+              var jsonData = {};
+
+              $.each(formData, function() {
+                  jsonData[this.name] = this.value; // Convert to JSON format
+              });
+
+              jsonData["button"] = "update-checklist";
+              
+              $('#add-incident').modal('hide');
+              submitForm(jsonData)
+              $('#checklist').modal('hide');
+              //console.log(JSON.stringify(jsonData)); // Display the JSON data in the console
+          });
+
+          $('.checkAll').on('change', function () {
+              $(this).closest('table').find('.check-item').prop('checked', this.checked);
+            });
+               
+        })
+       
+    </script>
+
+    <script src="js/app-calendar.js"></script>
+  </body>
+</html>

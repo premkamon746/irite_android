@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Fullscreen MapView -->
+    <org.mapsforge.map.android.view.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true" />
+
+    <!-- Overlay UI on the right -->
+    <LinearLayout
+        android:id="@+id/overlayControls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_gravity="end|top"
+        android:background="#AAFFFFFF"
+    android:elevation="8dp">
+
+    <EditText
+        android:id="@+id/etLatitude"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Latitude"
+        android:inputType="numberDecimal"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/etLongitude"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Longitude"
+        android:inputType="numberDecimal"
+        android:textColor="#000000"/>
+
+    <Button
+        android:id="@+id/btnSetMarker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="เซ็ตตำแหน่ง" />
+    <Button
+        android:id="@+id/currentLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ตำแหน่งปัจจุบัน" />
+
+    <Button
+        android:id="@+id/btnSaveLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="บันทึก" />
+</LinearLayout>
+    </FrameLayout>

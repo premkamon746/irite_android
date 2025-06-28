@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path=""
+  data-template="vertical-menu-template">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>DataTables - Tables | Materialize - Material Design HTML Admin Template</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico" />
+    <link href="css/fonts.css"  rel="stylesheet" />
+    <link href="css/css2.css"  rel="stylesheet" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="vendor/fonts/flag-icons.css" />
+
+    <!-- Menu waves for no-customizer fix -->
+    <link rel="stylesheet" href="vendor/libs/node-waves/node-waves.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css" />
+    <!-- Row Group CSS -->
+    <link rel="stylesheet" href="vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
+    <!-- Form Validation -->
+    <link rel="stylesheet" href="vendor/libs/@form-validation/umd/styles/index.min.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="js/config.js"></script>
+  </head>
+
+  <body >
+    <!-- Layout wrapper -->
+     <form id="event-report-form">
+          <div class="modal-header">
+            <button type="submit" class="sublimt-form btn btn-primary btn-toggle-sidebar" id="leftButton">บันทึก</button>
+            <h1 class="modal-title  mx-auto" id="exampleModalLabel3">เก็บหลักฐานทรัพย์</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body ">
+              <div class="tab-pane card-body" id="form-tabs-personal" role="tabpanel">
+                <div class="card">
+                <div class="card-body">
+                  
+                      <input type="hidden" id="updateHidden"/>
+                            <div class="row g-3">
+
+                              <h4>1. การรับแจ้งเหตุ</h4>
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <label class="col-sm-2 col-form-label text-sm-end">คดี</label>
+                                  <div class="col-sm-10">
+                                      <div class="form-check mt-2 ">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          value="ทรัพย์" 
+                                          checked="checked"/>
+                                        <label class="form-check-label" for="inlineRadio1">ลักทรัพย์</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          
+                                          value="ชีวิต" />
+                                        <label class="form-check-label" >ชิงทรัพย์</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          
+                                          value="ระเบิด" />
+                                        <label class="form-check-label" >ปล้นทรัพย์</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          id="inlineRadio1"
+                                          value="อื่น ๆ" />
+                                        <label class="form-check-label" for="inlineRadio1">อื่น ๆ</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <textarea
+                                          id="report_type_other"
+                                          name="report_type_other"
+                                          class="form-control"
+                                          placeholder="อื่น ๆ ระบุ"
+                                          aria-describedby="basic-icon-default-message2"></textarea>
+                                      </div>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end" 
+                                    >วันที่ เวลาโดยประมาณ</label
+                                  >
+                                  <div class="col-sm-8">
+                                    <input
+                                        type="text"
+                                        name="create_datetime"
+                                        class="form-control"
+                                        id="incident_create_datetime" />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <label class="col-sm-2 col-form-label text-sm-end" 
+                                    >การรับแจ้ง</label
+                                  >
+                                  <div class="col-sm-10">
+                                      <div class="form-check mt-2 ">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_channel"
+                                          value="ทางหนังสือ" 
+                                          checked="checked"/>
+                                        <label class="form-check-label" for="inlineRadio1">ทางหนังสือ</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_channel"
+                                          
+                                          value="ทางโทรศัพท์" />
+                                        <label class="form-check-label" >ทางโทรศัพท์</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_channel"
+                                          
+                                          value="วิทยุสื่อสาร" />
+                                        <label class="form-check-label" >วิทยุสื่อสาร</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_channel"
+                                          value="อื่น ๆ" />
+                                        <label class="form-check-label" for="inlineRadio1">อื่น ๆ</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <textarea
+                                          id="report_channel_other"
+                                          name="report_channel_other"
+                                          class="form-control"
+                                          placeholder="อื่น ๆ ระบุ"
+                                          aria-describedby="basic-icon-default-message2"></textarea>
+                                      </div>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                               <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end"
+                                    >ที่</label
+                                  >
+                                  <div class="col-sm-8">
+                                    <input type="text" id="head" name="head" class="form-control"/>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end"
+                                    >ลง</label
+                                  >
+                                  <div class="col-sm-8">
+                                    <input type="text" id="report_number" name="report_number" class="form-control" readonly="readonly" />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end"
+                                    >พนักงานสอบสวน</label
+                                  >
+                                  <div class="col-sm-8">
+                                    <input type="text" id="head" name="head" class="form-control"/>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end"
+                                    >หมายเลขโทรศัพท์</label
+                                  >
+                                  <div class="col-sm-8">
+                                    <input type="text" id="head" name="head" class="form-control"/>
+                                  </div>
+                                  </div>
+                                </div>
+
+
+
+                              <h4>2. สถานที่เกิดเหตุ</h4>
+
+
+                             
+
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end"
+                                    >สถานที่เกิดเหตุ</label>
+                                  <div class="col-sm-8">
+                                    <input type="text" id="head" name="head" class="form-control"/>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              
+
+
+                              
+
+                              <div class="col-md-6">
+                              </div>
+
+
+                              
+                              
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <label class="col-sm-2 col-form-label text-sm-end">เหตุที่รับแจ้ง</label>
+                                  <div class="col-sm-10">
+                                      <div class="form-check mt-2 ">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          value="ทรัพย์" 
+                                          checked="checked"/>
+                                        <label class="form-check-label" for="inlineRadio1">ทรัพย์</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          
+                                          value="ชีวิต" />
+                                        <label class="form-check-label" >ชีวิต</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          
+                                          value="ระเบิด" />
+                                        <label class="form-check-label" >ระเบิด</label>
+                                      </div>
+                                       <div class="form-check mt-2 ">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          value="เพลิงไหม้" />
+                                        <label class="form-check-label" for="inlineRadio1">เพลิงไหม้</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          
+                                          value="จราจร" />
+                                        <label class="form-check-label" >จราจร</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          
+                                          value="ตรวจเก็บวัตถุพยาน" />
+                                        <label class="form-check-label" >ตรวจเก็บวัตถุพยาน</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input
+                                          class="form-check-input"
+                                          type="radio"
+                                          name="report_type"
+                                          id="inlineRadio1"
+                                          value="อื่น ๆ" />
+                                        <label class="form-check-label" for="inlineRadio1">อื่น ๆ</label>
+                                      </div>
+                                      <div class="form-check">
+                                        <textarea
+                                          id="report_type_other"
+                                          name="report_type_other"
+                                          class="form-control"
+                                          placeholder="อื่น ๆ ระบุ"
+                                          aria-describedby="basic-icon-default-message2"></textarea>
+                                      </div>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <label class="col-sm-2 col-form-label text-sm-end" 
+                                    >สถานที่เกิดเหตุ</label
+                                  >
+                                  <div class="col-sm-10">
+                                    <input type="text" id="report_place" name="report_place" class="form-control"/>
+                                </div>
+                              </div>
+                            </div>
+
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <label class="col-sm-2 col-form-label text-sm-end">สถานที่เกิดเหตุ จังหวัด</label>
+                                  <div class="col-sm-10">
+                                    <!--<select id="report_province"  name="report_province" class="select2 form-select" data-allow-clear="true">
+                                      <option value="">เลือกจังหวัด</option>
+                                      <option value="ยะลา">ยะลา</option>
+                                      <option value="ปัตตานี">ปัตตานี</option>
+                                      <option value="นราธิวาส">นราธิวาส</option>
+                                    </select> -->
+
+                                    <input
+                                        class="form-control"
+                                        list="provinceOptions"
+                                        id="report_province"
+                                        name="report_province"
+                                        placeholder="Type to search..." />
+                                      <datalist id="provinceOptions">
+                                        <option value="ยะลา">ยะลา</option>
+                                        <option value="ปัตตานี">ปัตตานี</option>
+                                        <option value="นราธิวาส">นราธิวาส</option>
+                                      </datalist>
+
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <label class="col-sm-2 col-form-label text-sm-end" >สถานที่เกิดเหตุ อำเภอ</label>
+                                  <div class="col-sm-10">
+                                    <!--<select id="report_distinct"  name="report_distinct"  class="select2 form-select" data-allow-clear="true">
+                                      <option value="">เลือกอำเภอ</option>
+                                    </select>-->
+
+                                    <input
+                                        class="form-control"
+                                        list="distinctOptions"
+                                        id="report_distinct"
+                                        name="report_distinct"
+                                        placeholder="Type to search..." />
+                                      <datalist id="distinctOptions">
+                                      </datalist>
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <label class="col-sm-2 col-form-label text-sm-end" 
+                                    >วัน เวลา ผู้เสียหายทราบเหตุ/เกิดเหตุ/พงส.ทราบเหตุ</label
+                                  >
+                                  <div class="col-sm-10">
+                                    <input
+                                        type="text"
+                                        name="report_known_datetime"
+                                        class="form-control"
+                                        placeholder="YYYY-MM-DD HH:MM"
+                                        id="incident_report_known_datetime" />
+                                  </div>
+                                </div>
+                              </div>
+
+
+
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <label class="col-sm-2 col-form-label text-sm-end" 
+                                    >ข้อมูลเบื้องต้น</label
+                                  >
+                                  <div class="col-sm-10">
+                                    <textarea
+                                          id="report_preinfo"
+                                          name="report_preinfo"
+                                          class="form-control"
+                                          placeholder="อื่น ๆ ระบุ"
+                                          aria-describedby="basic-icon-default-message2"></textarea>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end"
+                                    >พนักงานสอบสวน</label
+                                  >
+                                  <div class="col-sm-8">
+                                    <input type="text" id="report_officer" name="report_officer" class="form-control"/>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end">เบอร์โทรศัพท์ติดต่อ</label>
+                                  <div class="col-sm-8">
+                                    <input type="text" id="report_officer_contact_no" name="report_officer_contact_no" class="form-control" />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end"
+                                    >ผู้เสียหาย</label
+                                  >
+                                  <div class="col-sm-8">
+                                    <input type="text" id="report_sufferer" name="report_sufferer" class="form-control"/>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="row">
+                                  <label class="col-sm-4 col-form-label text-sm-end" 
+                                    >เบอร์โทรศัพท์ติดต่อ</label
+                                  >
+                                  <div class="col-sm-8">
+                                    <input type="text" id="report_sufferer_contact_no" name="report_sufferer_contact_no" class="form-control" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                </div>
+              </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+                  <div class="row">
+                      <div class="col-6">
+                          <button type="submit" class="btn btn-primary me-sm-3 me-1">บันทึก</button>
+                      </div>
+                      <div class="col-6 d-flex justify-content-end">
+                          <button type="button" class="btn btn-secondary float-right" data-bs-dismiss="modal" aria-label="Close">ยกเลิก</button>
+                      </div>
+                  </div>
+          </div>
+        </form>
+    <!-- / modal incident form -->
+
+
+    <!-- / Layout wrapper -->
+
+
+    <!-- Core JS -->
+    <!-- build:js vendor/js/core.js -->
+    <script src="vendor/libs/jquery/jquery.js"></script>
+    <script src="vendor/libs/popper/popper.js"></script>
+    <script src="vendor/js/bootstrap.js"></script>
+    <script src="vendor/libs/node-waves/node-waves.js"></script>
+    <script src="vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/libs/hammer/hammer.js"></script>
+    <script src="vendor/libs/i18n/i18n.js"></script>
+    <script src="vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+    <!-- Flat Picker -->
+    <script src="vendor/libs/moment/moment.js"></script>
+    <script src="vendor/libs/flatpickr/flatpickr.js"></script>
+    <!-- Form Validation -->
+    <script src="vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+
+    <script src="vendor/libs/jquery-timepicker/jquery-timepicker.js"></script>
+    <script src="vendor/libs/pickr/pickr.js"></script>
+    <script src="js/forms-pickers.js"></script>
+    <script src="js/datalist.polyfill.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <!-- Page JS
+    <script src="js/incident.js"></script>-->
+    <script>
+      $(function () {
+            
+            var jsonData = [];
+            var jsonObject = [];
+
+            if (typeof Android === "undefined") {
+              jsonObject = [
+                  { uid: 1, head: 'System Architect', report_number: 'Edinburgh',report_type: 'Edinburgh', report_channel: 'xxxxx',create_datetime:"xxxxxxxx"},
+                  { uid: 2, head: 'System Architect2', report_number: 'Edinburgh2',report_type: 'Edinburgh', report_channel: 'xxxxx2',create_datetime:"xxxxxxxx"},
+                  { uid: 22, head: 'System Architect2', report_number: 'Edinburgh2',report_type: 'Edinburgh', report_channel: 'xxxxx2',create_datetime:"xxxxxxxx"}
+              ];
+            }else{
+              jsonData = Android.getJsonData("","getDataTable","");
+              jsonObject = JSON.parse(jsonData);
+            }
+            console.log(jsonData)
+
+            //submitForm(jsonObject);
+            
+            var dt_basic_table = $('.datatables-basic');
+            dt_incident = dt_basic_table.DataTable({
+                data: jsonObject,
+                columns: [
+                  { data: 'uid' },
+                  { "width": "5%",data: 'head' },
+                  { "width": "10%",data: 'report_number' },
+                  { "width": "20%",data: 'report_channel' },
+                  { "width": "20%", data: 'report_type' },
+                  { "width": "20%",data: 'create_datetime' },
+                  { "width": "30%",data: 'uid' }
+                ],
+                columnDefs: [
+                {
+                    // For Responsive
+                    className: 'control',
+                    orderable: false,
+                    searchable: false,
+                    responsivePriority: 2,
+                    targets: 0,
+                    render: function (data, type, full, meta) {
+                      return '';
+                    }
+                },
+              {
+                // For Checkboxes
+                targets: 1,
+                orderable: false,
+                searchable: false,
+                responsivePriority: 3,
+                checkboxes: true,
+                render: function () {
+                  return '<input type="checkbox" class="dt-checkboxes form-check-input">';
+                },
+                checkboxes: {
+                  selectAllRender: '<input type="checkbox" class="form-check-input">'
+                }
+              },
+                {
+                  responsivePriority: 1,
+                  targets: 4
+                },
+                {
+                  // Actions
+                  targets: -1,
+                  title: 'Actions',
+                  orderable: false,
+                  searchable: false,
+                  render: function (data, type, full, meta) {
+                    return (
+                      '</div>' +
+                      '<button type="button" class="edit-form-report btn btn-icon btn-primary btn-fab demo waves-effect waves-light"><span class="tf-icons mdi mdi-pencil-outline mdi-24px"></span></button>'+
+                      '<button type="button" class="asset-report btn btn-icon btn-primary btn-fab demo waves-effect waves-light"><span class="tf-icons mdi mdi-file-document mdi-24px"></span></button>'+
+                      '<button type="button" class="add-evident btn btn-icon btn-primary btn-fab demo waves-effect waves-light"><span class="tf-icons mdi mdi-tag-plus-outline mdi-24px"></span></button>'+
+                      '<button type="button" class="print-transfer-doc btn btn-icon btn-primary btn-fab demo waves-effect waves-light"><span class="tf-icons mdi mdi-printer-outline mdi-24px"></span></button>'+
+                      '<button type="button" class="delete-incident-doc btn btn-icon btn-danger btn-fab demo waves-effect waves-light"><span class="tf-icons mdi mdi-delete-outline mdi-24px"></span></button>'
+                    );
+                  }
+                }
+                ],
+                order: [[4, 'desc']],
+                dom: '<"card-header flex-column flex-md-row"<"head-label text-center"><"dt-action-buttons text-end pt-3 pt-md-0"B>><"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 d-flex justify-content-center justify-content-md-end"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+                displayLength: 25,
+                lengthMenu: [7, 10, 25, 50, 75, 100],
+                buttons: [
+                      {
+                        text: '<i class="mdi mdi-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">รับแจ้งเหตุ</span>',
+                        className: 'add-incident btn btn-primary waves-effect waves-light'
+                      }
+                    ],
+
+                responsive: {
+                  details: {
+                    display: $.fn.dataTable.Responsive.display.modal({
+                      header: function (row) {
+                        var data = row.data();
+                        return 'Details of ' + data['full_name'];
+                      }
+                    }),
+                    type: 'column',
+                    renderer: function (api, rowIdx, columns) {
+                      var data = $.map(columns, function (col, i) {
+                        return col.title !== '' // ? Do not show row in modal popup if title is blank (for check box)
+                          ? '<tr data-dt-row="' +
+                              col.rowIndex +
+                              '" data-dt-column="' +
+                              col.columnIndex +
+                              '">' +
+                              '<td>' +
+                              col.title +
+                              ':' +
+                              '</td> ' +
+                              '<td>' +
+                              col.data +
+                              '</td>' +
+                              '</tr>'
+                          : '';
+                      }).join('');
+
+                      return data ? $('<table class="table"/><tbody />').append(data) : false;
+                    }
+                  }
+                }
+
+            })
+
+            $('div.head-label').html('<h5 class="card-title mb-0">รายการรับแจ้งเหตุ</h5>');
+
+            $('.datatables-basic tbody').on('click', '.add-evident', function () {
+                var data = dt_incident.row($(this).parents('tr')).data();
+                var json = {
+                    uid:data.uid,
+                    button:"add-evident"
+                }
+                submitForm(json)
+                //reloadDatatable(dt_incident)
+            });
+            
+            $('.datatables-basic tbody').on('click', '.edit-form-report', function () {
+                //$('#event-report-form')[0].reset();
+                var data = dt_incident.row($(this).parents('tr')).data();
+                jsonData = Android.getJsonData(data.uid, "getByID","")
+                jsonObject = JSON.parse(jsonData);
+
+                $.each(jsonObject, function(key, value) {
+                    var fieldObject = $('input[name="' + key + '"]')
+                    if(fieldObject.length === 0){
+                        fieldObject = $('#'+key)
+                    }
+                    var fieldType = fieldObject.prop('type')
+                    if (fieldType == "radio"){
+                        //fieldObject.prop('checked', true);
+                        $("input[name='"+key+"'][value='"+value+"']").prop("checked", true);
+                    }else{
+                        fieldObject.val(value)
+                    }
+                });
+
+                $('#updateHidden').val(data.uid)
+                $('#add-incident').modal('show');
+            });
+
+            //delete
+            $('.datatables-basic  tbody').on('click', '.delete-incident-doc', function() {
+                var data = dt_incident.row($(this).parents('tr')).data();
+                $('#deleteHidden').val(data.uid)
+                $('#incidentDelete').modal('show');
+            });
+
+            //delete
+            $('.datatables-basic  tbody').on('click', '.print-transfer-doc', function() {
+              var data = dt_incident.row($(this).parents('tr')).data();
+              var json = {
+                    uid:data.uid,
+                    button:"print"
+                }
+              submitForm(json)
+            });
+
+            $('.datatables-basic  tbody').on('click', '.asset-report', function() {
+                var data = dt_incident.row($(this).parents('tr')).data();
+                Android.getJsonData("","assets",data.uid);
+            });
+
+
+
+            $('#deleteIncident').click(function(){
+                var uid = $('#deleteHidden').val()
+                var json = {
+                              uid:uid,
+                              button:"delete"
+                            }
+
+                submitForm(json)
+
+                $('#incidentDelete').modal('hide');
+                reloadDatatable(dt_incident)
+            })
+
+
+             //$('#add-incident').modal('show');
+
+             $('.add-incident').click(function(){
+                $('#event-report-form')[0].reset();
+                //document.getElementById('event-report-form').reset()
+                $('#updateHidden').val("")
+                //document.getElementById('myForm').reset()
+                $('#add-incident').modal('show');
+             })
+
+             $('#event-report-form').on('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                var formData = $(this).serializeArray(); // Get form data as an array of objects
+                var jsonData = {};
+
+                $.each(formData, function() {
+                    jsonData[this.name] = this.value; // Convert to JSON format
+                });
+
+                jsonData["button"] = "incidentForm";
+                
+                jsonData["uid"] = $('#updateHidden').val();
+                $('#add-incident').modal('hide');
+                submitForm(jsonData)
+                reloadDatatable(dt_incident)
+                //console.log(JSON.stringify(jsonData)); // Display the JSON data in the console
+            });
+
+             $('#report_province').on('change', function() {
+                  var selectedValue = $(this).val();
+                  //console.log(selectedValue)
+                  jsonData = Android.getJsonData(selectedValue, "getDistinct","")
+                  jsonObject = JSON.parse(jsonData);
+
+                  var selectDistinct = $("#distinctOptions");
+                  selectDistinct.empty(); // Clear old options
+                  $.each(jsonObject, function(key, entry) {
+                      selectDistinct.append($('<option></option>').attr('value', entry.name).text(entry.name));
+                  });
+              });
+
+             var curThaiDate = getCurrentThaiFormattedDate()
+             console.log(curThaiDate)
+             console.log($('#incident_report_known_datetime'))
+
+             const now = new Date();
+              curThaiDate = now.toLocaleString('en-US', {
+                  month: '2-digit',
+                  day: '2-digit',
+                  year: 'numeric',
+                  hour: 'numeric',
+                  minute: 'numeric',
+                  hour12: true
+              });
+
+              console.log(curThaiDate)
+             
+             $('#incident_report_known_datetime').val(curThaiDate)
+             $('#incident_create_datetime').val(curThaiDate)
+
+      })
+
+        
+        function submitForm(jsonObject) {
+            Android.submitForm(JSON.stringify(jsonObject));
+        }
+        function reloadDatatable(dt_incident){
+            setTimeout(function() {
+                jsonData = Android.getJsonData("","getDataTable","");
+                jsonObject = JSON.parse(jsonData);
+                dt_incident.clear().rows.add(jsonObject).draw(); 
+            }, 2000);
+        }
+    </script>
+  </body>
+</html>

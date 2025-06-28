@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <font family="@font/kanit" weight="400" style="normal" name="NotoSerifThai_Semi_Bold">
+        <src resource="@font/NotoSerifThai_SemiCondensed-SemiBold" />
+    </font>
+    <font family="@font/kanit" weight="700" style="bold" name="NotoSerifThai_Bold">
+        <src resource="@font/NotoSerifThai_SemiCondensed-Bold" />
+    </font>
+</resources>

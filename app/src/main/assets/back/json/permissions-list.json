@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Management",
+      "assigned_to": [
+        "Admin"
+      ],
+      "created_date": "14 Apr 2021, 8:43 PM"
+    },
+    {
+      "id": 2,
+      "name": "Approval",
+      "assigned_to": [
+        "Admin"
+      ],
+      "created_date": "16 Sep 2021, 5:20 PM"
+    },
+    {
+      "id": 3,
+      "name": "Add & Remove Users",
+      "assigned_to": [
+        "Admin",
+        "Manager"
+      ],
+      "created_date": "14 Oct 2021, 10:20 AM"
+    },
+    {
+      "id": 4,
+      "name": "Planning",
+      "assigned_to": [
+        "Admin",
+        "Users",
+        "Support"
+      ],
+      "created_date": "14 May 2021, 12:10 PM"
+    }
+  ]
+}

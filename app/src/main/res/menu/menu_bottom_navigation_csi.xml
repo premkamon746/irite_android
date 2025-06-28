@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <!--<item
+        android:id="@+id/fill_form"
+        android:icon="@drawable/ic_format_align_center"
+        android:title="ฟอร์ม" />-->
+
+    <item
+        android:id="@+id/navigation_books"
+        android:icon="@drawable/ic_news"
+        android:title="รับแจ้งเหตุ" />
+
+    <item
+        android:id="@+id/sync"
+        android:icon="@drawable/ic_refresh"
+        android:title="ซิงค์ข้อมูล" />
+
+   <!--<item
+       android:id="@+id/navigation_books2"
+       android:icon="@drawable/ic_news"
+       android:title="รายการ" />
+
+  <item
+       android:id="@+id/navigation_newsstand"
+       android:icon="@drawable/ic_receipt_long"
+       android:title="รายงาน" /> -->
+
+</menu>
