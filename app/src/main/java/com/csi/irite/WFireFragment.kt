@@ -5,10 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.sqlite.db.SimpleSQLiteQuery
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.csi.irite.room.dao.EventReportDao
 import com.csi.irite.room.dao.FireReportDao
 import com.csi.irite.room.data.EventReport
@@ -32,7 +29,7 @@ class WFireFragment : BaseFragment() {
         val view =  inflater.inflate(R.layout.fragment_incident, container, false)
 
         activity?.let {
-            (it as AppCompatActivity).supportActionBar?.title = "เพลงไหม้"
+            (it as AppCompatActivity).supportActionBar?.title = "เพลิงไหม้"
         }
 
         val fireReportDao: FireReportDao = db!!.fireReportDao()
@@ -56,6 +53,7 @@ class WFireFragment : BaseFragment() {
             fireReport.refkey =  SyncIdManager.generateSyncIdWithTimestamp(requireContext())
             fireReport.createdat = System.currentTimeMillis()
             fireReport.updatedat = System.currentTimeMillis()
+            fireReport.uid = System.currentTimeMillis()
             fireReportDao.insertFireReport(fireReport)
         }
 
@@ -84,33 +82,49 @@ class WFireFragment : BaseFragment() {
                 }else if(button == "multiple"){
                     jsonObject.remove("button")
                     jsonObject.entrySet().forEach { (key, value) ->
-                        //Log.d("RawQuery", "key: $key , value: $value")
+                        if (key == "owner_list") return@forEach
+                        var v = ""
+                        try {
+                            if(value.isJsonArray){
+                                v = value.toString()
+                            }else{
+                                v = value.asString
+                            }
+                        } catch (e: Exception) {
+                            v = value.toString()
+                        }
                         val query = buildUpdateQuery("FireReport",
                             id = interConUid,
                             key = key,
-                            value = value.toString()
+                            value = v
                         )
-                        fireReportDao.updateField(query)
-                        Log.d("WebView----+", "key: $key , value: $value")
+                        if (query != null) {
+                            try{
+                                fireReportDao.updateField(query)
+                            }catch (e:Exception){}
+                        }
                     }
 
                     //Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
                 }else if(button == "update_list"){
                     jsonObject.remove("update_list")
+                    //Log.d("WebView----+","xxxxxxx"+jsonObject["data"].asString)
                     val field = jsonObject.get("field").asString.trim()
                     val query = buildUpdateQuery("FireReport",
                         id = interConUid,
                         key = field,
                         value = jsonObject["data"].toString()
                     )
-                    Log.d("json_export", "field "+field+" id:"+interConUid+" ")
-                    fireReportDao.updateField(query)
-                    Log.d("json_export", "field "+query.sql.toString())
-                    Log.d("json_export", jsonObject["data"].toString())
+                    if (query != null) {
+                        try{
+                            fireReportDao.updateField(query)
+                        }catch (e:Exception){}
+                    }
                 }else if(button == "single"){
-                    val query = buildUpdateQuery("FireReport", id = interConUid, key = jsonObject.get("fieldName").toString(), value = jsonObject.get("fieldValue").toString())
-                    val rowsUpdated = fireReportDao.updateField(query)
-                    Log.d("RawQuery", "SQL = ${rowsUpdated}")
+                    val query = buildUpdateQuery("FireReport", id = interConUid, key = jsonObject.get("fieldName").toString(), value = jsonObject.get("fieldValue").asString)
+                    if (query != null) {
+                        val rowsUpdated = fireReportDao.updateField(query)
+                    }
                     //Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
                 }else if (button == "delete") {
                     val evid = jsonObject.get("uid").asLong

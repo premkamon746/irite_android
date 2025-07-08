@@ -19,7 +19,7 @@ function isMobileDevice() {
   return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-function getAllField(id) {
+/*function getAllField(id) {
   let formDataArray = $(id).serializeArray(); // Only checked checkboxes and filled fields
   let formDataConv = formDataArray.filter(field => field.value.trim() !== "");
 
@@ -57,13 +57,81 @@ function getAllField(id) {
   }, {});
 
   return formDataObj;
+}*/
+
+
+function getAllField(id) {
+  const $form = $(id);
+  const formDataArray = $form.serializeArray(); // only non-empty, checked fields
+  const formDataConv = formDataArray.filter(field => field.value.trim() !== "");
+
+  const formDataObj = {};
+
+  // 1. Handle checkboxes (including unchecked ones)
+  const allCheckboxes = $form.find('input[type="checkbox"]');
+  allCheckboxes.each(function () {
+    const name = this.name;
+    const isArrayField = name.endsWith("[]");
+    const key = isArrayField ? name.slice(0, -2) : name;
+    const isChecked = this.checked;
+    const value = this.value;
+
+    // If checked and already handled, skip
+    const alreadyHandled = formDataConv.some(field => field.name === name && field.value === value);
+    if (alreadyHandled) return;
+
+    if (isArrayField) {
+      if (!formDataObj[key]) {
+        formDataObj[key] = [];
+      }
+      if (isChecked) {
+        formDataObj[key].push(value === "on" ? true : value);
+      } else {
+        // optionally handle unchecked if needed (e.g. store as false or skip)
+      }
+    } else {
+      formDataObj[key] = isChecked ? (value === "on" ? true : value) : false;
+    }
+  });
+
+  // 2. Handle all other input fields (text, selects, radios)
+  formDataConv.forEach(({ name, value }) => {
+    const cleanedValue = value === "on" ? true : value;
+    if (name.endsWith("[]")) {
+      const key = name.slice(0, -2);
+      if (!formDataObj[key]) {
+        formDataObj[key] = [];
+      }
+      formDataObj[key].push(cleanedValue);
+    } else {
+      formDataObj[name] = cleanedValue;
+    }
+  });
+
+  // 3. Handle file inputs
+  const fileInputs = $form.find('input[type="file"]');
+  fileInputs.each(function () {
+    const name = this.name;
+    const files = this.files;
+    if (files.length === 1) {
+      formDataObj[name] = files[0]; // Single file
+    } else if (files.length > 1) {
+      formDataObj[name] = Array.from(files); // Multiple files
+    }
+  });
+
+  //console.log(json.stringify(formDataObj))
+  return formDataObj;
 }
+
+
+
 
 var formData = '{"name":"Alice","age":30,"email":"alice@example.com"}';
  if (isMobileDevice()) {
     formData = Android.getJsonData("","getFormData","");
  }
- console.log(formData)
+
  jsonObject = typeof formData === "string" ? JSON.parse(formData) : formData;
 
 
@@ -78,7 +146,7 @@ function saveListData(index, data, ListDataArray, field) {
   if (isMobileDevice()) {
     submitForm(data_send)
   } else {
-    console.log(data_send)
+    //console.log(data_send)
   }
 }
 
@@ -98,6 +166,7 @@ function renderForm(dataList,id,callback) {
   const $container = $(id);
   $container.empty();
   dataList.forEach(data => {
+    //console.log("load data ------"+JSON.stringify(data))
     $container.append(callback(data));
   });
   $container.append(callback()); // เพิ่มบรรทัดว่างไว้ 1 บรรทัด
@@ -163,7 +232,7 @@ $(document).ready(function () {
       if (isMobileDevice()) {
         submitForm(object)
       } else {
-        console.log(object)
+        //console.log(object)
       }
     }
       let timer;
@@ -200,6 +269,7 @@ $(document).ready(function () {
       $('.date_picker').val(formatted);
     });
 
+
     $(document).on('click', '.remove-owner', function () {
       wl = $('.remove-owner').length
       if (wl > 2)
@@ -220,28 +290,6 @@ $(document).ready(function () {
 
           let inputSelector = $('[name="' + key + '"], [name="' + key + '[]"]'); // match both single and array
           let input_type = inputSelector.prop("type");
-          /*if (isJsonArrayString(value) ){
-            try {
-              value = JSON.parse(value);
-            } catch (e) {
-              console.error("Invalid JSON:", e);
-            }
-            $('#owner-list').empty();
-            $.each(value, function(i, val) {
-              $('#owner-list').append(`<div class="d-flex mb-2 align-items-center owner-row">
-                <input class="form-control form-control-sm" type="text" value="${val}" placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" name="owner_list[]"/>
-                <button type="button" class="btn btn-sm btn-danger remove-owner">ลบ</button>
-              </div>
-              `);
-            });
-
-            $('#owner-list').append(`
-                <div class="d-flex mb-2 align-items-center owner-row">
-                <input class="form-control form-control-sm" type="text" placeholder="ระบุผู้ตรวจสถานที่เกิดเหตุ (ถ้ามี)" name="owner_list[]" />
-                <button type="button" class="btn btn-sm btn-danger remove-owner">ลบ</button>
-              </div>
-              `);
-          }else */
           if(input_type == "checkbox")
           {
             try {
@@ -262,6 +310,8 @@ $(document).ready(function () {
           }
           else if(input_type == "text" && $('input[type="text"]:not(.dynamic)'))
           {
+            $('input[name="'+key+'"]').val(stringValue);
+          }else{
             $('input[name="'+key+'"]').val(stringValue);
           }
 
@@ -318,8 +368,7 @@ $(document).ready(function () {
     var owner_list = []
     if (isMobileDevice()) {
       try {
-        
-        owner_list = JSON.parse(jsonObject.owner_list).filter(item => item !== null);
+        owner_list = JSON.parse(jsonObject.owner_list)
       } catch (e) {
          owner_list = []
       } 

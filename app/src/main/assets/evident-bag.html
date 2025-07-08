@@ -233,7 +233,7 @@
                 responsivePriority: 3,
                 checkboxes: true,
                 render: function (data, type, row) {
-                  return '<input type="checkbox" class="dt-checkboxes form-check-input evb"  value="'+row.uid+'">';
+                  return '<input type="checkbox" class="dt-checkboxes form-check-input evb"  value="'+row.uid.toString()+'">';
                 },
                 checkboxes: {
                   selectAllRender: '<input type="checkbox" class="form-check-input">'
@@ -248,7 +248,7 @@
                 checkboxes: true,
                 render: function (data, type, row) {
                     var checked = row.plastic ? 'checked' : '';
-                    return '<input type="checkbox" name="plastic" class="dt-checkboxes form-check-input" value="'+row.uid+'" form-check-input" '+checked+'>';
+                    return '<input type="checkbox" name="plastic" class="dt-checkboxes form-check-input" value="'+row.uid.toString()+'" form-check-input" '+checked+'>';
                   },
                 checkboxes: {
                   selectAllRender: 'พลาสติก'
@@ -263,7 +263,7 @@
                 checkboxes: true,
                 render: function (data, type, row) {
                     var checked = row.paper ? 'checked' : '';
-                    return '<input type="checkbox" name="paper" class="dt-checkboxes form-check-input" value="'+row.uid+'" form-check-input" '+checked+'>';
+                    return '<input type="checkbox" name="paper" class="dt-checkboxes form-check-input" value="'+row.uid.toString()+'" form-check-input" '+checked+'>';
                   },
                 checkboxes: {
                   selectAllRender: 'กระดาษ'
@@ -405,7 +405,7 @@
             //delete
             $('.dt-complex-header tbody').on('click', '.open-modal', function() {
               var data = dt_incident.row($(this).parents('tr')).data();
-              $('#deleteHidden').val(data.uid)
+              $('#deleteHidden').val(data.uid.toString())
               //$('#evident-id').val('');
               // Show the modal
               $('#evidentDelete').modal('show');
@@ -448,10 +448,10 @@
                 var checkboxName = $(this).attr('name');
         
                 if (isChecked) {
-                    Android.getJsonData(uid,checkboxName, "1")
+                    Android.getJsonData(uid.toString(),checkboxName, "1")
                 } else {
                     
-                    Android.getJsonData(uid,checkboxName, "0")
+                    Android.getJsonData(uid.toString(),checkboxName, "0")
                 }
             });
 
@@ -462,7 +462,7 @@
                   if (!Array.isArray(selectedValues)) {
                       selectedValues = [selectedValues];
                   }
-                  Android.getJsonData(uid, selectName, JSON.stringify(selectedValues));
+                  Android.getJsonData(uid.toString(), selectName, JSON.stringify(selectedValues));
                   
               });
 
@@ -473,10 +473,10 @@
                 const uid = $select.data('id') || $select.val();  // Prefer `data-id` for consistency
                 const selectName = $select.attr('name');
 
-                //console.log(uid, selectName, selectedValue);
+                //console.log(uid.toString(), selectName, selectedValue);
 
                 if (typeof Android !== 'undefined' && Android.getJsonData) {
-                    Android.getJsonData(uid, selectName, selectedValue);
+                    Android.getJsonData(uid.toString(), selectName, selectedValue);
                 } else {
                     console.warn('Android.getJsonData is not available');
                 }
@@ -498,7 +498,7 @@
             $('#deleteEvident').click(function(){
               var uid = $('#deleteHidden').val()
               var json = {
-                            uid:uid,
+                            uid:uid.toString(),
                             action:"delete"
                           }
 
@@ -520,8 +520,8 @@
                     // Get the DataTable row index from the DOM row
                     const rowData = dt_incident.row($row).data();
 
-                    if (rowData && rowData.uid) {
-                        selectedUIDs.push(rowData.uid);
+                    if (rowData && rowData.uid.toString()) {
+                        selectedUIDs.push(rowData.uid.toString());
                     }
                 });
 
@@ -543,17 +543,16 @@
 
     <script type="text/javascript">
         function updateRow(data){
-
+            console.log(JSON.stringify(data))
             var json = {
-                evident:data.evidence,
-                evident1:data.distance_1,
-                evident2:data.distance_2,
-                evident3:data.distance_3,
-                evident4:data.distance_4,
-                angle:data.angle,
+                evident:data.evident,
+                evident_id:data.evident_id,
+                number:data.number,
+                paper:data.paper,
+                place:data.place,
                 remark:data.remark,
-                action:"update",
-                id:data.uid
+                tag_no:data.tag_no,
+                action:"update"
               }
             submitForm(json)
 

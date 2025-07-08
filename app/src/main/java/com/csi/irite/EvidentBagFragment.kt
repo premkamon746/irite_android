@@ -22,6 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.sqlite.db.SimpleSQLiteQuery
 import com.csi.irite.BaseFragment
 import com.csi.irite.R
 import com.csi.irite.room.data.EventReport
@@ -73,6 +74,50 @@ class EvidentBagFragment : BaseFragment() {
                 val gson = Gson()
                 val jsonObject: JsonObject = gson.fromJson(it, JsonObject::class.java)
                 val action = jsonObject.get("action").asString.trim()
+
+                if(action == "update") {
+                    jsonObject.remove("action")
+                    var eb = db?.evidentBagDao()
+                    val evident_id = jsonObject.get("evident_id").asString.trim()
+                    jsonObject.remove("evident_id")
+
+                    jsonObject.entrySet().forEach { (key, value) ->
+
+
+                        if (key == "owner_list") return@forEach
+                        var v = ""
+                        try {
+                            if (value.isJsonArray) {
+                                v = value.toString()
+                            } else {
+                                v = value.asString
+                            }
+                        } catch (e: Exception) {
+                            v = value.toString()
+                        }
+
+                        val query = buildUpdateQuery(
+                            "EvidentBag",
+                            id = evident_id.toLong(),
+                            key = key,
+                            value = v,
+                            whereId = "evident_id"
+                        )
+
+                        if (query != null) {
+
+                            Log.d("WebView----",query.sql)
+                            try {
+                                if (eb != null) {
+                                    Log.d("WebView----",value.toString())
+                                    eb.updateField(query)
+                                }
+                            } catch (e: Exception) {
+                            }
+                        }
+                    }
+                }
+
                 return ""
             }
 
@@ -103,6 +148,15 @@ class EvidentBagFragment : BaseFragment() {
                 }else if(func == "return_pks"){
                     Log.d("debug","$ref x $option x $updatedat")
                     eb?.updatePsk(ref.toLong(), option, updatedat)
+                }else if(func == "number"){
+                    Log.d("debug","$ref x $option x $updatedat")
+                    eb?.updateNumber(ref.toLong(), option, updatedat)
+                }else if(func == "place"){
+                    Log.d("debug","$ref x $option x $updatedat")
+                    eb?.updatePlace(ref.toLong(), option, updatedat)
+                }else if(func == "tagno"){
+                    Log.d("debug","$ref x $option x $updatedat")
+                    eb?.updateTagno(ref.toLong(), option, updatedat)
                 }else if(func == "get-data"){
                     var eb = db?.evidentBagDao()
                     val ebs = eb?.getByIds(uid)

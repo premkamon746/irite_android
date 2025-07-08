@@ -9,12 +9,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "EvidentBag")
 data class EvidentBag @RequiresApi(Build.VERSION_CODES.O) constructor(
-    @PrimaryKey(autoGenerate = true) val uid: Long = 0,
+    @PrimaryKey(autoGenerate = true) var uid: Long = 0,
     @ColumnInfo(name = "evident_id") val evident_id: Long?,
     @ColumnInfo(name = "event_report_id") val event_report_id: Long?,
     @ColumnInfo(name = "seq_no") val seq_no: Int?,
     @ColumnInfo(name = "evident") val evident: String = "",
-    @ColumnInfo(name = "number") var number: Int = 0,
+    @ColumnInfo(name = "number") var number: String = "",
     @ColumnInfo(name = "place") var place: String="",
     @ColumnInfo(name = "tag_no") var tag_no: String ="",
     @ColumnInfo(name = "plastic") var plastic: Boolean = false,

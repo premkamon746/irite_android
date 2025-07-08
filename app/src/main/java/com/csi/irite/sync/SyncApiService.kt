@@ -32,7 +32,7 @@ interface SyncApiService {
     @GET("syncdata/assetreport")
     suspend fun downloadAssetReport(): Response<List<AssetReport>>
 
-    // EventReport
+    // bomreport
     @POST("syncdata/bomreport")
     suspend fun uploadBomReport(@Body forms: List<BomReport>): Response<Unit>
     @GET("syncdata/bomreport")

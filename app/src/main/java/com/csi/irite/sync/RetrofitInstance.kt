@@ -1,6 +1,7 @@
 package com.csi.irite.sync
 
 import android.util.Log
+import com.csi.irite.BuildConfig
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -10,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
-    private const val BASE_URL = "http://103.76.181.219:3000/"
+    private const val BASE_URL = "http://${BuildConfig.host}:3000/"
 
     val api: SyncApiService by lazy {
 

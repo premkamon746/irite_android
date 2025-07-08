@@ -672,7 +672,7 @@
             $('.datatables-basic tbody').on('click', '.add-evident', function () {
                 var data = dt_incident.row($(this).parents('tr')).data();
                 var json = {
-                    uid:data.uid,
+                    uid:data.uid.toString(),
                     button:"add-evident"
                 }
                 submitForm(json)
@@ -682,7 +682,7 @@
             $('.datatables-basic tbody').on('click', '.edit-form-report', function () {
                 //$('#event-report-form')[0].reset();
                 var data = dt_incident.row($(this).parents('tr')).data();
-                jsonData = Android.getJsonData(data.uid, "getByID","")
+                jsonData = Android.getJsonData(data.uid.toString(), "getByID","")
                 jsonObject = JSON.parse(jsonData);
 
                 $.each(jsonObject, function(key, value) {
@@ -699,14 +699,14 @@
                     }
                 });
 
-                $('#updateHidden').val(data.uid)
+                $('#updateHidden').val(data.uid.toString())
                 $('#add-incident').modal('show');
             });
 
             //delete
             $('.datatables-basic  tbody').on('click', '.delete-incident-doc', function() {
                 var data = dt_incident.row($(this).parents('tr')).data();
-                $('#deleteHidden').val(data.uid)
+                $('#deleteHidden').val(data.uid.toString())
                 $('#incidentDelete').modal('show');
             });
 
@@ -714,7 +714,7 @@
             $('.datatables-basic  tbody').on('click', '.print-transfer-doc', function() {
               var data = dt_incident.row($(this).parents('tr')).data();
               var json = {
-                    uid:data.uid,
+                    uid:data.uid.toString(),
                     button:"print"
                 }
               submitForm(json)
@@ -722,7 +722,7 @@
 
             $('.datatables-basic  tbody').on('click', '.asset-report', function() {
                 var data = dt_incident.row($(this).parents('tr')).data();
-                Android.getJsonData("","assets",data.uid);
+                Android.getJsonData("","assets",data.uid.toString());
             });
 
 
@@ -730,7 +730,7 @@
             $('#deleteIncident').click(function(){
                 var uid = $('#deleteHidden').val()
                 var json = {
-                              uid:uid,
+                              uid:uid.toString(),
                               button:"delete"
                             }
 

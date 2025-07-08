@@ -37,7 +37,7 @@ let events = [
   {
     id: 3,
     url: '',
-    title: 'เพลงไหม้',
+    title: 'เพลิงไหม้',
     start: date,
     end: nextDay,
     allDay: true,

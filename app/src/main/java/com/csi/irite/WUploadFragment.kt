@@ -3,6 +3,7 @@ package com.csi.irite
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,8 +44,9 @@ class WUploadFragment : BaseFragment() {
                 return true
             }
         }
-
-        webView.loadUrl("http://${BuildConfig.host}:3100/index.html")
+        val url = "http://${BuildConfig.host}:3100/index.html?incident_id=$uid"
+        Log.d("update_file_url", "url ${url}")
+        webView.loadUrl(url)
 
         val itc = object : InterConnect{
 

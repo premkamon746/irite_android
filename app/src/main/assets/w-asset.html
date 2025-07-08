@@ -287,15 +287,15 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                               <div>
                                 <div class="form-check">
-                                  <input type="checkbox" class="form-check-input" id="owner" name="owner" />
+                                  <input type="checkbox" class="form-check-input" id="owner" name="owner[]" value="เจ้าของบ้าน" />
                                   <label class="form-check-label" for="owner">เจ้าของบ้าน</label>
                                 </div>
                                 <div class="form-check">
-                                  <input type="checkbox" class="form-check-input" id="victim" name="victim" />
+                                  <input type="checkbox" class="form-check-input" id="victim" name="owner[]" value="ผู้เสียหาย" />
                                   <label class="form-check-label" for="victim">ผู้เสียหาย</label>
                                 </div>
                                 <div class="form-check">
-                                  <input type="checkbox" class="form-check-input" id="related_other" name="related_other" />
+                                  <input type="checkbox" class="form-check-input" id="related_other" name="owner[]" value="ผู้เกี่ยวข้องอื่น" />
                                   <label class="form-check-label" for="related_other">ผู้เกี่ยวข้องอื่น</label>
                                 </div>
                                 <div class="mb-3">
@@ -581,8 +581,8 @@
                         <div class="row">
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-group">
-                              <label for="caseCircumstances" class="form-label" style="font-size: 16px;font-weight: bold;">พฤติการณ์ของคดี</label>
-                              <textarea id="caseCircumstances" name="caseCircumstances" class="form-control form-control-sm" type="text" placeholder="ระบุพฤติการณ์ของคดี" rows="5"></textarea>
+                              <label for="case_circumstances" class="form-label" style="font-size: 16px;font-weight: bold;">พฤติการณ์ของคดี</label>
+                              <textarea id="case_circumstances" name="case_circumstances" class="form-control form-control-sm" type="text" placeholder="ระบุพฤติการณ์ของคดี" rows="5"></textarea>
                             </div>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
@@ -592,80 +592,81 @@
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-group">
-                              <label for="caseCircumstances" class="form-label" style="font-size: 16px;font-weight: bold;">พฤติการณ์ของคดี</label>
-                              <textarea id="caseCircumstances" name="caseCircumstances" class="form-control form-control-sm" placeholder="ระบุพฤติการณ์ของคดี" rows="5"></textarea>
+                              <label for="case_circumstances" class="form-label" style="font-size: 16px;font-weight: bold;">พฤติการณ์ของคดี</label>
+                              <textarea id="case_circumstances" name="case_circumstances" class="form-control form-control-sm" placeholder="ระบุพฤติการณ์ของคดี" rows="5"></textarea>
                             </div>
                           </div>
 
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-group">
-                              <label for="robberEntry" class="form-label" style="font-size: 16px;font-weight: bold;">ทางเข้าของคนร้าย</label>
+                              <label for="robber_entry" class="form-label" style="font-size: 16px;font-weight: bold;">ทางเข้าของคนร้าย</label>
                             </div>
                           </div>
 
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="noTraces" name="noTraces" />
-                                <label class="form-check-label" for="noTraces">ไม่พบร่อยรอยใดๆ บริเวณสถานที่เกิดเหตุ</label>
+                                <input type="checkbox" class="form-check-input" id="no_traces" name="traces[]" value="ไม่พบร่อยรอยใดๆ บริเวณสถานที่เกิดเหตุ"/>
+                                <label class="form-check-label" for="no_traces">ไม่พบร่อยรอยใดๆ บริเวณสถานที่เกิดเหตุ</label>
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="unlockedDoors" name="unlockedDoors" />
-                                <label class="form-check-label" for="unlockedDoors">ผู้เสียหายไม่ได้ทำการปิดล๋อคประตู/หน้าต่าง</label>
+                                <input type="checkbox" class="form-check-input" id="unlocked_doors" name="traces[]" value="ผู้เสียหายไม่ได้ทำการปิดล๋อคประตู/หน้าต่าง"/>
+                                <label class="form-check-label" for="unlocked_doors">ผู้เสียหายไม่ได้ทำการปิดล๋อคประตู/หน้าต่าง</label>
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="foundTraces" name="foundTraces" />
-                                <label class="form-check-label" for="foundTraces">พบร่องรอย</label>
+                                <input type="checkbox" class="form-check-input" id="found_traces" name="traces[]" value="พบร่องรอย"/>
+                                <label class="form-check-label" for="found_traces">พบร่องรอย</label>
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="breakingIn" name="breakingIn" />
-                                <label class="form-check-label" for="breakingIn">การงัด</label>
+                                <input type="checkbox" class="form-check-input" id="breaking_in" name="traces[]" value="การงัด"/>
+                                <label class="form-check-label" for="breaking_in">การงัด</label>
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="cutting" name="cutting" />
+                                <input type="checkbox" class="form-check-input" id="cutting" name="traces[]" value="การตัด"/>
                                 <label class="form-check-label" for="cutting">การตัด</label>
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="drilling" name="drilling" />
+                                <input type="checkbox" class="form-check-input" id="drilling" name="traces[]" value="การเจาะ"/>
                                 <label class="form-check-label" for="drilling">การเจาะ</label>
                               </div>
                               <div class="form-check">
-                                <label class="form-check-label">ร่อยรอยอื่นๆ.............................................ที่</label>
+                                <label class="form-check-label">ร่อยรอยอื่นๆ</label>
+                                <input id="trace_other_details" name="trace_other_details" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ ประตู" />
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="traceDoor" name="traceDoor" />
-                                <label class="form-check-label" for="traceDoor">ประตู</label>
+                                <input type="checkbox" class="form-check-input" id="trace_door" name="traces[]" value="ประตู" />
+                                <label class="form-check-label" for="trace_door">ประตู</label>
                               </div>
                               <div class="mb-3">
-                                <input id="traceDoorDetails" name="traceDoorDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ ประตู" />
+                                <input id="trace_door_details" name="trace_door_details" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ ประตู" />
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="traceWindow" name="traceWindow" />
-                                <label class="form-check-label" for="traceWindow">หน้าต่าง</label>
+                                <input type="checkbox" class="form-check-input" id="trace_window" name="traces[]" value="หน้าต่าง"/>
+                                <label class="form-check-label" for="trace_window">หน้าต่าง</label>
                               </div>
                               <div class="mb-3">
-                                <input id="traceWindowDetails" name="traceWindowDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ หน้าต่าง" />
+                                <input id="trace_window_details" name="trace_window_details" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ หน้าต่าง" />
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="traceCeiling" name="traceCeiling" />
-                                <label class="form-check-label" for="traceCeiling">ฝ้าเพดาน</label>
+                                <input type="checkbox" class="form-check-input" id="trace_ceiling" name="traces[]" value="ฝ้าเพดาน" />
+                                <label class="form-check-label" for="trace_ceiling">ฝ้าเพดาน</label>
                               </div>
                               <div class="mb-3">
-                                <input id="traceCeilingDetails" name="traceCeilingDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ ฝ้าเพดาน" />
+                                <input id="trace_ceiling_details" name="trace_ceiling_details" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ ฝ้าเพดาน" />
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="traceRoof" name="traceRoof" />
-                                <label class="form-check-label" for="traceRoof">หลังคา</label>
+                                <input type="checkbox" class="form-check-input" id="trace_roof" name="traces[]" value="หลังคา"/>
+                                <label class="form-check-label" for="trace_roof">หลังคา</label>
                               </div>
                               <div class="mb-3">
-                                <input id="traceRoofDetails" name="traceRoofDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ หลังคา" />
+                                <input id="trace_roof_details" name="trace_roof_details" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ หลังคา" />
                               </div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="traceOther" name="traceOther" />
-                                <label class="form-check-label" for="traceOther">อื่นๆ</label>
+                                <input type="checkbox" class="form-check-input" id="trace_other" name="traces[]" value="อื่นๆ"/>
+                                <label class="form-check-label" for="trace_other">อื่นๆ</label>
                               </div>
                               <div class="mb-3">
-                                <input id="traceOtherDetails" name="traceOtherDetails" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ อื่นๆ" />
+                                <input id="trace_place_other_details" name="trace_place_other_details" class="form-control form-control-sm" type="text" placeholder="ระบุร่องรอยที่ อื่นๆ" />
                               </div>
                             </div>
                           </div>
@@ -674,34 +675,34 @@
                               <p class="fw-bold" style="color:#3b4056;">เครื่องมือที่คนร้ายใช้ในการโจรกรรม</p>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                              <input class="form-check-input" type="radio" name="toolsUsed" id="tools_screwdriver" value="ไขควง" />
+                              <input class="form-check-input" type="radio" name="tools_used" id="tools_screwdriver" value="ไขควง" />
                               <label class="form-check-label" for="tools_screwdriver">ไขควง</label>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                              <input class="form-check-input" type="radio" name="toolsUsed" id="tools_crowbar" value="ชะแลง" />
+                              <input class="form-check-input" type="radio" name="tools_used" id="tools_crowbar" value="ชะแลง" />
                               <label class="form-check-label" for="tools_crowbar">ชะแลง</label>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                              <input class="form-check-input" type="radio" name="toolsUsed" id="tools_metalCutter" value="คีมตัดโลหะ" />
-                              <label class="form-check-label" for="tools_metalCutter">คีมตัดโลหะ</label>
+                              <input class="form-check-input" type="radio" name="tools_used" id="tools_metal_cutter" value="คีมตัดโลหะ" />
+                              <label class="form-check-label" for="tools_metal_cutter">คีมตัดโลหะ</label>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                              <input class="form-check-input" type="radio" name="toolsUsed" id="tools_other" value="อื่นๆ" />
+                              <input class="form-check-input" type="radio" name="tools_used" id="tools_other" value="อื่นๆ" />
                               <label class="form-check-label" for="tools_other">อื่นๆ</label>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                              <input id="toolsOtherDetails" name="toolsOtherDetails" class="form-control form-control-sm" type="text" placeholder="Other tools (if any)" />
+                              <input id="tools_other_details" name="tools_other_details" class="form-control form-control-sm" type="text" placeholder="Other tools (if any)" />
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                              <label for="traceWidth" class="form-label" style="font-size: 16px">Approximate width of the trace ..... cm</label>
-                              <input id="traceWidth" name="traceWidth" class="form-control form-control-sm" type="number" min="0" placeholder="Enter approximate width of the trace ..... cm" />
+                              <label for="trace_width" class="form-label" style="font-size: 16px">Approximate width of the trace ..... cm</label>
+                              <input id="trace_width" name="trace_width" class="form-control form-control-sm" type="number" min="0" placeholder="Enter approximate width of the trace ..... cm" />
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                               <p class="fw-bold" style="color:#3b4056;">คดีชิงทรัพย์/ปล้นทรัพย์ กรณีทราบข้อมูลคนร้าย</p>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                              <label for="robberCount" class="form-label" style="font-size: 16px">Number of Robbers</label>
-                              <input id="robberCount" name="robberCount" class="form-control form-control-sm" type="number" min="0" placeholder="Number of robbers" />
+                              <label for="robber_count" class="form-label" style="font-size: 16px">Number of Robbers</label>
+                              <input id="robber_count" name="robber_count" class="form-control form-control-sm" type="number" min="0" placeholder="Number of robbers" />
                           </div>
 
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
@@ -836,11 +837,11 @@
 
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="hemastix_color_change_green_blue" name="hemastix_color_change_green_blue" />
+                              <input type="checkbox" class="form-check-input" id="hemastix_color_change_green_blue" name="hemastix[]" value="เกิดการเปลี่ยนแปลงเป็นสีเขียวแกมน้ำเงิน"/>
                               <label class="form-check-label">เกิดการเปลี่ยนแปลงเป็นสีเขียวแกมน้ำเงิน</label>
                             </div>
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="hemastix_no_change" name="hemastix_no_change" />
+                              <input type="checkbox" class="form-check-input" id="hemastix_no_change" name="hemastix[]" value="ไม่เกิดการเปลี่ยนแปลง"/>
                               <label class="form-check-label">ไม่เกิดการเปลี่ยนแปลง</label>
                             </div>
                           </div>
@@ -852,11 +853,11 @@
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="phenolphthalein_color_change_pink" name="phenolphthalein_color_change_pink" />
+                              <input type="checkbox" class="form-check-input" id="phenolphthalein_color_change_pink" name="phenolphthalein[]" value="เกิดการเปลี่ยนแปลงเป็นสีชมพูทันที"/>
                               <label class="form-check-label">เกิดการเปลี่ยนแปลงเป็นสีชมพูทันที</label>
                             </div>
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="phenolphthalein_no_change" name="phenolphthalein_no_change" />
+                              <input type="checkbox" class="form-check-input" id="phenolphthalein_no_change" name="phenolphthalein[]" value="ไม่เกิดการเปลี่ยนแปลง"/>
                               <label class="form-check-label">ไม่เกิดการเปลี่ยนแปลง</label>
                             </div>
                           </div>
@@ -907,15 +908,15 @@
 
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="final_inspection" name="final_inspection" />
+                              <input type="checkbox" class="form-check-input" id="final_inspection" name="inspection[]" value="การตรวจสอบครั้งสุดท้าย"/>
                               <label class="form-check-label">การตรวจสอบครั้งสุดท้าย</label>
                             </div>
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="evidence_collected_complete" name="evidence_collected_complete" />
+                              <input type="checkbox" class="form-check-input" id="evidence_collected_complete" name="inspection[]" value="ตรวจเก็บพยานครบถ้วน"/>
                               <label class="form-check-label">ตรวจเก็บพยานครบถ้วน</label>
                             </div>
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="scene_photo_and_handover" name="scene_photo_and_handover" />
+                              <input type="checkbox" class="form-check-input" id="scene_photo_and_handover" name="inspection[]" value="เป็นภาพสถานที่เกิดเหตุ และดำเนินการส่งมอบสถานที่เกิดเหตุให้แก่พนักงานสอบสวน"/>
                               <label class="form-check-label">
                                 เป็นภาพสถานที่เกิดเหตุ และดำเนินการส่งมอบสถานที่เกิดเหตุให้แก่พนักงานสอบสวน
                               </label>

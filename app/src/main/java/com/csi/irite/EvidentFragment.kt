@@ -71,6 +71,7 @@ class EvidentFragment : BaseFragment() {
                         evBag.refkey =  SyncIdManager.generateSyncIdWithTimestamp(requireContext())
                         evBag.createdat = System.currentTimeMillis()
                         evBag.updatedat = System.currentTimeMillis()
+                        evBag.uid = System.currentTimeMillis()
                         evidenceDao.insertAll(evBag)
                     } else if (action == "update") {
                         evBag.updatedat = System.currentTimeMillis()
@@ -87,9 +88,9 @@ class EvidentFragment : BaseFragment() {
 
                     if(selectedCheckboxes.length > 0) {
                         var selArr = selectedCheckboxes.trim().split(",")
-                        val intArray: IntArray = selArr.map { it.toInt() }.toIntArray()
+                        val longArray: LongArray = selArr.map { it.toLong() }.toLongArray()
                         //val selList: List<String> = selArr.toList()
-                        var evds = evd?.getSomeChecked(intArray)
+                        var evds = evd?.getSomeChecked(longArray)
                         //last seq no
 
                         if (evds != null) {
@@ -105,10 +106,11 @@ class EvidentFragment : BaseFragment() {
                                     evident = ev.evidence
                                 )
                                 evb.refkey =  SyncIdManager.generateSyncIdWithTimestamp(requireContext())
-                                evb.createdat = System.currentTimeMillis()
-                                evb.updatedat = System.currentTimeMillis()
+                                val timeGen =  System.currentTimeMillis()
+                                evb.uid = timeGen
+                                evb.createdat = timeGen
+                                evb.updatedat = timeGen
                                 evdBag?.insertAll(evb)
-
                             }
                         }
                     }

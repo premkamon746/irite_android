@@ -124,6 +124,5 @@ data class FireReport(
     var final_inspection: String? = "",
     var inspection_date: String? = "",
     var inspection_time: String? = "",
-    var owner_list:String? = "",
-    var has_savingsOtherDetails:String? = ""
+    var owner_list:String? = ""
 ):BaseEntity()

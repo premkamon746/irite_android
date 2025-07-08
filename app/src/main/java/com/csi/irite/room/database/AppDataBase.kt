@@ -34,7 +34,7 @@ import org.mapsforge.map.model.com.csi.irite.room.dao.EvidentBagDao
 
 @Database(entities = [EventReport::class, AssetReport::class, LifeReport::class,Evidence::class, District::class,
                         ChecklistSave::class, CheckListHead::class, EvidentBag::class, BomReport::class, FireReport::class,
-                        User::class, History::class, InspectionRecord::class], version = 111)
+                        User::class, History::class, InspectionRecord::class], version = 125)
 
 @TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {

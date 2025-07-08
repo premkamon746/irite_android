@@ -9,7 +9,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.webkit.JavascriptInterface
 import android.webkit.ValueCallback
 import android.webkit.WebChromeClient
@@ -18,15 +17,13 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.room.Room
 import androidx.sqlite.db.SimpleSQLiteQuery
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.csi.irite.room.database.AppDatabase
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -34,10 +31,6 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 import java.util.Calendar
 import java.util.Properties
-import androidx.activity.result.contract.ActivityResultContracts
-import android.Manifest
-import android.content.pm.PackageManager
-import androidx.core.content.ContextCompat
 
 open class BaseFragment : Fragment() {
     var uid: Long = 0
@@ -74,6 +67,10 @@ open class BaseFragment : Fragment() {
             uid = it.getLong("uid")
             //Toast.makeText(requireContext(), "Failed to load content $uid", Toast.LENGTH_SHORT).show()
 
+        }
+
+        activity?.let {
+            (it as AppCompatActivity).supportActionBar?.title = ""
         }
         //og.d("WebView------------", "From line $uid")
         //Toast.makeText(requireContext(), "Failed to load content $uid", Toast.LENGTH_SHORT).show()
@@ -238,7 +235,7 @@ open class BaseFragment : Fragment() {
                                       , private val itc: InterConnect
     ) {
         @JavascriptInterface
-        fun getJsonData(id: String, func: String, option: String = ""): String {
+        fun getJsonData(id: String, func: String, option:String): String {
             return itc.getJsonData(id,func,option)
         }
 
@@ -336,12 +333,31 @@ open class BaseFragment : Fragment() {
         }
     }
 
+    fun parseTypedValue(value: String?): Any {
+        val v = value?.trim() ?: return ""
 
-    fun buildUpdateQuery(table: String, id: Long, key: String, value: Any, whereId: String? = "event_report_id"): SupportSQLiteQuery {
+        return when {
+            v.equals("true", ignoreCase = true) -> 1
+            v.equals("false", ignoreCase = true) -> 0
+            v.toIntOrNull() != null -> v.toInt()
+            v.toDoubleOrNull() != null -> v.toDouble()
+            else -> v
+        }
+    }
+
+    fun autoCast(value: String): Any {
+        return value.toIntOrNull()
+            ?: value.toDoubleOrNull()
+            ?: value // leave as string
+    }
+
+
+    fun buildUpdateQuery(table: String, id: Long, key: String, value: String, whereId: String? = "event_report_id"): SimpleSQLiteQuery? {
+        //ignore field
+
+
         val time = System.currentTimeMillis()
-
-        printType(key)
-        val booleanValue = when (value.toString().lowercase()) {
+        /*val booleanValue = when (value.toString().lowercase()) {
             "true" -> 1
             "false" -> 0
             else -> value
@@ -351,10 +367,10 @@ open class BaseFragment : Fragment() {
             is String, is Int, is Long, is Double, is Float,
             is Short, is Byte, null -> booleanValue
             else -> booleanValue.toString()
-        }
+        }*/
 
 
-        //val safeText = String(value.toByteArray(Charsets.UTF_8), Charsets.UTF_8)
+        val safeValue = parseTypedValue(value)
 
         val queryStr = "UPDATE $table SET $key = ?, updatedat = ? WHERE $whereId = ?"
 

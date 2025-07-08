@@ -167,7 +167,7 @@
                 </div>
               </div>
               <div class="bs-stepper-content">
-                <form id="assetForm" onSubmit="return false">
+                <form id="allForm" onSubmit="return false">
                   <div class="card mb-6">
                     <h5 class="card-header">กรอกแบบฟอร์ม</h5>
                     <hr class="m-0" />
@@ -177,8 +177,8 @@
                         <div class="row">
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-group">
-                              <label for="case" class="form-label" style="font-size: 16px">คดี</label>
-                              <input id="case" name="case" class="form-control form-control-sm" type="text" placeholder="ระบุคดี" />
+                              <label for="case_name" class="form-label" style="font-size: 16px">คดี</label>
+                              <input id="case_name" name="case_name" class="form-control form-control-sm" type="text" placeholder="ระบุคดี" />
                             </div>
                           </div>
                           <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
@@ -254,82 +254,29 @@
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-group">
                               <label for="" class="form-label" style="font-size: 16px">สถานที่เกิดเหตุ</label>
-                              <textarea class="form-control h-px-75" placeholder="ระบุสถานที่เกิดเหตุ" rows="3"
+                              <textarea class="form-control h-px-75" id="incident_location" name="incident_location" placeholder="ระบุสถานที่เกิดเหตุ" rows="3"
                                 required></textarea>
                             </div>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                            <div>
-                              <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="" onchange="Deceased(this)" />
-                                <label class="form-check-label">ผู้เสียชีวิต</label>
-                              </div>
-                              <div id="deceased-info" >
-                                <div class="row pr-3 pl-3">
-                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
-                                    <label for="" class="form-label" style="font-size: 16px">ชื่อผู้เสียชีวิต</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
-                                      placeholder="ระบุชื่อ - นามสกุล ผู้เสียชีวิต" />
-                                  </div>
-                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
-                                    <label for="" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
-                                    <input id="" class="form-control form-control-sm" type="number" min="0"
-                                      placeholder="ระบุอายุ" />
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
-                                    <label for="" class="form-label" style="font-size: 16px">ชื่อผู้เสียชีวิต</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
-                                      placeholder="ระบุชื่อ - นามสกุล ผู้เสียชีวิต" />
-                                  </div>
-                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
-                                    <label for="" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
-                                    <input id="" class="form-control form-control-sm" type="number" min="0"
-                                      placeholder="ระบุอายุ" />
-                                  </div>
-                                </div>
-                              </div>
+                           <div>
+                                <div id="victim-form-container"></div>
                             </div>
+
+                            <section class="py-4 border-bottom">
+                            </section>
+                            <br/><br/>
+
                             <div>
-                              <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="" onchange="injured(this)" />
-                                <label class="form-check-label">ผู้บาดเจ็บ</label>
-                              </div>
-                              <div id="injured-info" >
-                                <div class="row">
-                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
-                                    <label for="" class="form-label" style="font-size: 16px">ชื่อผู้บาดเจ็บ</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
-                                      placeholder="ระบุชื่อ - นามสกุล ผู้บาดเจ็บ" />
-                                  </div>
-                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
-                                    <label for="" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
-                                    <input id="" class="form-control form-control-sm" type="number" min="0"
-                                      placeholder="ระบุอายุ" />
-                                  </div>
-                                </div>
-                              </div>
+                                <div id="deceased-form-container"></div>
                             </div>
+
+                            <section class="py-4 border-bottom">
+                            </section>
+                            <br/><br/>
+
                             <div>
-                              <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="" onchange="victem(this)" />
-                                <label class="form-check-label">ผู้เสียหาย</label>
-                              </div>
-                              <div id="victem-info" >
-                                <div class="row">
-                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
-                                    <label for="" class="form-label" style="font-size: 16px">ชื่อผู้เสียหาย</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
-                                      placeholder="ระบุชื่อ - นามสกุล ผู้เสียหาย" />
-                                  </div>
-                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
-                                    <label for="" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
-                                    <input id="" class="form-control form-control-sm" type="number" min="0"
-                                      placeholder="ระบุอายุ" />
-                                  </div>
-                                </div>
-                              </div>
+                                <div id="injured-form-container"></div>
                             </div>
                           </div>
                           <div class="col-12 d-flex justify-content-between">
@@ -471,18 +418,18 @@
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-check form-check">
                               <input class="form-check-input" type="radio" name="location" id="location"
-                                value="option2" />
+                                value="มี" />
                               <label class="form-check-label" for="location">มี
                               </label>
                             </div>
                             <div class="form-check form-check">
                               <input class="form-check-input" type="radio" name="location" id="location"
-                                value="option2" />
+                                value="ไม่มี" />
                               <label class="form-check-label" for="location">ไม่มี
                               </label>
                             </div>
                             <div>
-                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                              <input id="location_other_text" class="form-control form-control-sm" name="location_other_text" type="text" placeholder="อื่น ๆ ระบุ" />
                             </div>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -490,27 +437,27 @@
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-check form-check">
-                              <input class="form-check-input" type="radio" name="light" id="light" value="option2" />
+                              <input class="form-check-input" type="radio" name="light" id="light" value="สว่าง" />
                               <label class="form-check-label" for="light">สว่าง
                               </label>
                             </div>
                             <div class="form-check form-check">
-                              <input class="form-check-input" type="radio" name="light" id="light" value="option2" />
+                              <input class="form-check-input" type="radio" name="light" id="light" value="มืด" />
                               <label class="form-check-label" for="light">มืด
                               </label>
                             </div>
                             <div class="form-check form-check">
-                              <input class="form-check-input" type="radio" name="light" id="light" value="option2" />
+                              <input class="form-check-input" type="radio" name="light" id="light" value="เสาไฟส่องสว่าง" />
                               <label class="form-check-label" for="light">เสาไฟส่องสว่าง
                               </label>
                             </div>
                             <div class="form-check form-check">
-                              <input class="form-check-input" type="radio" name="light" id="light" value="option2" />
+                              <input class="form-check-input" type="radio" name="light" id="light" value="อื่นๆ" />
                               <label class="form-check-label" for="light">อื่นๆ
                               </label>
                             </div>
                             <div>
-                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                              <input id="light_other_text" name="light_other_text" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
                             </div>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -519,30 +466,30 @@
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-check form-check">
                               <input class="form-check-input" type="radio" name="temperature" id="temperature"
-                                value="option2" />
+                                value="ร้อน" />
                               <label class="form-check-label" for="temperature">ร้อน
                               </label>
                             </div>
                             <div class="form-check form-check">
                               <input class="form-check-input" type="radio" name="temperature" id="temperature"
-                                value="option2" />
+                                value="เย็น" />
                               <label class="form-check-label" for="temperature">เย็น
                               </label>
                             </div>
                             <div class="form-check form-check">
                               <input class="form-check-input" type="radio" name="temperature" id="temperature"
-                                value="option2" />
+                                value="เครื่องปรับอากาศ" />
                               <label class="form-check-label" for="temperature">เครื่องปรับอากาศ
                               </label>
                             </div>
                             <div class="form-check form-check">
                               <input class="form-check-input" type="radio" name="temperature" id="temperature"
-                                value="option2" />
+                                value="อื่นๆ" />
                               <label class="form-check-label" for="temperature">อื่นๆ
                               </label>
                             </div>
                             <div>
-                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                              <input id="temperature_other_text" name="temperature_other_text" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
                             </div>
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -550,17 +497,17 @@
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-check form-check">
-                              <input class="form-check-input" type="radio" name="smell" id="smell" value="option2" />
+                              <input class="form-check-input" type="radio" name="smell" id="smell" value="มี" />
                               <label class="form-check-label" for="smell">มี
                               </label>
                             </div>
                             <div class="form-check form-check">
-                              <input class="form-check-input" type="radio" name="smell" id="smell" value="option2" />
+                              <input class="form-check-input" type="radio" name="smell" id="smell" value="ไม่มี" />
                               <label class="form-check-label" for="smell">ไม่มี
                               </label>
                             </div>
                             <div>
-                              <input id="" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
+                              <input id="smell_other_text" name="smell_other_text" class="form-control form-control-sm" type="text" placeholder="อื่น ๆ ระบุ" />
                             </div>
                           </div>
                         </div>
@@ -572,36 +519,35 @@
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id=""
-                                  onchange="characteristicsOutsite(this)" />
+                                <!-- <input type="checkbox" class="form-check-input" id=""/> -->
                                 <label class="form-check-label">กรณีเกิดเหตุภายนอก</label>
                               </div>
-                              <div id="characteristics-of-the-scene-info" >
+                              <div >
                                 <div class="row">
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
-                                        id="characteristics_of_the_scene_road" value="road" />
+                                        id="characteristics_of_the_scene_road" value="ถนน" />
                                       <label class="form-check-label" for="characteristics_of_the_scene_road">ถนน</label>
                                     </div>
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
-                                        id="characteristics_of_the_scene_lawn" value="lawn" />
+                                        id="characteristics_of_the_scene_lawn" value="สนามหญ้า" />
                                       <label class="form-check-label" for="characteristics_of_the_scene_lawn">สนามหญ้า</label>
                                     </div>
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
-                                        id="characteristics_of_the_scene_garden" value="garden" />
+                                        id="characteristics_of_the_scene_garden" value="ในสวน" />
                                       <label class="form-check-label" for="characteristics_of_the_scene_garden">ในสวน</label>
                                     </div>
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
-                                        id="characteristics_of_the_scene_vacant" value="vacant" />
+                                        id="characteristics_of_the_scene_vacant" value="ที่ว่าง" />
                                       <label class="form-check-label" for="characteristics_of_the_scene_vacant">ที่ว่าง</label>
                                     </div>
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
-                                        id="characteristics_of_the_scene_other" value="other" />
+                                        id="characteristics_of_the_scene_other" value="อื่นๆ" />
                                       <label class="form-check-label" for="characteristics_of_the_scene_other">อื่นๆ</label>
                                     </div>
                                     <div>
@@ -652,11 +598,10 @@
                             </div>
                             <div>
                               <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id=""
-                                  onchange="characteristicsInsite(this)" />
+                                <!-- <input type="checkbox" class="form-check-input" id="" /> -->
                                 <label class="form-check-label">กรณีเกิดเหตุภายในอาคาร</label>
                               </div>
-                              <div id="characteristics-of-the-scene-insite-info" >
+                              <div >
                                 <div class="row">
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
                                     <p class="fw-bold" style="color:#3b4056;">ลักษณะภายนอก</p>
@@ -665,26 +610,26 @@
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio"
                                         name="characteristics_of_the_scene_insite"
-                                        id="characteristics_of_the_scene_insite" value="option2" />
+                                        id="characteristics_of_the_scene_insite" value="อาคารพาณิชย์" />
                                       <label class="form-check-label"
                                         for="characteristics_of_the_scene_insite">อาคารพาณิชย์</label>
                                     </div>
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio"
                                         name="characteristics_of_the_scene_insite"
-                                        id="characteristics_of_the_scene_insite" value="option2" />
+                                        id="characteristics_of_the_scene_insite" value="บ้านเดียว" />
                                       <label class="form-check-label"
                                         for="characteristics_of_the_scene_insite">บ้านเดียว</label>
                                     </div>
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio"
                                         name="characteristics_of_the_scene_insite"
-                                        id="characteristics_of_the_scene_insite" value="option2" />
+                                        id="characteristics_of_the_scene_insite" value="อื่นๆ" />
                                       <label class="form-check-label"
                                         for="characteristics_of_the_scene_insite">อื่นๆ</label>
                                     </div>
                                     <div>
-                                      <input id="" class="form-control form-control-sm" type="text"
+                                      <input id="characteristics_of_the_scene_insite_other_tex" name="characteristics_of_the_scene_insite_other_tex" class="form-control form-control-sm" type="text"
                                         placeholder="อื่น ๆ ระบุ" />
                                     </div>
                                   </div>
@@ -694,45 +639,45 @@
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
-                                        id="characteristics_of_the_scene" value="option2" />
+                                        id="characteristics_of_the_scene" value="มีรั้ว" />
                                       <label class="form-check-label" for="characteristics_of_the_scene">มีรั้ว
                                       </label>
                                     </div>
                                     <div class="form-check form-check">
                                       <input class="form-check-input" type="radio" name="characteristics_of_the_scene"
-                                        id="characteristics_of_the_scene" value="option2" />
+                                        id="characteristics_of_the_scene" value="ไม่มีรั้ว" />
                                       <label class="form-check-label" for="characteristics_of_the_scene">ไม่มีรั้ว
                                       </label>
                                     </div>
                                   </div>
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3 mb-3">
                                     <label for="" class="form-label" style="font-size: 16px">เมื่อหันหน้าเข้า</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
+                                    <input id="surrounding_front_out_view" name="surrounding_front_out_view" class="form-control form-control-sm" type="text"
                                       placeholder="ระบุ (ถ้ามี)" />
                                   </div>
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                                     <label for="" class="form-label" style="font-size: 16px">ด้านหน้าติด</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
+                                    <input id="surrounding_front_out" name="surrounding_front_out" class="form-control form-control-sm" type="text"
                                       placeholder="ระบุ (ถ้ามี)" />
                                   </div>
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                                     <label for="" class="form-label" style="font-size: 16px">ด้านซ้ายติด</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
+                                    <input id="surrounding_left_out" name="surrounding_left_out" class="form-control form-control-sm" type="text"
                                       placeholder="ระบุ (ถ้ามี)" />
                                   </div>
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                                     <label for="" class="form-label" style="font-size: 16px">ด้านขวาติด</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
+                                    <input id="surrounding_right_out" name="surrounding_right_out" class="form-control form-control-sm" type="text"
                                       placeholder="ระบุ (ถ้ามี)" />
                                   </div>
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                                     <label for="" class="form-label" style="font-size: 16px">ด้านหลังติด</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
+                                    <input id="surrounding_back_out" name="surrounding_back_out" class="form-control form-control-sm" type="text"
                                       placeholder="ระบุ (ถ้ามี)" />
                                   </div>
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                                     <label for="" class="form-label" style="font-size: 16px">ลักษณะภายใน</label>
-                                    <textarea id="" class="form-control form-control-sm" type="text"
+                                    <textarea id="inside_prop" name="inside_prop" class="form-control form-control-sm" type="text"
                                       placeholder="ระบุลักษณะภายใน" rows="5"></textarea>
                                   </div>
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -740,7 +685,7 @@
                                   </div>
                                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                                     <label for="" class="form-label" style="font-size: 16px">เกิดเหตุที่</label>
-                                    <input id="" class="form-control form-control-sm" type="text"
+                                    <input id="case_location" name="case_location" class="form-control form-control-sm" type="text"
                                       placeholder="ระบุสถานที่เกิดเหตุ" />
                                   </div>
                                 </div>
@@ -752,7 +697,7 @@
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="" />
+                              <input type="checkbox" class="form-check-input" id="" name="instruct_place[]" value="มีขนาดกว้าง x ยาว ประมาณ"/>
                               <label class="form-check-label">มีขนาดกว้าง x ยาว ประมาณ</label>
                             </div>
                             <div class="mb-3">
@@ -760,7 +705,7 @@
                                 placeholder="ระบุขนาดกว้าง x ยาว โดยประมาณ" />
                             </div>
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="" />
+                              <input type="checkbox" class="form-check-input" id=""  name="instruct_place[]" value="ลักษณะโครงสร้าง"/>
                               <label class="form-check-label">ลักษณะโครงสร้าง</label>
                             </div>
                             <div class="mb-3">
@@ -768,7 +713,7 @@
                                 placeholder="ระบุลักษณะโครงสร้าง" />
                             </div>
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="" />
+                              <input type="checkbox" class="form-check-input" id=""  name="instruct_place[]" value="ผนัง"/>
                               <label class="form-check-label">ผนัง</label>
                             </div>
                             <div class="mb-3">
@@ -777,32 +722,32 @@
                             </div>
                             <div class="mb-3">
                               <label for="" class="form-label" style="font-size: 16px">ด้านหน้า</label>
-                              <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                              <input id="front_side" name="front_side" class="form-control form-control-sm" type="text" placeholder="" />
                             </div>
                             <div class="mb-3">
                               <label for="" class="form-label" style="font-size: 16px">ด้านซ้าย</label>
-                              <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                              <input id="left_side" name="left_side" class="form-control form-control-sm" type="text" placeholder="" />
                             </div>
                             <div class="mb-3">
                               <label for="" class="form-label" style="font-size: 16px">ด้านขวา</label>
-                              <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                              <input id="right_side" name="right_side" class="form-control form-control-sm" type="text" placeholder="" />
                             </div>
                             <div class="mb-3">
                               <label for="" class="form-label" style="font-size: 16px">ด้านหลัง</label>
-                              <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                              <input id="back_side" name="back_side" class="form-control form-control-sm" type="text" placeholder="" />
                             </div>
                           </div>
                           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
                             <label for="" class="form-label" style="font-size: 16px">พื้นห้อง</label>
-                            <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                            <input id="floor" name="floor" class="form-control form-control-sm" type="text" placeholder="" />
                           </div>
                           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
                             <label for="" class="form-label" style="font-size: 16px">หลังคา</label>
-                            <input id="" class="form-control form-control-sm" type="text" placeholder="" />
+                            <input id="roof" name="roof" class="form-control form-control-sm" type="text" placeholder="" />
                           </div>
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                            <label for="" class="form-label" style="font-size: 16px">การจัดวางสิ่งของ</label>
-                            <textarea id="" class="form-control form-control-sm" type="text"
+                            <label  class="form-label" style="font-size: 16px">การจัดวางสิ่งของ</label>
+                            <textarea id="place_object" name="place_object" class="form-control form-control-sm" type="text"
                               placeholder="ระบบรูปแบบการจัดวางสิ่งของ" rows="5"></textarea>
                           </div>
                           <div class="col-12 d-flex justify-content-between">
@@ -904,7 +849,7 @@
 
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="clothing" />
+                                <input type="checkbox" class="form-check-input" id="clothing" name="dresses[]" value="เสื้อ" />
                                 <label class="form-check-label" for="clothing">เสื้อ</label>
                             </div>
                             <div>
@@ -914,7 +859,7 @@
 
                           <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="pants" id="pants" />
+                                <input type="checkbox" class="form-check-input" name="dresses[]" id="pants" value="กางเกง" />
                                 <label class="form-check-label">กางเกง</label>
                             </div>
                             <div>
@@ -923,7 +868,7 @@
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="shoes_socks" id="shoes_socks" />
+                                <input type="checkbox" class="form-check-input" name="dresses[]" id="shoes_socks" value="รองเท้า/ถุงเท้า" />
                                 <label class="form-check-label">รองเท้า/ถุงเท้า</label>
                             </div>
                             <div>
@@ -932,7 +877,7 @@
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="belt" id="belt" />
+                                <input type="checkbox" class="form-check-input" name="dresses[]" id="belt" value="เข็มขัด" />
                                 <label class="form-check-label">เข็มขัด</label>
                             </div>
                             <div>
@@ -941,7 +886,7 @@
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="tattoo_scar" id="tattoo_scar" />
+                                <input type="checkbox" class="form-check-input" name="dresses[]" id="tattoo_scar" value="รอยสักหรือรอยแผลเป็น" />
                                 <label class="form-check-label">รอยสักหรือรอยแผลเป็น</label>
                             </div>
                             <div>
@@ -950,7 +895,7 @@
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="other" id="other" />
+                                <input type="checkbox" class="form-check-input" name="dresses[]" id="other" value="อื่นๆ" />
                                 <label class="form-check-label">อื่นๆ</label>
                             </div>
                             <div>
@@ -997,23 +942,23 @@
 
                         <!-- Hemastix -->
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="hemastix_color_change_green_blue" name="hemastix_color_change_green_blue" />
+                          <input type="checkbox" class="form-check-input" id="hemastix_color_change_green_blue" name="hemastix[]" value="เกิดการเปลี่ยนแปลงเป็นสีเขียวแกมน้ำเงิน"/>
                           <label class="form-check-label">เกิดการเปลี่ยนแปลงเป็นสีเขียวแกมน้ำเงิน</label>
                         </div>
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="hemastix_no_color_change" name="hemastix_no_color_change" />
+                          <input type="checkbox" class="form-check-input" id="hemastix_no_color_change" name="hemastix[]" value="ไม่เกิดการเปลี่ยนแปลง"/>
                           <label class="form-check-label">ไม่เกิดการเปลี่ยนแปลง</label>
                         </div>
 
                         <!-- Phenolphthalein -->
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="phenolphthalein_color_change_pink" name="phenolphthalein_color_change_pink" />
+                          <input type="checkbox" class="form-check-input" id="phenolphthalein_color_change_pink" name="hemastix[]" value="เกิดการเปลี่ยนแปลงเป็นสีชมพูทันที" />
                           <label class="form-check-label">เกิดการเปลี่ยนแปลงเป็นสีชมพูทันที</label>
-                        </div>
+                        </div><!-- 
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="phenolphthalein_no_color_change" name="phenolphthalein_no_color_change" />
+                          <input type="checkbox" class="form-check-input" id="phenolphthalein_no_color_change" name="hemastix[]" value="ไม่เกิดการเปลี่ยนแปลง" />
                           <label class="form-check-label">ไม่เกิดการเปลี่ยนแปลง</label>
-                        </div>
+                        </div> -->
 
                         <!-- Other physical evidence -->
                         <textarea id="other_evidence" name="other_evidence" class="form-control form-control-sm" rows="5"
@@ -1037,17 +982,28 @@
 
                         <!-- Final inspection checkboxes -->
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="final_inspection" name="final_inspection" />
+                          <input type="checkbox" class="form-check-input" id="final_inspection" name="final_inspectioned[]" value="การตรวจสอบครั้งสุดท้าย" />
                           <label class="form-check-label">การตรวจสอบครั้งสุดท้าย</label>
                         </div>
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="evidence_collection_complete" name="evidence_collection_complete" />
+                          <input type="checkbox" class="form-check-input" id="evidence_collection_complete" name="final_inspectioned[]" value="ตรวจเก็บพยานครบถ้วน" />
                           <label class="form-check-label">ตรวจเก็บพยานครบถ้วน</label>
                         </div>
                         <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="scene_photo_and_handover" name="scene_photo_and_handover" />
+                          <input type="checkbox" class="form-check-input" id="scene_photo_and_handover" name="final_inspectioned[]" value="เป็นภาพสถานที่เกิดเหตุ และดำเนินการส่งมอบสถานที่เกิดเหตุให้แก่พนักงานสอบสวน" />
                           <label class="form-check-label">เป็นภาพสถานที่เกิดเหตุ และดำเนินการส่งมอบสถานที่เกิดเหตุให้แก่พนักงานสอบสวน</label>
                         </div>
+
+                        <div class="col-12 d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary btn-prev">
+                              <i class="ri-arrow-left-line me-sm-1 me-0"></i>
+                              <span class="align-middle d-sm-inline-block d-none">ย้อนกลับ</span>
+                            </button>
+                            <button class="btn btn-primary btn-next">
+                              <span class="align-middle d-sm-inline-block d-none me-sm-1">ถัดไป</span>
+                              <i class="ri-arrow-right-line"></i>
+                            </button>
+                          </div>
                           
                         </div>
                       </div>
@@ -1131,38 +1087,8 @@
       <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css">
       <script src="vendor/libs/flatpickr/flatpickr.js"></script>
       <script src="js/event_common.js"></script>
+      <script src="js/bom.js"></script>
 
-      <script>
-        // ผู้เสียชีวิต
-        function Deceased(checkbox) {
-          const deceasedInfoDiv = document.getElementById('deceased-info');
-          deceasedInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
-        }
-
-        // ผู้บาดเจ็บ
-        function injured(checkbox) {
-          const injuredInfoDiv = document.getElementById('injured-info');
-          injuredInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
-        }
-
-        // ผู้เสียหาย
-        function victem(checkbox) {
-          const victemInfoDiv = document.getElementById('victem-info');
-          victemInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
-        }
-
-        // ลักษณะสถานที่เกิดเหตุ
-        function characteristicsOutsite(checkbox) {
-          const characteristicsOutsiteInfoDiv = document.getElementById('characteristics-of-the-scene-info');
-          characteristicsOutsiteInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
-        }
-
-        function characteristicsInsite(checkbox) {
-          const characteristicsInsiteInfoDiv = document.getElementById('characteristics-of-the-scene-insite-info');
-          characteristicsInsiteInfoDiv.style.display = checkbox.checked ? 'block' : 'none';
-        }
-
-      </script>
 </body>
 
 </html>

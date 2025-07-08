@@ -833,7 +833,7 @@
             $(document).on('click', '.datatables-basic  tbody .add-evident', function () {
                 var data = dt_incident.row($(this).parents('tr')).data();
                 var json = {
-                    uid:data.uid,
+                    uid:data.uid.toString(),
                     button:"add-evident"
                 }
                 submitForm(json)
@@ -843,7 +843,7 @@
             $(document).on('click', '.datatables-basic  tbody .upload', function () {
                 var data = dt_incident.row($(this).parents('tr')).data();
                 var json = {
-                    uid:data.uid,
+                    uid:data.uid.toString(),
                     button:"upload"
                 }
                 submitForm(json)
@@ -853,13 +853,13 @@
             $(document).on('click', '.datatables-basic  tbody .report', function() {
                 var data = dt_incident.row($(this).parents('tr')).data();
                 var report_type = data.report_type
-                Android.getJsonData("","download_report",data.uid);
+                Android.getJsonData("","download_report",data.uid.toString());
             });
             
             $(document).on('click', '.datatables-basic  tbody .edit-form-report', function () {
                 //$('#event-report-form')[0].reset();
                 var data = dt_incident.row($(this).parents('tr')).data();
-                jsonData = Android.getJsonData(data.uid, "getByID","")
+                jsonData = Android.getJsonData(data.uid.toString(), "getByID","")
                 jsonObject = JSON.parse(jsonData);
 
                 $.each(jsonObject, function(key, value) {
@@ -876,7 +876,7 @@
                     }
                 });
 
-                $('#updateHidden').val(data.uid)
+                $('#updateHidden').val(data.uid.toString())
                 $('#add-incident').modal('show');
             });
 
@@ -927,7 +927,7 @@
             //delete
             $(document).on('click', '.datatables-basic  tbody  .delete-incident-doc', function() {
                 var data = dt_incident.row($(this).parents('tr')).data();
-                $('#deleteHidden').val(data.uid)
+                $('#deleteHidden').val(data.uid.toString())
                 $('#incidentDelete').modal('show');
             });
 
@@ -935,7 +935,7 @@
             $(document).on('click', '.datatables-basic  tbody .print-transfer-doc', function() {
               var data = dt_incident.row($(this).parents('tr')).data();
               var json = {
-                    uid:data.uid,
+                    uid:data.uid.toString(),
                     button:"print"
                 }
               submitForm(json)
@@ -944,7 +944,7 @@
             /*$(document).on('click', '.datatables-basic  tbody .print-transfer-doc', function() {
                 var data = dt_incident.row($(this).parents('tr')).data();
                 var json = {
-                      uid:data.uid,
+                      uid:data.uid.toString(),
                       button:"print"
                   }
                 submitForm(json)
@@ -955,31 +955,31 @@
                 var report_type = data.report_type
 
                 
-                Android.getJsonData("","loadReport",data.uid);
+                Android.getJsonData("","loadReport",data.uid.toString());
             });
 
 
 
             $(document).on('click', '.datatables-basic  tbody .draw-map', function() {
                 var data = dt_incident.row($(this).parents('tr')).data();
-                Android.getJsonData("","map",data.uid);
+                Android.getJsonData("","map",data.uid.toString());
             });
 
              $(document).on('click', '.datatables-basic  tbody .draw-location', function() {
                 var data = dt_incident.row($(this).parents('tr')).data();
-                Android.getJsonData("","location",data.uid);
+                Android.getJsonData("","location",data.uid.toString());
             });
 
             $(document).on('click', '.datatables-basic  tbody .draw-evidence', function() {
                 var data = dt_incident.row($(this).parents('tr')).data();
-                Android.getJsonData("","evidence",data.uid);
+                Android.getJsonData("","evidence",data.uid.toString());
             });
 
 
             $('#deleteIncident').click(function(){
                 var uid = $('#deleteHidden').val()
                 var json = {
-                              uid:uid,
+                              uid:uid.toString(),
                               button:"delete"
                             }
 

@@ -26,6 +26,7 @@ data class AssetReport(
     val related_other: String? = "",
     val victim_name: String? = "",
     val victim_age: Int? = 0,
+    val related_other_detail:String? = "",
 
     //form 3
     val victim_incident_date: String? = "",
@@ -56,6 +57,7 @@ data class AssetReport(
     //7
     // Case Circumstances
     val case_circumstances: String = "",
+    val traces: String = "",
     val robber_entry: String = "",
     val no_traces: Boolean = false,
     val unlocked_doors: Boolean = false,
@@ -78,6 +80,7 @@ data class AssetReport(
     val tools_other_details: String = "",
     val trace_width: Int = 0,
     val robber_count: Int = 0,
+    val trace_place_other_details: String = "",
 
     val tools: String? = "",
     val weapon: String? = "",
@@ -90,6 +93,8 @@ data class AssetReport(
     val search_traces_1: String? = "",
     val stolen_property: String? = "",
     val blood_like_stain: String? = "",
+    val hemastix: String? = "",
+    val phenolphthalein: String? = "",
     val hemastix_color_change_green_blue: Boolean? = false,
     val hemastix_no_change: Boolean? = false,
     val phenolphthalein_color_change_pink: Boolean? = false,
@@ -109,5 +114,6 @@ data class AssetReport(
     val photo_code_from: String? = "",
     val photo_code_to: String? = "",
     val photo_total: Int? = 0,
+    val inspection:String? = "",
     val owner_list:String? = ""
 ) : BaseEntity()

@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.sqlite.db.SimpleSQLiteQuery
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.csi.irite.room.dao.EventReportDao
 import com.csi.irite.room.dao.BomReportDao
 import com.csi.irite.room.data.BomReport
@@ -54,6 +52,7 @@ class WBomFragment : BaseFragment() {
             bomReport.refkey =  SyncIdManager.generateSyncIdWithTimestamp(requireContext())
             bomReport.createdat = System.currentTimeMillis()
             bomReport.updatedat = System.currentTimeMillis()
+            bomReport.uid = System.currentTimeMillis()
             bomReportDao.insertBomReport(bomReport)
         }
 
@@ -74,29 +73,59 @@ class WBomFragment : BaseFragment() {
 
                 val bomReportDao: BomReportDao = db!!.bomReportDao()
 
-                //Log.d("WebView----+", jsonObject.toString())
+                Log.d("WebView----+", jsonObject.toString())
                 val button = jsonObject.get("button").asString.trim()
                 if(button == "add-evident"){
                     val uid = jsonObject.get("uid").asString.toLong()
                 }else if(button == "multiple"){
                     jsonObject.remove("button")
-                    Log.d("WebView",jsonObject.toString())
-                    Log.d("WebView","multi+++++++++++++++++++++++++")
                     jsonObject.entrySet().forEach { (key, value) ->
+                        if (key == "owner_list") return@forEach
+                        var v = ""
+                        try {
+                            if(value.isJsonArray){
+                                v = value.toString()
+                            }else{
+                                v = value.asString
+                            }
+                        } catch (e: Exception) {
+                            v = value.toString()
+                        }
                         val query = buildUpdateQuery("BomReport",
                             id = interConUid,
                             key = key,
-                            value = value.toString().replace("\"","")
+                            value = v
                         )
-                        bomReportDao.updateField(query)
+                        if (query != null) {
+                            try {
+                                bomReportDao.updateField(query)
+                            }catch (e:Exception){}
+                        }
                     }
 
                     Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
+                }else if(button == "update_list"){
+                    jsonObject.remove("update_list")
+                    val field = jsonObject.get("field").asString.trim()
+                    val query = buildUpdateQuery("BomReport",
+                        id = interConUid,
+                        key = field,
+                        value = jsonObject["data"].toString()
+                    )
+                    if (query != null) {
+                        try {
+                            bomReportDao.updateField(query)
+                        }catch (e:Exception){
+                            Log.d("WebView",e.toString())
+                        }
+                    }
                 }else if(button == "single"){
 
-                    val query = buildUpdateQuery("BomReport", id = interConUid, key = jsonObject.get("fieldName").toString(), value = jsonObject.get("fieldValue").toString())
-                    bomReportDao.updateField(query)
-                    Log.d("WebView",jsonObject.toString())
+                    val query = buildUpdateQuery("BomReport", id = interConUid, key = jsonObject.get("fieldName").toString(), value = jsonObject.get("fieldValue").asString)
+                    if (query != null) {
+                        bomReportDao.updateField(query)
+                    }
+                    //Log.d("WebView",jsonObject.toString())
                     Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
                 }  else if (button == "delete") {
                     //setLoading()
@@ -146,7 +175,7 @@ class WBomFragment : BaseFragment() {
                     var event_report_id = option
                     loadFragment(DrawMapFragment(),event_report_id.toLong())
                 }
-                Log.d("WebView----", returnData)
+                //Log.d("WebView----", returnData)
                 return returnData
             }
         }

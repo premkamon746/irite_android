@@ -60,6 +60,7 @@ class SyncRepository(
         evidentBag()
         fireReport()
         history()
+        LifeReport()
     }
 
     suspend fun event() {

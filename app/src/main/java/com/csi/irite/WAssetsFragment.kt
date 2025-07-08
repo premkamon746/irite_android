@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.sqlite.db.SimpleSQLiteQuery
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.csi.irite.room.dao.AssetReportDao
 import com.csi.irite.room.dao.EventReportDao
 import com.csi.irite.room.data.AssetReport
@@ -20,7 +18,6 @@ import com.csi.irite.utils.PrintFormService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
-import org.json.JSONArray
 
 
 class WAssetsFragment : BaseFragment() {
@@ -50,6 +47,8 @@ class WAssetsFragment : BaseFragment() {
                 incident_location = eventReports.report_place.toString(),
                 victim_incident_date = eventReports.report_known_date.toString(),
                 victim_incident_time = eventReports.report_known_time,
+                police_station = eventReports.report_from_where,
+                report_detail = eventReports.report_preinfo
             )
 
             assetReport.updatedat = System.currentTimeMillis()
@@ -76,47 +75,60 @@ class WAssetsFragment : BaseFragment() {
 
                 val assetReportDao: AssetReportDao = db!!.assetReportDao()
 
-                Log.d("WebView","---------------------------")
-                Log.d("WebView",jsonObject.toString())
-                Log.d("WebView","---------------------------")
-                //assetReportDao.getAssetReportByEventId(uid)
-
-                //Log.d("WebView----+", jsonObject.toString())
                 val button = jsonObject.get("button").asString.trim()
                 if(button == "add-evident"){
                     val uid = jsonObject.get("uid").asString.toLong()
                 }else if(button == "multiple"){
                     jsonObject.remove("button")
-
                     jsonObject.entrySet().forEach { (key, value) ->
-                        //val value = jsonObject.get(key)
+                        if (key == "owner_list") return@forEach
+                        var v = ""
+                        try {
+                            if(value.isJsonArray){
+                                v = value.toString()
+                            }else{
+                                v = value.asString
+                            }
+                        } catch (e: Exception) {
+                            v = value.toString()
+                        }
+
+                        Log.d("WebView", "Key: $key, Value: $v value orignal $value")
                         val query = buildUpdateQuery("AssetReport",
                             id = interConUid,
                             key = key,
-                            value = value
+                            value = v
                         )
 
-
-                        Log.d("json_export", "field  id:"+interConUid+" ")
-                        assetReportDao.updateField(query)
-                        Log.d("json_export", "field "+query.sql)
-                        Log.d("json_export", jsonObject["data"].toString())
+                        if (query != null) {
+                            try{
+                                assetReportDao.updateField(query)
+                            }catch (e:Exception){}
+                        }
 
                     }
-
-                    var ass = assetReportDao.getAssetReportByEventId(interConUid)
-                    var gg = gson.toJson(ass)
-                    Log.d("WebView","++++++++++")
-                    Log.d("WebView",gg.toString())
-                    Log.d("WebView","++++++++++")
-
-
-                    Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
+                    assetReportDao.getAssetReportByEventId(interConUid)
+                    //Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
+                }else if(button == "update_list"){
+                    jsonObject.remove("update_list")
+                    val field = jsonObject.get("field").asString.trim()
+                    val query = buildUpdateQuery("AssetReport",
+                        id = interConUid,
+                        key = field,
+                        value = jsonObject["data"].toString()
+                    )
+                    if (query != null) {
+                        try{
+                            assetReportDao.updateField(query)
+                        }catch (e:Exception){}
+                        }
                 }else if(button == "single"){
-                    val query = buildUpdateQuery("AssetReport", id = interConUid, key = jsonObject.get("fieldName").toString(), value = jsonObject.get("fieldValue").toString())
-                    assetReportDao.updateField(query)
+                    val query = buildUpdateQuery("AssetReport", id = interConUid, key = jsonObject.get("fieldName").toString(), value = jsonObject.get("fieldValue").asString)
+                    if (query != null) {
+                        assetReportDao.updateField(query)
+                    }
                     Log.d("WebView",jsonObject.toString())
-                    Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
                 }  else if (button == "delete") {
                     //setLoading()
                     val evid = jsonObject.get("uid").asLong

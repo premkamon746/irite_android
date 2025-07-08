@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class LifeReport(
     @PrimaryKey(autoGenerate = true) var uid: Long = 0,
     var event_report_id: Long? = 0,
-    var case : String? = "",
+    var case_name : String? = "",
     var date : String? = "",            // YYYY-MM-DD format
     var time_approx : String? = "",      // HH:mm format
     var notification_method: String? = "", // Radio group (e.g., phone, radio, document, other)
@@ -24,8 +24,11 @@ data class LifeReport(
     var owner: String? = "",
     var victim: String? = "",
     var related_other: String? = "",
-    var victim_name: String? = "",
     var victim_age: Int? = 0,
+
+    var victim_name: String? = "",
+    var deceased_name: String? = "",
+    var injured_name: String? = "",
 
     //form 3
     var victim_incident_date: String? = "",
@@ -56,6 +59,26 @@ data class LifeReport(
     var surrounding_right: String? = "",
     var surrounding_back: String? = "",
     var incident_location2: String? = "",
+    var smell: String? = "",
+    var smell_other_text: String? = "",
+    var characteristics_of_the_scene_insite: String? = "",
+    var characteristics_of_the_scene_insite_other_tex: String? = "",
+
+    var surrounding_front_out_view: String? = "",
+    var surrounding_front_out: String? = "",
+    var surrounding_left_out: String? = "",
+    var surrounding_right_out: String? = "",
+    var surrounding_back_out: String? = "",
+    var inside_prop: String? = "",
+    var case_location: String? = "",
+    var place_object: String? = "",
+    var roof: String? = "",
+    var floor: String? = "",
+    var back_side: String? = "",
+    var right_side: String? = "",
+    var left_side: String? = "",
+    var front_side: String? = "",
+    var instruct_place: String? = "",
 
     //7
     // Case Circumstances
@@ -113,6 +136,10 @@ data class LifeReport(
     var final_inspection: Boolean = false,
     var evidence_collection_complete: Boolean = false,
     var scene_photo_and_handover: Boolean = false,
+
+    var dresses: String? = "",
+    var hemastix: String? = "",
+    var final_inspectioned: String? = "",
 
     //form
     var inspection_completion_date: String? = "",

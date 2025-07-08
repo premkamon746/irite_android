@@ -9,14 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.sqlite.db.SimpleSQLiteQuery
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.csi.irite.room.dao.EventReportDao
 import com.csi.irite.room.dao.LifeReportDao
 import com.csi.irite.room.data.EventReport
 import com.csi.irite.room.data.LifeReport
 import com.csi.irite.unuse.DrawMapFragment
-import com.csi.irite.utils.PrintFormService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
@@ -49,11 +46,14 @@ class WLifeFragment : BaseFragment() {
             phone_number = eventReports.report_officer_contact_no.toString(),
             incident_location = eventReports.report_place.toString(),
             date = eventReports.report_known_date.toString(),
-            time_approx = eventReports.report_known_time
+            time_approx = eventReports.report_known_time,
+            police_station = eventReports.report_from_where,
+            other_details1 = eventReports.report_preinfo
             )
             lifeReport.refkey =  SyncIdManager.generateSyncIdWithTimestamp(requireContext())
             lifeReport.createdat = System.currentTimeMillis()
             lifeReport.updatedat = System.currentTimeMillis()
+            lifeReport.uid = System.currentTimeMillis()
             lifeReportDao.insertLifeReport(lifeReport)
         }
         //val allEvent = eventReportDao.getAll()
@@ -78,22 +78,51 @@ class WLifeFragment : BaseFragment() {
                     val uid = jsonObject.get("uid").asString.toLong()
                 }else if(button == "multiple"){
                     jsonObject.remove("button")
-                    Log.d("WebView",jsonObject.toString())
-                    Log.d("WebView","multi+++++++++++++++++++++++++")
                     jsonObject.entrySet().forEach { (key, value) ->
+                        if (key == "owner_list") return@forEach
+                        var v = ""
+                        try {
+                            if(value.isJsonArray){
+                                v = value.toString()
+                            }else{
+                                v = value.asString
+                            }
+                        } catch (e: Exception) {
+                            v = value.toString()
+                        }
+
                         val query = buildUpdateQuery("LifeReport",
                             id = interConUid,
                             key = key,
-                            value = value.toString().replace("\"","")
+                            value = v
                         )
-                        lifeReportDao.updateField(query)
+                        if (query != null) {
+                            try {
+                                lifeReportDao.updateField(query)
+                            } catch (e: Exception) {
+                            }
+                        }
                     }
 
-                    Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
+                }else if(button == "update_list"){
+                    jsonObject.remove("update_list")
+                    val field = jsonObject.get("field").asString.trim()
+                    val query = buildUpdateQuery("LifeReport",
+                        id = interConUid,
+                        key = field,
+                        value = jsonObject["data"].toString()
+                    )
+                    if (query != null) {
+                        try {
+                            lifeReportDao.updateField(query)
+                        }catch (e:Exception){}
+                    }
                 }else if(button == "single"){
                     Log.d("WebView","multi+++++++++++++++++++++++++")
-                    val query = buildUpdateQuery("LifeReport", id = interConUid, key = jsonObject.get("fieldName").toString(), value = jsonObject.get("fieldValue").toString())
-                    lifeReportDao.updateField(query)
+                    val query = buildUpdateQuery("LifeReport", id = interConUid, key = jsonObject.get("fieldName").toString(), value = jsonObject.get("fieldValue").asString)
+                    if (query != null) {
+                        lifeReportDao.updateField(query)
+                    }
                     Log.d("WebView",jsonObject.toString())
                     Toast.makeText(requireContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show()
                 }  else if (button == "delete") {

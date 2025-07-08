@@ -9,12 +9,18 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.os.ParcelFileDescriptor
+import android.print.PrintAttributes
+import android.print.PrintManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.lifecycle.lifecycleScope
 import com.csi.irite.room.dao.DistrictDao
@@ -38,7 +44,9 @@ class IncidentFragment : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_incident, container, false)
-
+        activity?.let {
+            (it as AppCompatActivity).supportActionBar?.title = "รับแจ้งเหตุ"
+        }
 
         val eventReportDao: EventReportDao = db!!.eventReportDao()
         val allEvent = eventReportDao.getAll()
@@ -112,17 +120,18 @@ class IncidentFragment : BaseFragment() {
                             val running = getRunningNumber(eventReport.report_type!!)
                             eventReport.report_number = running
                             eventReport.updatedat = System.currentTimeMillis()
+                            eventReport.uid  = System.currentTimeMillis()
                             eventReportDao.insertAll(eventReport)
                         }
 
                     }else{
-
+                        Log.d("WebView----+",  "get object"+jsonObject.get("uid").asLong.toString())
                         eventReport.uid = jsonObject.get("uid").asLong
                         eventReport.updatedat = System.currentTimeMillis()
                         if (eventReport.report_number.toString() == "null") {
                             lifecycleScope.launch {
                                 val running = getRunningNumber(eventReport.report_type!!)
-                                Log.d("_Login"," running :$running")
+                                //Log.d("_Login"," running :$running")
                                 eventReport.report_number = running
                                 eventReport.updatedat = System.currentTimeMillis()
                                 eventReportDao.updateAll(eventReport)
@@ -159,8 +168,8 @@ class IncidentFragment : BaseFragment() {
             }
 
             override fun getJsonData(ref: String, func:String,option:String): String {
+                Log.d("WebView----", "option $option")
                 var returnData = ""
-                var event_report_id = option
                 val gson = GsonBuilder()
                     .serializeNulls() // Include null fields
                     .setPrettyPrinting() // Optional: for pretty printing
@@ -177,37 +186,47 @@ class IncidentFragment : BaseFragment() {
                     val event = eventReportDao.loadAllByIds(ref.toLong())
                     returnData = gson.toJson(event)
                 }else if (func == "loadReport"){
-                    var eventReport = eventReportDao.loadAllByIds(event_report_id.toLong())
+                    var event_report_id: Long = option.toLong()
+                    //Log.d("WebView----", "loadReport $event_report_id")
+                    var eventReport = eventReportDao.loadAllByIds(event_report_id)
+
                     var report_type = eventReport.report_type.toString()
-                    if(report_type == "ทรัพย์"){
-                        loadFragment(WAssetsFragment(),event_report_id.toLong())
-                    }else if(report_type == "ระเบิด"){
-                        loadFragment(WBomFragment(),event_report_id.toLong())
-                    }else if(report_type == "เพลิงไหม้"){
-                        loadFragment(WFireFragment(),event_report_id.toLong())
-                    }else{
-                        loadFragment(WLifeFragment(),event_report_id.toLong())
+                    if (report_type == "ทรัพย์") {
+                        loadFragment(WAssetsFragment(), event_report_id)
+                    } else if (report_type == "ระเบิด") {
+                        loadFragment(WBomFragment(), event_report_id)
+                    } else if (report_type == "เพลิงไหม้") {
+                        loadFragment(WFireFragment(), event_report_id)
+                    } else {
+                        loadFragment(WLifeFragment(), event_report_id)
                     }
+
                 }else if (func == "map"){
-                    loadFragment(DrawMapFragment(),event_report_id.toLong())
+                    val event_report_id: Long = option.toLong()
+                    loadFragment(DrawMapFragment(),event_report_id)
                 }else if (func == "evidence"){
-                    loadFragment(DrawEvidenceFragment(),event_report_id.toLong())
+                    var event_report_id: Long = option.toLong()
+                    loadFragment(DrawEvidenceFragment(),event_report_id)
                 }else if (func == "location"){
-                    loadFragment(MapsforgeFragment(),event_report_id.toLong())
+                    var event_report_id: Long = option.toLong()
+                    loadFragment(MapsforgeFragment(),event_report_id)
                 }else if (func == "download_report"){
-                    var eventReport = eventReportDao.loadAllByIds(event_report_id.toLong())
+                    var uid = option.toLong()
+                    var eventReport = eventReportDao.loadAllByIds(uid)
                     var report_type = eventReport.report_type.toString()
-                    if(report_type == "ทรัพย์"){
-                        getpdf("http://103.76.181.219:3400/pdf/assets-report")
-                    }else if(report_type == "ระเบิด"){
-                        getpdf("http://103.76.181.219:3400/pdf/bomb-report")
-                    }else if(report_type == "เพลิงไหม้"){
-                        getpdf("http://103.76.181.219:3400/pdf/fire-report")
-                    }else{
-                        getpdf("http://103.76.181.219:3400/pdf/lift-report")
+                    activity?.runOnUiThread {
+                        if (report_type == "ทรัพย์") {
+                            getpdf("http://${BuildConfig.host}:3400/pdf/assets-report?uid=$uid")
+                        } else if (report_type == "ระเบิด") {
+                            getpdf("http://${BuildConfig.host}:3400/pdf/bomb-report?uid=$uid")
+                        } else if (report_type == "เพลิงไหม้") {
+                            getpdf("http://${BuildConfig.host}:3400/pdf/fire-report?uid=$uid")
+                        } else {
+                            getpdf("http://${BuildConfig.host}:3400/pdf/lift-report?uid=$uid")
+                        }
                     }
                 }
-                Log.d("WebView----", returnData)
+                //Log.d("WebView----", returnData)
                 return returnData
             }
         }
@@ -216,7 +235,26 @@ class IncidentFragment : BaseFragment() {
         return view
     }
 
-    fun getpdf(url:String){
+    fun getpdf( url: String) {
+        val context: Context = requireContext()
+        val webView = WebView(context)
+        webView.settings.javaScriptEnabled = true
+
+        webView.webViewClient = object : WebViewClient() {
+            override fun onPageFinished(view: WebView?, url: String?) {
+                val printManager = context.getSystemService(Context.PRINT_SERVICE) as PrintManager
+                val printAdapter = webView.createPrintDocumentAdapter("Report")
+                val jobName = "My PDF Report"
+
+                printManager.print(jobName, printAdapter, PrintAttributes.Builder().build())
+            }
+        }
+
+        webView.loadUrl(url)
+    }
+
+    fun getpdf2(url:String){
+        Log.d("download",url)
         val request = DownloadManager.Request(Uri.parse(url))
             .setTitle("Report")
             .setDescription("Downloading PDF")

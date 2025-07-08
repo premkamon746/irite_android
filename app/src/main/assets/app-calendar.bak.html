@@ -227,7 +227,7 @@
                               <option data-label="danger" value="life" selected>ชีวิต</option>
                               <option data-label="warning" value="bom" selected>ระเบิด</option>
                               <option data-label="secondary" value="asset" selected>ทรัพย?</option>
-                              <option data-label="dark" value="fired" selected>เพลงไหม้</option>
+                              <option data-label="dark" value="fired" selected>เพลิงไหม้</option>
                               <option data-label="success" value="checklist">เตรียมความพร้อม</option>
                               <option data-label="info" value="ETC">ETC</option>
                             </select>
@@ -540,7 +540,7 @@
           let date = new Date(parts[2], parts[1] - 1, parts[0]); // new Date(year, monthIndex, day)
 
             item = {
-                    id: value.uid,
+                    id: value.uid.toString(),
                     url: '',
                     title: value.report_type,
                     start: date,
@@ -562,7 +562,7 @@
            $.each(jsonObject, function(key, value) {
               let date = new Date(Number(value.datetime)); // new Date(year, monthIndex, day)
               item = {
-                      id: value.uid,
+                      id: value.uid.toString(),
                       url: '',
                       title: "เช็คลิส",
                       start: date,

@@ -4,7 +4,9 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.RawQuery
 import androidx.room.Update
+import androidx.sqlite.db.SupportSQLiteQuery
 import com.csi.irite.room.data.EventReport
 import com.csi.irite.room.data.Evidence
 import com.csi.irite.room.data.EvidentBag
@@ -45,6 +47,18 @@ interface EvidentBagDao {
 
     @Query("Update EvidentBag SET return_pks =:value , updatedat = :updatedat WHERE uid  =:uid")
     fun updatePsk(uid: Long, value:String, updatedat:Long)
+
+    @Query("Update EvidentBag SET number =:value , updatedat = :updatedat WHERE uid  =:uid")
+    fun updateNumber(uid: Long, value:String, updatedat:Long)
+
+    @Query("Update EvidentBag SET place =:value , updatedat = :updatedat WHERE uid  =:uid")
+    fun updatePlace(uid: Long, value:String, updatedat:Long)
+
+    @Query("Update EvidentBag SET tag_no =:value , updatedat = :updatedat WHERE uid  =:uid")
+    fun updateTagno(uid: Long, value:String, updatedat:Long)
+
+    @RawQuery
+    fun updateField(query: SupportSQLiteQuery): Int
 
     @Insert
     fun insertAll(vararg users: EvidentBag)

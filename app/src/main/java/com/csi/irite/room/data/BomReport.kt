@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class BomReport(
     @PrimaryKey(autoGenerate = true) var uid: Long = 0,  // Change from val to var
     var event_report_id: Long? = 0,
-    var case : String? = "",
+    var case_name : String? = "",
     var date : String? = "",            // YYYY-MM-DD format
     var timeApprox : String? = "",      // HH:mm format
     var notificationMethod : String? = "", // Radio group (e.g., phone, radio, document, other)
@@ -22,7 +22,7 @@ data class BomReport(
     //form 2
     var incidentLocation: String? = "",
 
-    var hasDeceased: Boolean = false,
+    /*var hasDeceased: Boolean = false,
     var deceasedName1: String? = "",
     var deceasedAge1: Int? = 0,
     var deceasedName2: String? = "",
@@ -34,7 +34,11 @@ data class BomReport(
 
     var hasVictim: Boolean = false,
     var victimName: String? = "",
-    var victimAge: Int? = 0,
+    var victimAge: Int? = 0,*/
+
+    var victim_name: String? = "",
+    var deceased_name: String? = "",
+    var injured_name: String? = "",
 
     //form 3
     var victim_incident_date: String? = "",

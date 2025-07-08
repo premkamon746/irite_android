@@ -320,7 +320,7 @@
                 responsivePriority: 3,
                 checkboxes: true,
                 render: function (data, type, row) {
-                  return '<input type="checkbox" class="dt-checkboxes form-check-input" value="'+row.uid+'" >';
+                  return '<input type="checkbox" class="dt-checkboxes form-check-input" value="'+row.uid.toString()+'" >';
                 },
                 checkboxes: {
                   selectAllRender: '<input type="checkbox" class="form-check-input">'
@@ -413,7 +413,7 @@
             //delete
             $('.dt-complex-header tbody').on('click', '.open-modal', function() {
               var data = dt_incident.row($(this).parents('tr')).data();
-              $('#deleteHidden').val(data.uid)
+              $('#deleteHidden').val(data.uid.toString())
               //$('#evident-id').val('');
               // Show the modal
               $('#evidentDelete').modal('show');
@@ -492,7 +492,7 @@
             $('.dt-complex-header tbody').on('click', '.update-evident', function() {
                   var data = dt_incident.row($(this).parents('tr')).data();
 
-                  $('#evident-id').val(data.uid);
+                  $('#evident-id').val(data.uid.toString());
                   $('#evident').val(data.evidence);
                   $('#evident-one').val(data.distance_1);
                   $('#evident-two').val(data.distance_2);
@@ -501,7 +501,7 @@
                   $('#evident-angle').val(data.angle);
                   $('#evident-remark').val(data.remark);
 
-                  //$('#deleteHidden').val(data.uid)
+                  //$('#deleteHidden').val(data.uid.toString())
                   // Show the modal
                   $('#modalTop').modal('show');
             });
@@ -548,7 +548,7 @@
             $('#deleteEvident').click(function(){
               var uid = $('#deleteHidden').val()
               var json = {
-                            uid:uid,
+                            uid:uid.toString(),
                             action:"delete"
                           }
 
@@ -592,7 +592,7 @@
                 angle:data.angle,
                 remark:data.remark,
                 action:"update",
-                id:data.uid
+                id:data.uid.toString()
               }
             submitForm(json)
 

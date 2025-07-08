@@ -167,7 +167,7 @@
                 </div>
               </div>
               <div class="bs-stepper-content">
-                <form id="assetForm" onSubmit="return false">
+                <form id="allForm" onSubmit="return false">
                   <div class="card mb-6">
                     <h5 class="card-header">กรอกแบบฟอร์ม</h5>
                     <hr class="m-0" />
@@ -177,8 +177,8 @@
                         <div class="row">
                           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
                             <div class="form-group">
-                              <label for="case" class="form-label" style="font-size: 16px">คดี</label>
-                              <input id="case" name="case" class="form-control form-control-sm" type="text" placeholder="ระบุคดี" />
+                              <label for="case_name" class="form-label" style="font-size: 16px">คดี</label>
+                              <input id="case_name" name="case_name" class="form-control form-control-sm" type="text" placeholder="ระบุคดี" />
                             </div>
                           </div>
                           <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3">
@@ -259,80 +259,25 @@
                             </div>
                           </div>
 
-                          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                            <div>
-                              <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="has-deceased" onchange="Deceased(this)" />
-                                <label class="form-check-label">ผู้เสียชีวิต</label>
-                              </div>
-                              <div id="deceased-info" style="display: none;">
-                                <div class="row pr-3 pl-3">
-                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
-                                    <label for="deceased-name-1" class="form-label" style="font-size: 16px">ชื่อผู้เสียชีวิต</label>
-                                    <input id="deceased-name-1" name="deceasedName1" class="form-control form-control-sm" type="text"
-                                      placeholder="ระบุชื่อ - นามสกุล ผู้เสียชีวิต" />
-                                  </div>
-                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
-                                    <label for="deceased-age-1" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
-                                    <input id="deceased-age-1" name="deceasedAge1" class="form-control form-control-sm" type="number" min="0"
-                                      placeholder="ระบุอายุ" />
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
-                                    <label for="deceased-name-2" class="form-label" style="font-size: 16px">ชื่อผู้เสียชีวิต</label>
-                                    <input id="deceased-name-2" name="deceasedName2" class="form-control form-control-sm" type="text"
-                                      placeholder="ระบุชื่อ - นามสกุล ผู้เสียชีวิต" />
-                                  </div>
-                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
-                                    <label for="deceased-age-2" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
-                                    <input id="deceased-age-2" name="deceasedAge2" class="form-control form-control-sm" type="number" min="0"
-                                      placeholder="ระบุอายุ" />
-                                  </div>
-                                </div>
-                              </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
+                           <div>
+                                <div id="victim-form-container"></div>
                             </div>
 
-                            <div>
-                              <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="has-injured" onchange="injured(this)" />
-                                <label class="form-check-label">ผู้บาดเจ็บ</label>
-                              </div>
-                              <div id="injured-info" style="display: none;">
-                                <div class="row">
-                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
-                                    <label for="injured-name" class="form-label" style="font-size: 16px">ชื่อผู้บาดเจ็บ</label>
-                                    <input id="injured-name" name="injuredName" class="form-control form-control-sm" type="text"
-                                      placeholder="ระบุชื่อ - นามสกุล ผู้บาดเจ็บ" />
-                                  </div>
-                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
-                                    <label for="injured-age" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
-                                    <input id="injured-age" name="injuredAge" class="form-control form-control-sm" type="number" min="0"
-                                      placeholder="ระบุอายุ" />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            <section class="py-4 border-bottom">
+                            </section>
+                            <br/><br/>
 
                             <div>
-                              <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="has-victim" onchange="victem(this)" />
-                                <label class="form-check-label">ผู้เสียหาย</label>
-                              </div>
-                              <div id="victem-info" style="display: none;">
-                                <div class="row">
-                                  <div class="col-9 col-sm-10 col-md-6 col-lg-4 col-xl-4 mb-3">
-                                    <label for="victim-name" class="form-label" style="font-size: 16px">ชื่อผู้เสียหาย</label>
-                                    <input id="victim-name" name="victimName" class="form-control form-control-sm" type="text"
-                                      placeholder="ระบุชื่อ - นามสกุล ผู้เสียหาย" />
-                                  </div>
-                                  <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 mb-3">
-                                    <label for="victim-age" class="form-label" style="font-size: 16px">อายุ (ปี)</label>
-                                    <input id="victim-age" name="victimAge" class="form-control form-control-sm" type="number" min="0"
-                                      placeholder="ระบุอายุ" />
-                                  </div>
-                                </div>
-                              </div>
+                                <div id="deceased-form-container"></div>
+                            </div>
+
+                            <section class="py-4 border-bottom">
+                            </section>
+                            <br/><br/>
+
+                            <div>
+                                <div id="injured-form-container"></div>
                             </div>
                           </div>
 
@@ -1416,6 +1361,7 @@
       <link rel="stylesheet" href="vendor/libs/flatpickr/flatpickr.css">
       <script src="vendor/libs/flatpickr/flatpickr.js"></script>
       <script src="js/event_common.js"></script>
+      <script src="js/bom.js"></script>
 
       <script>
         // ผู้เสียชีวิต

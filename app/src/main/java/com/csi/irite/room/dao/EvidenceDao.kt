@@ -18,7 +18,7 @@ interface EvidenceDao {
     fun loadAllByIds(userIds: IntArray): MutableList<Evidence>
 
     @Query("SELECT * FROM Evidence WHERE uid IN (:evIDs)")
-    fun getSomeChecked(evIDs: IntArray): List<Evidence>
+    fun getSomeChecked(evIDs: LongArray): List<Evidence>
 
 
     @Query("SELECT * FROM Evidence WHERE event_report_id  = :event_report_id and status = :isActive ")

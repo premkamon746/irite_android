@@ -246,7 +246,7 @@
                               <option data-label="danger" value="life" selected>ชีวิต</option>
                               <option data-label="warning" value="bom" selected>ระเบิด</option>
                               <option data-label="secondary" value="asset" selected>ทรัพย?</option>
-                              <option data-label="dark" value="fired" selected>เพลงไหม้</option>
+                              <option data-label="dark" value="fired" selected>เพลิงไหม้</option>
                               <option data-label="success" value="checklist">เตรียมความพร้อม</option>
                               <option data-label="info" value="ETC">ETC</option>
                             </select>
@@ -378,8 +378,7 @@
                       class="form-control date_picker"
                       placeholder="YYYY-MM-DD HH:MM"
                       id="checklist_datetime"
-                      name="create_date"
-                      readonly="readonly"/>
+                      name="create_date"/>
                   </div>
                 </div>
 
@@ -770,6 +769,15 @@
     <!--<script src="js/app-calendar-events.js"></script>-->
     <script>
 
+      $(document).ready(function(){
+        flatpickr(".date_picker", {
+          dateFormat: "d/m/Y",
+          defaultDate: new Date(),
+          allowInput: false,
+          disableMobile: true  
+        });
+      })
+
       function fillFormFromJson(formSelector, data) {
         for (const key in data) {
           const value = data[key];
@@ -803,7 +811,7 @@
           let date = new Date(parts[2], parts[1] - 1, parts[0]); // new Date(year, monthIndex, day)
 
             item = {
-                    id: value.uid,
+                    id: value.uid.toString(),
                     url: '',
                     title: value.report_type,
                     start: date,
@@ -830,7 +838,7 @@
               const date = new Date(year, month - 1, day); 
 
               item = {
-                      id: value.uid,
+                      id: value.uid.toString(),
                       url: '',
                       title: "เช็คลิส ชุดที่ "+value.team,
                       start: date,

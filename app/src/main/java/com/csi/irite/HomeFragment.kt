@@ -9,16 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import com.csi.irite.datainit.InitCheckList
 import com.csi.irite.room.dao.EventReportDao
-import com.csi.irite.room.data.CheckListHead
 import com.csi.irite.room.data.ChecklistSave
 import com.csi.irite.room.data.EventReport
 import com.csi.irite.room.data.InspectionRecord
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import com.google.gson.reflect.TypeToken
 
 class HomeFragment : BaseFragment() {
 
@@ -28,6 +26,11 @@ class HomeFragment : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_home2, container, false)
+
+        activity?.let {
+            (it as AppCompatActivity).supportActionBar?.title = ""
+        }
+
         webView = view.findViewById(R.id.webView)
         webView.settings.javaScriptEnabled = true
         webSetting(webView)
@@ -70,15 +73,17 @@ class HomeFragment : BaseFragment() {
                         ispRrd.team = team.toInt()
                         ispRrd.create_date = create_date
                         ispRrd.refkey =  SyncIdManager.generateSyncIdWithTimestamp(requireContext())
+                        ispRrd.uid = System.currentTimeMillis()
                         inspection?.insertAll(ispRrd)
                         clID = inspection?.getIdIfExists(create_date, team)
                     }
 
                     jsonObject.entrySet().forEach { (key, value) ->
+                        val v = value.asString
                         val query = buildUpdateQuery("InspectionRecord",
                                 id = clID!!,
                                 key = key,
-                                value = value.toString().replace("\"",""),
+                                value = v,
                                 whereId = "uid"
                             )
 
